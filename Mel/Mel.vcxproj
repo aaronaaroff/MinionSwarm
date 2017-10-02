@@ -183,10 +183,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChildView.h" />
-    <ClInclude Include="Item.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Mel.h" />
-    <ClInclude Include="NewGame.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ScoreBoard.h" />
     <ClInclude Include="stdafx.h" />
@@ -195,10 +194,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ChildView.cpp" />
-    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="Mel.cpp" />
-    <ClCompile Include="NewGame.cpp" />
     <ClCompile Include="ScoreBoard.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
