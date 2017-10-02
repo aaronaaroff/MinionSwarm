@@ -1,3 +1,9 @@
+/**
+ * \file Game.cpp
+ *
+ * \author Parker Dodson
+ */
+
 #include "stdafx.h"
 #include "Game.h"
 
