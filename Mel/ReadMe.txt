@@ -1,5 +1,5 @@
 ================================================================================
-    MICROSOFT FOUNDATION CLASS LIBRARY : Mel Project Overview  asdf
+    MICROSOFT FOUNDATION CLASS LIBRARY : Mel Project Overview
 ===============================================================================
 
 The application wizard has created this Mel application for
