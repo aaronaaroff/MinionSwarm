@@ -17,6 +17,11 @@
 
 class CMelApp : public CWinApp
 {
+
+private:
+	Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+	ULONG_PTR gdiplusToken;
+
 public:
 	CMelApp();
 

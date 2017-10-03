@@ -9,25 +9,24 @@
 
 #pragma once
 
-#include<memory>
-#include<vector>
-
-//#include "item.h"
+#include <memory>
+#include <vector>
+#include "ScoreBoard.h"
+#include "Item.h"
 //#include "Timer.h"
-//#include "ScoreBoard.h"
 
 
 class CGame
 {
 private:
 	///Timer Object to keep track of In Game Time
-	//CTimer mTimer;
+	///CTimer mTimer;
 
 	///Score Board Object used to track villian points
-	//CScoreBoard mScoreBoard;
+	CScoreBoard mScoreBoard;
 
 	///All of the Itmes that will populate the Game
-	//std::vector<std::shared_ptr<CItem> > mItems;
+	std::vector<std::shared_ptr<CItem> > mItems;
 
 public:
 
@@ -35,6 +34,8 @@ public:
 	CGame();
 
 	virtual ~CGame();
+
+	void Add(std::shared_ptr<CItem> item);
 
 	void OnDraw(Gdiplus::Graphics * graphics);
 

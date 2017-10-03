@@ -18,12 +18,10 @@ CGame::~CGame()
 }
 
 
-/*
 void CGame::Add(std::shared_ptr<CItem> item)
 {
 	mItems.push_back(item);
 }
-*/
 
 /*
 std::shared_ptr<CItem> CGame::HitTest(int x, int y)
@@ -59,18 +57,14 @@ void CAquarium::Remove(std::shared_ptr<CItem> grabbedItem)
 *
 * Deletes all known items in the aquarium.
 */
-
-/*
 void CGame::Clear()
 {
 	mItems.clear();
 }
-*/
 
 /** Handle updates for animation
 * \param elapsed The time since the last update
 */
-/*
 void CGame::Update(double elapsed)
 {
 	for (auto item : mItems)
@@ -78,7 +72,6 @@ void CGame::Update(double elapsed)
 		item->Update(elapsed);
 	}
 }
-*/
 
 void CGame::OnDraw(Gdiplus::Graphics *graphics)
 {
