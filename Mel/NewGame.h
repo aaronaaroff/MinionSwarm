@@ -1,12 +1,26 @@
+/**
+ * \file NewGame.h
+ *
+ * \author Jon
+ *
+ * 
+ */
+
 #pragma once
 #include "Item.h"
+
+
+
+/**
+ * NewGame button
+ */
 class CNewGame :
 	public CItem
 {
 public:
 	/**
-	* Constructor for Goldeen Fish
-	* \param *aquarium gives aquarium for fish
+	* Constructor for newgame button
+	* \param *game
 	*/
 	CNewGame::CNewGame(CGame *game);
 	virtual ~CNewGame();

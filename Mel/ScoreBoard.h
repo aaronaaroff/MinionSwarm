@@ -18,7 +18,7 @@ public:
 	CScoreBoard();
 	~CScoreBoard();
 
-	void AddToScore(); //TODO need to input minion and vilain objects to calculate score.
+	void AddToScore(); ///< TODO need to input minion and vilain objects to calculate score.
 
 private:
 

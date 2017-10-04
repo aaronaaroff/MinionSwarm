@@ -8,6 +8,10 @@
 
 // CChildView window
 
+
+/**
+ * Childview class
+ */
 class CChildView : public CWnd
 {
 // Construction

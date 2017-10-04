@@ -8,16 +8,26 @@
 #include "Game.h"
 
 
+/**
+ * Constructor
+ */
 CGame::CGame()
 {
 }
 
 
+/**
+ * Destructor
+ */
 CGame::~CGame()
 {
 }
 
 
+/**
+ * Adds item to list of items
+ * \param item item to add
+ */
 void CGame::Add(std::shared_ptr<CItem> item)
 {
 	mItems.push_back(item);
@@ -73,6 +83,11 @@ void CGame::Update(double elapsed)
 	}
 }
 
+
+/**
+ * OnDraw
+ * \param graphics 
+ */
 void CGame::OnDraw(Gdiplus::Graphics *graphics)
 {
 

@@ -61,9 +61,11 @@ public:
 	CGame *GetGame() { return mGame; }
 
 	///Get the item image width for particular item
+	/// \returns width
 	double GetItemImageWidth() { return mItemImage->GetWidth(); }
 
 	///Get the image height for particular item
+	/// \returns height
 	double GetItemImageHeight() { return mItemImage->GetHeight(); }
 
 

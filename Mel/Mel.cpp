@@ -1,6 +1,11 @@
+/**
+ * \file Mel.cpp
+ *
+ * \author Alex
+ * Mel.cpp : Defines the class behaviors for the application
+ */
 
-// Mel.cpp : Defines the class behaviors for the application.
-//
+
 
 #include "stdafx.h"
 #include "afxwinappex.h"
@@ -21,8 +26,9 @@ BEGIN_MESSAGE_MAP(CMelApp, CWinApp)
 END_MESSAGE_MAP()
 
 
-// CMelApp construction
-
+/**
+ * CMelApp construction
+ */
 CMelApp::CMelApp()
 {
 	// support Restart Manager
@@ -42,13 +48,16 @@ CMelApp::CMelApp()
 	// Place all significant initialization in InitInstance
 }
 
-// The one and only CMelApp object
 
-CMelApp theApp;
+CMelApp theApp; ///< The one and only CMelApp object
 
 
 // CMelApp initialization
 
+/**
+ * InitInstance
+ * \returns 
+ */
 BOOL CMelApp::InitInstance()
 {
 	// InitCommonControlsEx() is required on Windows XP if an application
@@ -109,6 +118,10 @@ BOOL CMelApp::InitInstance()
 	return TRUE;
 }
 
+/**
+ * exit the instance
+ * \returns 
+ */
 int CMelApp::ExitInstance()
 {
 	Gdiplus::GdiplusShutdown(gdiplusToken);
@@ -122,8 +135,9 @@ int CMelApp::ExitInstance()
 // CMelApp message handlers
 
 
-// CAboutDlg dialog used for App About
-
+/**
+ * // CAboutDlg dialog used for App About
+ */
 class CAboutDlg : public CDialogEx
 {
 public:
@@ -135,17 +149,26 @@ public:
 #endif
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void DoDataExchange(CDataExchange* pDX);    ///< DDX/DDV support
 
 // Implementation
 protected:
 	DECLARE_MESSAGE_MAP()
 };
 
+
+/**
+ * CAbout
+ */
 CAboutDlg::CAboutDlg() : CDialogEx(IDD_ABOUTBOX)
 {
 }
 
+
+/**
+ * Data exchange
+ * \param pDX 
+ */
 void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
@@ -154,7 +177,10 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
-// App command to run the dialog
+
+/**
+ * App command to run the dialog
+ */
 void CMelApp::OnAppAbout()
 {
 	CAboutDlg aboutDlg;

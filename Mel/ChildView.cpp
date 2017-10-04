@@ -30,8 +30,13 @@ END_MESSAGE_MAP()
 
 
 
-// CChildView message handlers
 
+
+/**
+ * CChildView message handlers
+ * \param cs 
+ * \returns 
+ */
 BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs) 
 {
 	if (!CWnd::PreCreateWindow(cs))
@@ -45,6 +50,10 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 	return TRUE;
 }
 
+
+/**
+ * OnPaint
+ */
 void CChildView::OnPaint() 
 {
 	CPaintDC paintDC(this);     // device context for painting

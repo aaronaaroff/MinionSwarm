@@ -16,6 +16,9 @@
 //#include "Timer.h"
 
 
+/**
+ * Game class, similar to Aquarium
+ */
 class CGame
 {
 private:

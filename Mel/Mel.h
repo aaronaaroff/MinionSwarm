@@ -11,19 +11,18 @@
 #include "resource.h"       // main symbols
 
 
-// CMelApp:
-// See Mel.cpp for the implementation of this class
-//
-
+/**
+ * Creates our game
+ */
 class CMelApp : public CWinApp
 {
 
 private:
-	Gdiplus::GdiplusStartupInput gdiplusStartupInput;
-	ULONG_PTR gdiplusToken;
+	Gdiplus::GdiplusStartupInput gdiplusStartupInput; ///< Starts up
+	ULONG_PTR gdiplusToken;								///< Token for gdi					
 
 public:
-	CMelApp();
+	CMelApp(); ///< Application
 
 
 // Overrides
