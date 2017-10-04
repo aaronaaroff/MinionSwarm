@@ -35,8 +35,12 @@ CPlayingArea::~CPlayingArea()
 {
 }
 
-/// Draws timer in its box 
-/// \param *graphics 
+/**
+ * Draws timer in its box
+ * \param graphics screen to print on
+ * \param width width of screen
+ * \param height height of screen
+ */
 void CPlayingArea::OnDraw(Gdiplus::Graphics * graphics, int width, int height)
 {
 	// Draws the border for the timer

@@ -32,6 +32,7 @@ private:
 	///All of the Itmes that will populate the Game
 	std::vector<std::shared_ptr<CItem> > mItems;
 
+	///Green outline of play area
 	CPlayingArea mPlayingArea;
 
 	///Scale for Virtual pixels
