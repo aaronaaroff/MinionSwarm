@@ -58,14 +58,15 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
  */
 void CChildView::OnPaint() 
 {
-	CPaintDC paintDC(this);     // device context for painting
+	CPaintDC paintDC(this);
 	CDoubleBufferDC dc(&paintDC); // device context for painting
+	Graphics graphics(dc.m_hDC);
 
+	CRect rect;
+	GetClientRect(&rect);
 
-	Graphics graphics(dc.m_hDC);    // Create GDI+ graphics context
+	mGame.OnDraw(&graphics, rect.Width(), rect.Height());
 
-
-	mGame.OnDraw(&graphics);
 	Invalidate();
 }
 

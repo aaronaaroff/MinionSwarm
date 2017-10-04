@@ -31,6 +31,15 @@ private:
 	///All of the Itmes that will populate the Game
 	std::vector<std::shared_ptr<CItem> > mItems;
 
+	///Scale for Virtual pixels
+	double mScale = 1;
+
+	///X offset for virtual pixels
+	double mXOffset = 0;
+
+	///Y offset for virtual pixels
+	double mYOffset = 0;
+
 public:
 
 
@@ -39,8 +48,6 @@ public:
 	virtual ~CGame();
 
 	void Add(std::shared_ptr<CItem> item);
-
-	void OnDraw(Gdiplus::Graphics * graphics);
 
 	//void Add(std::shared_ptr<CItem> item);
 
@@ -51,6 +58,8 @@ public:
 	void Clear();
 
 	virtual void Update(double elapsed);
+
+	void OnDraw(Gdiplus::Graphics * graphics, int width, int height);
 
 };
 

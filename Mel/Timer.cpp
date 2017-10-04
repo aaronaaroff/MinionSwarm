@@ -1,5 +1,3 @@
-
-
 /**
 * \file Timer.cpp
 *
@@ -16,10 +14,10 @@ using namespace std;
 
 
 /// X-location of the timer
-const int xLocation = 1290;
+const int xLocation = 0; //1290
 
 /// y-location of the timer
-const int yLocation = 25;
+const int yLocation = 0; //25
 
 
 /**
