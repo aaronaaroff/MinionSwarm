@@ -12,6 +12,8 @@
 #endif
 
 
+using namespace Gdiplus;
+
 // CChildView
 
 CChildView::CChildView()
@@ -58,10 +60,13 @@ void CChildView::OnPaint()
 {
 	CPaintDC paintDC(this);     // device context for painting
 	CDoubleBufferDC dc(&paintDC); // device context for painting
-	
-	// TODO: Add your message handler code here
-	
-	// Do not call CWnd::OnPaint() for painting messages
+
+
+	Graphics graphics(dc.m_hDC);    // Create GDI+ graphics context
+
+
+	mGame.OnDraw(&graphics);
+	Invalidate();
 }
 
 

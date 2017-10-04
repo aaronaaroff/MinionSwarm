@@ -90,5 +90,5 @@ void CGame::Update(double elapsed)
  */
 void CGame::OnDraw(Gdiplus::Graphics *graphics)
 {
-
+	mTimer.OnDraw(graphics);
 }
