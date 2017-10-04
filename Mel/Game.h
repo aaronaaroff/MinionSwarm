@@ -13,14 +13,14 @@
 #include <vector>
 #include "ScoreBoard.h"
 #include "Item.h"
-//#include "Timer.h"
+#include "Timer.h"
 
 
 class CGame
 {
 private:
 	///Timer Object to keep track of In Game Time
-	///CTimer mTimer;
+	CTimer mTimer;
 
 	///Score Board Object used to track villian points
 	CScoreBoard mScoreBoard;

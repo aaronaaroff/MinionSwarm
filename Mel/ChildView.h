@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include "Game.h"
+
 
 // CChildView window
 
@@ -13,6 +15,8 @@ class CChildView : public CWnd
 // Construction
 public:
 	CChildView();
+private:
+	CGame mGame;
 
 // Attributes
 public:
