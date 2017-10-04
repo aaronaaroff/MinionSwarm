@@ -17,5 +17,7 @@ class CPlayingArea
 public:
 	CPlayingArea();
 	~CPlayingArea();
+
+	void OnDraw(Gdiplus::Graphics *graphics, int width, int height);
 };
 

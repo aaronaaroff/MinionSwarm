@@ -14,10 +14,10 @@ using namespace std;
 
 
 /// X-location of the timer
-const int xLocation = 0; //1290
+const int xLocation = 550; //1290
 
 /// y-location of the timer
-const int yLocation = 0; //25
+const int yLocation = -500; //25
 
 
 /**
@@ -63,9 +63,10 @@ void CTimer::OnDraw(Gdiplus::Graphics *graphics)
 	const wchar_t* s = time.c_str();
 
 
-	// Draws the border for the timer
-	Pen pen(Color(0, 128, 0), 3);
-	graphics->DrawRectangle(&pen, xLocation, yLocation, 120, 50);
+	//TODO: Do we need to draw a border around the timer?
+	// Draws the border for the timer 
+	//Pen pen(Color(0, 128, 0), 3);
+	//graphics->DrawRectangle(&pen, xLocation, yLocation, 120, 50);
 
 	// bit that will fill in the bakc of the timer
 	// SolidBrush brush(Color(0, 0, 0));

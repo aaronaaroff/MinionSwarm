@@ -14,6 +14,7 @@
 #include "ScoreBoard.h"
 #include "Item.h"
 #include "Timer.h"
+#include "PlayingArea.h"
 
 
 /**
@@ -31,6 +32,8 @@ private:
 	///All of the Itmes that will populate the Game
 	std::vector<std::shared_ptr<CItem> > mItems;
 
+	CPlayingArea mPlayingArea;
+
 	///Scale for Virtual pixels
 	double mScale = 1;
 
@@ -41,7 +44,6 @@ private:
 	double mYOffset = 0;
 
 public:
-
 
 	CGame();
 

@@ -4,7 +4,6 @@
 
 #pragma once
 #include "ChildView.h"
-
 class CMainFrame : public CFrameWnd
 {
 	

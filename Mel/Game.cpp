@@ -6,7 +6,7 @@
 
 #include "stdafx.h"
 #include "Game.h"
-
+#include "MainFrm.h"
 using namespace Gdiplus;
 
  /// Game area width in virtual pixels
@@ -117,4 +117,5 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 
 	// From here on you are drawing virtual pixels
 	mTimer.OnDraw(graphics);
+	mPlayingArea.OnDraw(graphics, Width, Height);
 }

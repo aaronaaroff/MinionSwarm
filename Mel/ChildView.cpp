@@ -1,6 +1,11 @@
+/**
+ * \file ChildView.cpp
+ *
+ * \author Alex Wuillaume
+ * ChildView.cpp : implementation of the CChildView class
+ */
 
-// ChildView.cpp : implementation of the CChildView class
-//
+
 
 #include "stdafx.h"
 #include "Mel.h"
