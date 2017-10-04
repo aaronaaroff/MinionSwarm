@@ -20,7 +20,7 @@ class CChildView : public CWnd
 public:
 	CChildView();
 private:
-	CGame mGame;
+	CGame mGame; ///< The game class
 
 // Attributes
 public:

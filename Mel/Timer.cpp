@@ -42,6 +42,7 @@ CTimer::~CTimer()
 
 
 /// Draws timer in its box 
+/// \param *graphics 
 void CTimer::OnDraw(Gdiplus::Graphics *graphics)
 {
 	// Gets the elapsed time since start

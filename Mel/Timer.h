@@ -8,6 +8,11 @@
 
 
 #pragma once
+
+
+/**
+ * Timer class
+ */
 class CTimer
 {
 public:
