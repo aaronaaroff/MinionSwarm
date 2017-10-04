@@ -51,10 +51,10 @@
     <ClInclude Include="DoubleBufferDC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NewGame.h">
+    <ClInclude Include="Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h">
+    <ClInclude Include="NewGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
