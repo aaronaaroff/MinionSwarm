@@ -5,10 +5,7 @@ class CGru :
 	public CItem
 {
 public:
-	/**
-	* Constructor for newgame button
-	* \param *game
-	*/
+
 	CGru::CGru(CGame *game);
 	virtual ~CGru();
 

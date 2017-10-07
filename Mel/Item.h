@@ -71,7 +71,7 @@ public:
 
 protected:
 	///Constructs
-	CItem(CGame *game);
+	CItem(CGame *game, const std::wstring &filename);
 
 
 private:
