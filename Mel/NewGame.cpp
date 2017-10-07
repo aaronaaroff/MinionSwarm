@@ -6,7 +6,7 @@ using namespace Gdiplus;
 using namespace std;
 
 /// Button filename  \return none
-const wstring FishGoldeenImageName(L"images/new-game.png");
+const wstring NewGameImage(L"images/new-game.png");
 
 
 
