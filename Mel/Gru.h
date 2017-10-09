@@ -32,6 +32,7 @@ public:
 	* \param name Filename to load from
 	*/
 	void LoadImage(std::unique_ptr<Gdiplus::Bitmap> &image, std::wstring name);
+private:
 
 };
 

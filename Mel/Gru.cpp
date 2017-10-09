@@ -46,3 +46,5 @@ void CGru::LoadImage(std::unique_ptr<Gdiplus::Bitmap> &image, std::wstring name)
 	}
 }
 
+
+
