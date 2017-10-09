@@ -118,4 +118,9 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 	// From here on you are drawing virtual pixels
 	mTimer.OnDraw(graphics);
 	mPlayingArea.OnDraw(graphics, Width, Height);
+
+	for (auto item : mItems)
+	{
+		item->Draw(graphics);
+	}
 }

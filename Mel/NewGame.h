@@ -22,7 +22,8 @@ public:
 	* Constructor for newgame button
 	* \param *game
 	*/
-	CNewGame::CNewGame(CGame *game);
+	CNewGame(CGame *game);
+
 	virtual ~CNewGame();
 
 	/// Default constructor (disabled)
@@ -30,5 +31,6 @@ public:
 
 	/// Copy constructor (disabled)
 	CNewGame(const CNewGame &) = delete;
+
 };
 

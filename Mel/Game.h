@@ -16,13 +16,13 @@
 #include "Timer.h"
 #include "PlayingArea.h"
 
-
 /**
  * Game class, similar to Aquarium
  */
 class CGame
 {
 private:
+
 	///Timer Object to keep track of In Game Time
 	CTimer mTimer;
 

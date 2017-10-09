@@ -5,8 +5,8 @@
 using namespace Gdiplus;
 using namespace std;
 
-/// Button filename  \return none
-const wstring NewGameImage(L"images/new-game.png");
+/// Button filename  
+const wstring NewGameImage = L"images/new-game.png";
 
 CNewGame::CNewGame(CGame *game) :
 	CItem(game, NewGameImage)
@@ -19,3 +19,4 @@ CNewGame::CNewGame(CGame *game) :
 CNewGame::~CNewGame()
 {
 }
+

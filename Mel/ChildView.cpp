@@ -11,6 +11,7 @@
 #include "Mel.h"
 #include "ChildView.h"
 #include "DoubleBufferDC.h"
+#include "NewGame.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -18,6 +19,7 @@
 
 
 using namespace Gdiplus;
+using namespace std;
 
 // CChildView
 
@@ -68,6 +70,10 @@ void CChildView::OnPaint()
 
 	CRect rect;
 	GetClientRect(&rect);
+
+	auto newgame = make_shared<CNewGame>(&mGame);
+	newgame->SetLocation(-650, -500);
+	mGame.Add(newgame);
 
 	mGame.OnDraw(&graphics, rect.Width(), rect.Height());
 
