@@ -13,6 +13,7 @@
 #include "DoubleBufferDC.h"
 #include "NewGame.h"
 #include "Minion.h"
+#include "Gru.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -36,6 +37,9 @@ CChildView::~CChildView()
 BEGIN_MESSAGE_MAP(CChildView, CWnd)
 	ON_WM_PAINT()
 	ON_WM_ERASEBKGND()
+	ON_WM_LBUTTONUP()
+	ON_WM_LBUTTONDOWN()
+	ON_WM_MOUSEMOVE()
 END_MESSAGE_MAP()
 
 
@@ -75,6 +79,13 @@ void CChildView::OnPaint()
 	auto newgame = make_shared<CNewGame>(&mGame);
 	newgame->SetLocation(-650, -500);
 	mGame.Add(newgame);
+	if (mFirstDraw)
+	{
+		mFirstDraw = false;
+		auto gru = make_shared<CGru>(&mGame);
+		mGame.Add(gru);
+	}
+
 	mGame.Update(.033333);
 
 	mGame.OnDraw(&graphics, rect.Width(), rect.Height());
@@ -98,6 +109,32 @@ void CChildView::OnPaint()
 BOOL CChildView::OnEraseBkgnd(CDC* pDC)
 {
 	return FALSE;
+}
+
+
+/**
+* Called when there is a left mouse button press
+* \param nFlags Flags associated with the mouse button press
+* \param point Where the button was pressed
+*/
+void CChildView::OnLButtonDown(UINT nFlags, CPoint point)
+{
+
+	mGrabbedItem = mGame.HitTest(point.x, point.y);
+
+}
+
+/**
+* Called when the left mouse button is released
+* \param nFlags Flags associated with the mouse button release
+* \param point Where the button was pressed
+*/
+void CChildView::OnLButtonUp(UINT nFlags, CPoint point)
+{
+	// TODO: Add your message handler code here and/or call default
+
+	OnMouseMove(nFlags, point);
+
 }
 
 

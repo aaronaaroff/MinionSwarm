@@ -40,7 +40,7 @@ void CGame::Add(std::shared_ptr<CItem> item)
 	mItems.push_back(item);
 }
 
-/*
+
 std::shared_ptr<CItem> CGame::HitTest(int x, int y)
 {
 	for (auto i = mItems.rbegin(); i != mItems.rend(); i++)
@@ -53,7 +53,7 @@ std::shared_ptr<CItem> CGame::HitTest(int x, int y)
 
 	return nullptr;
 }
-*/
+
 
 /*
 void CAquarium::Remove(std::shared_ptr<CItem> grabbedItem)
