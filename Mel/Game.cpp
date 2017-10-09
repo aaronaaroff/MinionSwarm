@@ -5,8 +5,12 @@
  */
 
 #include "stdafx.h"
+#include <memory>
 #include "Game.h"
+#include "Minion.h"
 #include "MainFrm.h"
+
+using namespace std;
 using namespace Gdiplus;
 
  /// Game area width in virtual pixels
@@ -40,7 +44,7 @@ void CGame::Add(std::shared_ptr<CItem> item)
 	mItems.push_back(item);
 }
 
-/*
+
 std::shared_ptr<CItem> CGame::HitTest(int x, int y)
 {
 	for (auto i = mItems.rbegin(); i != mItems.rend(); i++)
@@ -53,7 +57,7 @@ std::shared_ptr<CItem> CGame::HitTest(int x, int y)
 
 	return nullptr;
 }
-*/
+
 
 /*
 void CAquarium::Remove(std::shared_ptr<CItem> grabbedItem)
@@ -84,6 +88,14 @@ void CGame::Clear()
 */
 void CGame::Update(double elapsed)
 {
+	mTimeSpawn += elapsed;
+	if (mTimeSpawn > 1) {
+		auto newMinion = make_shared<CMinion>(this);
+		Add(newMinion);
+		mTimeSpawn = 0;
+	}
+
+
 	for (auto item : mItems)
 	{
 		item->Update(elapsed);
@@ -98,6 +110,7 @@ void CGame::Update(double elapsed)
 */
 void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 {
+	
 	// Fill the background with black
 	SolidBrush brush(Color::Black);
 	graphics->FillRectangle(&brush, 0, 0, width, height);

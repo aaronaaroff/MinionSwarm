@@ -68,6 +68,7 @@ public:
 	/// \returns height
 	double GetItemImageHeight() { return mItemImage->GetHeight(); }
 
+	void setImage(std::wstring img);
 
 protected:
 	///Constructs

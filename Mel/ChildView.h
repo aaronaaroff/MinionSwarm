@@ -22,6 +22,15 @@ public:
 private:
 	CGame mGame; ///< The game class
 
+	/// True until the first time we draw
+	bool mFirstDraw = true;
+
+	long long mLastTime;    ///< Last time we read the timer
+	double mTimeFreq;       ///< Rate the timer updates
+
+	/// Any item we are currently dragging
+	std::shared_ptr<CItem> mGrabbedItem;
+
 // Attributes
 public:
 
@@ -40,6 +49,9 @@ public:
 protected:
 	afx_msg void OnPaint();
 	DECLARE_MESSAGE_MAP()
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	void OnLButtonDown(UINT nFlags, CPoint point);
+	void OnLButtonUp(UINT nFlags, CPoint point);
 public:
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 };

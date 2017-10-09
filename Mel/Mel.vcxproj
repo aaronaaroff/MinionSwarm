@@ -185,9 +185,11 @@
     <ClInclude Include="ChildView.h" />
     <ClInclude Include="DoubleBufferDC.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Gru.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Mel.h" />
+    <ClInclude Include="Minion.h" />
     <ClInclude Include="NewGame.h" />
     <ClInclude Include="PlayingArea.h" />
     <ClInclude Include="Resource.h" />
@@ -200,9 +202,11 @@
   <ItemGroup>
     <ClCompile Include="ChildView.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Gru.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="Mel.cpp" />
+    <ClCompile Include="Minion.cpp" />
     <ClCompile Include="NewGame.cpp" />
     <ClCompile Include="PlayingArea.cpp" />
     <ClCompile Include="ScoreBoard.cpp" />

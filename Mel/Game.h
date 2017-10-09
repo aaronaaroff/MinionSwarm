@@ -44,6 +44,9 @@ private:
 	///Y offset for virtual pixels
 	double mYOffset = 0;
 
+	///Time since last spawn
+	double mTimeSpawn = 0;
+
 public:
 
 	CGame();
@@ -56,7 +59,7 @@ public:
 
 	//void Remove(std::shared_ptr<CItem> grabbedItem);
 
-	//std::shared_ptr<CITem> HitTest(int x, int y);
+	std::shared_ptr<CItem> HitTest(int x, int y);
 
 	void Clear();
 
