@@ -60,6 +60,9 @@
     <ClInclude Include="PlayingArea.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Minion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mel.cpp">
@@ -93,6 +96,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PlayingArea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Minion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

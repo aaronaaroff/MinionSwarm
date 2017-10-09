@@ -12,6 +12,7 @@
 #include "ChildView.h"
 #include "DoubleBufferDC.h"
 #include "NewGame.h"
+#include "Minion.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -74,8 +75,13 @@ void CChildView::OnPaint()
 	auto newgame = make_shared<CNewGame>(&mGame);
 	newgame->SetLocation(-650, -500);
 	mGame.Add(newgame);
+	mGame.Update(.033333);
 
 	mGame.OnDraw(&graphics, rect.Width(), rect.Height());
+
+
+	auto newMinion = make_shared<CMinion>(&mGame);
+	mGame.Add(newMinion);
 
 	Invalidate();
 }
