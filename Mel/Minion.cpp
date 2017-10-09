@@ -40,16 +40,12 @@ const int OffsetUp = -450;
 /** Constructor
 * \param city The city this is a member of
 */
-CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + MinionImage)
+CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 {
-
-	/// Image to be used for the minion
-	wstring MinionImage;
-
 	double randomVariable = (double)rand() / RAND_MAX;
 	if (randomVariable > .85)
 	{
-		MinionImage = MutantMinion;
+		mMinionImage = MutantMinion;
 		mSpeedX = MutantSpeed;
 		mSpeedY = MutantSpeed;
 		mPoints = 2;
@@ -57,14 +53,14 @@ CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + MinionImage)
 	}
 	else if (randomVariable > .5)
 	{
-		MinionImage = StuartMinion;
+		mMinionImage = StuartMinion;
 		mSpeedX = MinionSpeed;
 		mSpeedY = MinionSpeed;
 		mPoints = 1;
 	}
 	else
 	{
-		MinionImage = JerryMinion;
+		mMinionImage = JerryMinion;
 		mSpeedX = MinionSpeed;
 		mSpeedY = MinionSpeed;
 		mPoints = 1;

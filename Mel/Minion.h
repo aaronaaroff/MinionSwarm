@@ -61,6 +61,8 @@ public:
 	}
 
 private:
+	/// Default image, may change in constructor
+	std::wstring mMinionImage = L"jerry.png";
 
 	/// Number of points that a minion is worth
 	int mPoints = 0;
