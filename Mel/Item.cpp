@@ -20,6 +20,17 @@ void CItem::SetLocation(double x, double y)
 	mY = y;
 }
 
+void CItem::setImage(std::wstring img)
+{
+	mItemImage = unique_ptr<Bitmap>(Bitmap::FromFile(img.c_str()));
+	if (mItemImage->GetLastStatus() != Ok)
+	{
+		wstring msg(L"Failed to open ");
+		msg += img;
+		AfxMessageBox(msg.c_str());
+	}
+}
+
 /** Constructor
 * \param game The game this item is a member of
 */

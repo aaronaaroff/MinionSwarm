@@ -71,7 +71,7 @@ CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 
 
 	double xLocation = (500 - 77/2 )* (((double)rand() - (RAND_MAX/2))  / (RAND_MAX / 2));
-
+	setImage(ImagesDirectory + mMinionImage);
 	this->SetLocation(xLocation, -450);
 
 
