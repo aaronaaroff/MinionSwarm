@@ -182,6 +182,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Desktop\AryaStark.h" />
+    <ClInclude Include="..\..\..\..\Desktop\Blender.h" />
+    <ClInclude Include="..\..\..\..\Desktop\PokeBall.h" />
+    <ClInclude Include="..\..\..\..\Desktop\Villain.h" />
     <ClInclude Include="ChildView.h" />
     <ClInclude Include="DoubleBufferDC.h" />
     <ClInclude Include="Game.h" />
@@ -200,6 +204,10 @@
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Desktop\AryaStark.cpp" />
+    <ClCompile Include="..\..\..\..\Desktop\Blender.cpp" />
+    <ClCompile Include="..\..\..\..\Desktop\PokeBall.cpp" />
+    <ClCompile Include="..\..\..\..\Desktop\Villain.cpp" />
     <ClCompile Include="ChildView.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gru.cpp" />
