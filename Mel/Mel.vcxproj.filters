@@ -66,16 +66,16 @@
     <ClInclude Include="Gru.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\Villain.h">
+    <ClInclude Include="Villain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\AryaStark.h">
+    <ClInclude Include="Blender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\Blender.h">
+    <ClInclude Include="AryaStark.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\PokeBall.h">
+    <ClInclude Include="PokeBall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -119,16 +119,16 @@
     <ClCompile Include="Gru.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\Villain.cpp">
+    <ClCompile Include="Villain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\AryaStark.cpp">
+    <ClCompile Include="Blender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\Blender.cpp">
+    <ClCompile Include="AryaStark.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\PokeBall.cpp">
+    <ClCompile Include="PokeBall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
