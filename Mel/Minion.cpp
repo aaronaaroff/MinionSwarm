@@ -37,6 +37,8 @@ const int MinionSpeed = 100;
 const int OffsetUp = -450;
 
 
+
+
 /** Constructor
 * \param city The city this is a member of
 */

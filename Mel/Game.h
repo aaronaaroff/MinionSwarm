@@ -44,6 +44,9 @@ private:
 	///Y offset for virtual pixels
 	double mYOffset = 0;
 
+	///Time since last spawn
+	double mTimeSpawn = 0;
+
 public:
 
 	CGame();

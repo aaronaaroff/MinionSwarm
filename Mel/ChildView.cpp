@@ -19,6 +19,9 @@
 #define new DEBUG_NEW
 #endif
 
+ /// Frame duration in milliseconds
+const int FrameDuration = 30;
+
 
 using namespace Gdiplus;
 using namespace std;
@@ -66,12 +69,14 @@ BOOL CChildView::PreCreateWindow(CREATESTRUCT& cs)
 
 /**
  * OnPaint
+ * BE CAREFUL ABOUT ADDING CODE HERE, this block gets called every fraction of a second and 
+ * needs to be fast!
  */
 void CChildView::OnPaint() 
 {
 	CPaintDC paintDC(this);
 	CDoubleBufferDC dc(&paintDC); // device context for painting
-	Graphics graphics(dc.m_hDC);
+	Gdiplus::Graphics graphics(dc.m_hDC);
 
 	CRect rect;
 	GetClientRect(&rect);
@@ -79,21 +84,29 @@ void CChildView::OnPaint()
 	auto newgame = make_shared<CNewGame>(&mGame);
 	newgame->SetLocation(-650, -500);
 	mGame.Add(newgame);
-	if (mFirstDraw)
-	{
-		mFirstDraw = false;
-		auto gru = make_shared<CGru>(&mGame);
-		mGame.Add(gru);
-	}
-
 	mGame.Update(.033333);
 
-	mGame.OnDraw(&graphics, rect.Width(), rect.Height());
+		/*
+		* Initialize the elapsed time system
+		*/
+		LARGE_INTEGER time, freq;
+		QueryPerformanceCounter(&time);
+		QueryPerformanceFrequency(&freq);
 
+		mLastTime = time.QuadPart;
+		mTimeFreq = double(freq.QuadPart);
+	}
 
-	auto newMinion = make_shared<CMinion>(&mGame);
-	mGame.Add(newMinion);
+	/*
+	* Compute the elapsed time since the last draw
+	*/
+	LARGE_INTEGER time;
+	QueryPerformanceCounter(&time);
+	long long diff = time.QuadPart - mLastTime;
+	double elapsed = double(diff) / mTimeFreq;
+	mLastTime = time.QuadPart;
 
+	mGame.Update(elapsed);
 	Invalidate();
 }
 

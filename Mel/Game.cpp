@@ -5,8 +5,12 @@
  */
 
 #include "stdafx.h"
+#include <memory>
 #include "Game.h"
+#include "Minion.h"
 #include "MainFrm.h"
+
+using namespace std;
 using namespace Gdiplus;
 
  /// Game area width in virtual pixels
@@ -84,6 +88,14 @@ void CGame::Clear()
 */
 void CGame::Update(double elapsed)
 {
+	mTimeSpawn += elapsed;
+	if (mTimeSpawn > 1) {
+		auto newMinion = make_shared<CMinion>(this);
+		Add(newMinion);
+		mTimeSpawn = 0;
+	}
+
+
 	for (auto item : mItems)
 	{
 		item->Update(elapsed);
