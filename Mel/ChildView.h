@@ -31,9 +31,6 @@ private:
 	/// Any item we are currently dragging
 	std::shared_ptr<CItem> mGrabbedItem;
 
-	///See if its the first draw
-	bool mFirstDraw = true;
-
 // Attributes
 public:
 
