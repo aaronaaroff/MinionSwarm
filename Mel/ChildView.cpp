@@ -99,3 +99,34 @@ BOOL CChildView::OnEraseBkgnd(CDC* pDC)
 {
 	return FALSE;
 }
+
+
+/**
+* Called when the mouse is moved
+* \param nFlags Flags associated with the mouse movement
+* \param point Where the button was pressed
+*/
+void CChildView::OnMouseMove(UINT nFlags, CPoint point)
+{
+	// TODO: Add your message handler code here and/or call default
+
+	// See if an item is currently being moved by the mouse
+	if (mGrabbedItem != nullptr)
+	{
+		// If an item is being moved, we only continue to 
+		// move it while the left button is down.
+		if (nFlags & MK_LBUTTON)
+		{
+			mGrabbedItem->SetLocation(point.x, point.y);
+		}
+		else
+		{
+			// When the left button is released, we release the
+			// item.
+			mGrabbedItem = nullptr;
+		}
+
+		// Force the screen to redraw
+		Invalidate();
+	}
+}

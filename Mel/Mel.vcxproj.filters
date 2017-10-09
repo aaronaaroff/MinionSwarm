@@ -63,6 +63,9 @@
     <ClInclude Include="Minion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Gru.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mel.cpp">
@@ -99,6 +102,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Minion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gru.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

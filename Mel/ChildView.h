@@ -22,6 +22,9 @@ public:
 private:
 	CGame mGame; ///< The game class
 
+	/// Any item we are currently dragging
+	std::shared_ptr<CItem> mGrabbedItem;
+
 // Attributes
 public:
 
@@ -40,6 +43,7 @@ public:
 protected:
 	afx_msg void OnPaint();
 	DECLARE_MESSAGE_MAP()
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 public:
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 };
