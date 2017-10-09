@@ -37,15 +37,18 @@ const int MinionSpeed = 100;
 const int OffsetUp = -450;
 
 
+/// Temp variable that will hold the file name of the minion to be used 
+wstring MinionImage = JerryMinion;
+
 /** Constructor
 * \param city The city this is a member of
 */
-CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
+CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + MinionImage)
 {
 	double randomVariable = (double)rand() / RAND_MAX;
 	if (randomVariable > .85)
 	{
-		mMinionImage = MutantMinion;
+		MinionImage = MutantMinion;
 		mSpeedX = MutantSpeed;
 		mSpeedY = MutantSpeed;
 		mPoints = 2;
@@ -53,14 +56,14 @@ CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 	}
 	else if (randomVariable > .5)
 	{
-		mMinionImage = StuartMinion;
+		MinionImage = StuartMinion;
 		mSpeedX = MinionSpeed;
 		mSpeedY = MinionSpeed;
 		mPoints = 1;
 	}
 	else
 	{
-		mMinionImage = JerryMinion;
+		MinionImage = JerryMinion;
 		mSpeedX = MinionSpeed;
 		mSpeedY = MinionSpeed;
 		mPoints = 1;
