@@ -39,6 +39,9 @@ CChildView::~CChildView()
 
 BEGIN_MESSAGE_MAP(CChildView, CWnd)
 	ON_WM_PAINT()
+	ON_WM_LBUTTONDOWN()
+	ON_WM_LBUTTONUP()
+	ON_WM_MOUSEMOVE()
 	ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
@@ -130,6 +133,31 @@ BOOL CChildView::OnEraseBkgnd(CDC* pDC)
 }
 
 
+
+/**
+* Called when there is a left mouse button press
+* \param nFlags Flags associated with the mouse button press
+* \param point Where the button was pressed
+*/
+void CChildView::OnLButtonDown(UINT nFlags, CPoint point)
+{
+
+	mGrabbedItem = mGame.HitTest(point.x, point.y);
+
+}
+
+/**
+* Called when the left mouse button is released
+* \param nFlags Flags associated with the mouse button release
+* \param point Where the button was pressed
+*/
+void CChildView::OnLButtonUp(UINT nFlags, CPoint point)
+{
+
+	OnMouseMove(nFlags, point);
+
+}
+
 /**
 * Called when the mouse is moved
 * \param nFlags Flags associated with the mouse movement
@@ -137,7 +165,6 @@ BOOL CChildView::OnEraseBkgnd(CDC* pDC)
 */
 void CChildView::OnMouseMove(UINT nFlags, CPoint point)
 {
-	// TODO: Add your message handler code here and/or call default
 
 	// See if an item is currently being moved by the mouse
 	if (mGrabbedItem != nullptr)
