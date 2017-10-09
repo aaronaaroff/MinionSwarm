@@ -22,6 +22,12 @@ public:
 private:
 	CGame mGame; ///< The game class
 
+	/// True until the first time we draw
+	bool mFirstDraw = true;
+
+	long long mLastTime;    ///< Last time we read the timer
+	double mTimeFreq;       ///< Rate the timer updates
+
 	/// Any item we are currently dragging
 	std::shared_ptr<CItem> mGrabbedItem;
 
