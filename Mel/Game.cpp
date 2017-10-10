@@ -47,9 +47,12 @@ void CGame::Add(std::shared_ptr<CItem> item)
 
 std::shared_ptr<CItem> CGame::HitTest(int x, int y)
 {
+
+	auto virtualX = GetVirtualX(x);
+	auto virtualY = GetVirtualY(y);
 	for (auto i = mItems.rbegin(); i != mItems.rend(); i++)
 	{
-		if ((*i)->HitTest(x, y))
+		if ((*i)->HitTest(virtualX, virtualY))
 		{
 			return *i;
 		}

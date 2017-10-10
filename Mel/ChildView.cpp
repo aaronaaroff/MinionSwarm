@@ -173,7 +173,8 @@ void CChildView::OnMouseMove(UINT nFlags, CPoint point)
 		// move it while the left button is down.
 		if (nFlags & MK_LBUTTON)
 		{
-			mGrabbedItem->SetLocation(point.x, point.y);
+			
+			mGrabbedItem->SetLocation(mGame.GetVirtualX(point.x), mGame.GetVirtualY(point.y));
 		}
 		else
 		{

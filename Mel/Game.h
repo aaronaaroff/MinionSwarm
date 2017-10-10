@@ -67,5 +67,19 @@ public:
 
 	void OnDraw(Gdiplus::Graphics * graphics, int width, int height);
 
+	int GetVirtualX(int x)
+	{
+		x = (x - mXOffset) / mScale;
+		return x;
+	}
+
+	int GetVirtualY(int y)
+	{
+		y = (y - mYOffset) / mScale;
+		return y;
+	}
+
+
+
 };
 
