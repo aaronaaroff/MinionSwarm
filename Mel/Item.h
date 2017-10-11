@@ -12,6 +12,7 @@
 #pragma once
 #include <memory>
 #include <string>
+#include "ItemVisitor.h"
 
 class CGame;
 
@@ -70,14 +71,18 @@ public:
 
 	void setImage(std::wstring img);
 
+	/** Accept a visitor
+	* \param visitor The visitor we accept */
+	virtual void Accept(CItemVisitor *visitor) = 0;
+
 protected:
 	///Constructs
 	CItem(CGame *game, const std::wstring &filename);
 
-
-private:
 	/// The game this item is contained in
 	CGame   *mGame;
+private:
+
 
 	// Item location in the game
 	double  mX = 0;     ///< X location for the center of the item

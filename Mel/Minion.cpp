@@ -5,7 +5,11 @@
 
 
 */#include "stdafx.h"
+#include <math.h>
 #include "Minion.h"
+#include "Vector.h"
+#include "GetGruCoords.h"
+#include "Game.h"
 
 using namespace std;
 using namespace Gdiplus;
@@ -50,6 +54,7 @@ CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 		mMinionImage = MutantMinion;
 		mSpeedX = MutantSpeed;
 		mSpeedY = MutantSpeed;
+		mMinionSpeed = MutantSpeed;
 		mPoints = 2;
 
 	}
@@ -58,6 +63,7 @@ CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 		mMinionImage = StuartMinion;
 		mSpeedX = MinionSpeed;
 		mSpeedY = MinionSpeed;
+		mMinionSpeed = MinionSpeed;
 		mPoints = 1;
 	}
 	else
@@ -65,6 +71,7 @@ CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 		mMinionImage = JerryMinion;
 		mSpeedX = MinionSpeed;
 		mSpeedY = MinionSpeed;
+		mMinionSpeed = MinionSpeed;
 		mPoints = 1;
 
 	}
@@ -128,4 +135,34 @@ void CMinion::Draw(Gdiplus::Graphics *graphics)
 		*/
 
 
+}
+
+
+/**
+ * Update position
+ * \param elapsed elapsed time
+ */
+void CMinion::Update(double elapsed)
+{
+	CItem::Update(elapsed);
+
+	CGetGruCoords visitor;
+	mGame->Accept(&visitor);
+
+	CVector gruLoc = visitor.GetCoords();
+	gruLoc *= -1;
+	CVector minionLoc = CVector(GetX(), GetY());
+
+	CVector travelVector = gruLoc + minionLoc;
+	travelVector = travelVector.Normalize();
+
+	mSpeedY = (travelVector.Y()) * -mMinionSpeed;
+	mSpeedX = (travelVector.X()) * -mMinionSpeed;
+
+	// when the Minion is running...
+	// mSpeedX is a constant pixels per second running speed...
+	mRunX = mSpeedX * elapsed;
+	mRunY = mSpeedY * elapsed;
+
+	this->SetLocation(GetX() + mRunX, GetY() + mRunY);
 }

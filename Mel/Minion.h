@@ -43,22 +43,11 @@ public:
 	* \param graphics The graphics context to draw on */
 	virtual void Draw(Gdiplus::Graphics *graphics) override;
 
+	void CMinion::Update(double elapsed);
 
-	/**
-	* Called before the image is drawn
-	* \param elapsed Time since last draw
-	*/
-	void CMinion::Update(double elapsed)
-	{
-		CItem::Update(elapsed);
-		// when the Minion is running...
-		// mSpeedX is a constant pixels per second running speed...
-		mRunX = mSpeedX * elapsed;
-		mRunY = mSpeedY * elapsed;
-
-
-		this->SetLocation(GetX() + mRunX,GetY() + mRunY);
-	}
+	/** Accept a visitor
+	* \param visitor The visitor we accept */
+	virtual void Accept(CItemVisitor *visitor) override { visitor->VisitMinion(this); }
 
 private:
 	/// Default image, may change in constructor
@@ -72,6 +61,7 @@ private:
 
 	double mSpeedY = 0;
 
+	double mMinionSpeed = 0;
 
 	/// Distance that the minion has run in X direction
 	double mRunX = 0;
@@ -80,7 +70,7 @@ private:
 	// Distance that the minion has run in the y direction
 	double mRunY = 0;
 
-
+	CVector mGruCoords;
 
 };
 

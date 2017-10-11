@@ -15,6 +15,7 @@
 #include "Item.h"
 #include "Timer.h"
 #include "PlayingArea.h"
+#include "ItemVisitor.h"
 
 /**
  * Game class, similar to Aquarium
@@ -66,6 +67,8 @@ public:
 	virtual void Update(double elapsed);
 
 	void OnDraw(Gdiplus::Graphics * graphics, int width, int height);
+
+	void Accept(CItemVisitor * visitor);
 
 	int GetVirtualX(int x)
 	{

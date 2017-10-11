@@ -187,8 +187,10 @@
     <ClInclude Include="ChildView.h" />
     <ClInclude Include="DoubleBufferDC.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GetGruCoords.h" />
     <ClInclude Include="Gru.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemVisitor.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Mel.h" />
     <ClInclude Include="Minion.h" />
@@ -208,8 +210,10 @@
     <ClCompile Include="Blender.cpp" />
     <ClCompile Include="ChildView.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GetGruCoords.cpp" />
     <ClCompile Include="Gru.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemVisitor.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="Mel.cpp" />
     <ClCompile Include="Minion.cpp" />

@@ -11,7 +11,11 @@
 
 #pragma once
 #include "Item.h"
+#include "ItemVisitor.h"
 
+/**
+ * Gru class
+ */
 class CGru :
 	public CItem
 {
@@ -32,6 +36,11 @@ public:
 	* \param name Filename to load from
 	*/
 	void LoadImage(std::unique_ptr<Gdiplus::Bitmap> &image, std::wstring name);
+
+	/** Accept a visitor
+	* \param visitor The visitor we accept */
+	virtual void Accept(CItemVisitor *visitor) override { visitor->VisitGru(this); }
+
 private:
 
 };

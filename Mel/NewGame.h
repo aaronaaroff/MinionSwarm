@@ -8,7 +8,7 @@
 
 #pragma once
 #include "Item.h"
-
+#include "ItemVisitor.h"
 
 
 /**
@@ -32,5 +32,8 @@ public:
 	/// Copy constructor (disabled)
 	CNewGame(const CNewGame &) = delete;
 
+	/** Accept a visitor
+	* \param visitor The visitor we accept */
+	virtual void Accept(CItemVisitor*visitor) override { visitor->VisitNewGame(this); }
 };
 

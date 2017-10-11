@@ -9,6 +9,7 @@
 #include "Game.h"
 #include "Minion.h"
 #include "MainFrm.h"
+#include "ItemVisitor.h"
 
 using namespace std;
 using namespace Gdiplus;
@@ -138,5 +139,16 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 	for (auto item : mItems)
 	{
 		item->Draw(graphics);
+	}
+}
+
+/** Accept a visitor for the collection
+* \param visitor The visitor for the collection
+*/
+void CGame::Accept(CItemVisitor *visitor)
+{
+	for (auto tile : mItems)
+	{
+		tile->Accept(visitor);
 	}
 }

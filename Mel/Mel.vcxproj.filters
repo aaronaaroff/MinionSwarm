@@ -78,6 +78,12 @@
     <ClInclude Include="PokeBall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ItemVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GetGruCoords.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mel.cpp">
@@ -129,6 +135,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PokeBall.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GetGruCoords.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
