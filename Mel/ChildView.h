@@ -54,5 +54,6 @@ protected:
 	void OnLButtonUp(UINT nFlags, CPoint point);
 public:
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
-};
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+ };
 

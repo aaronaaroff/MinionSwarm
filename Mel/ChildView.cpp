@@ -43,6 +43,7 @@ BEGIN_MESSAGE_MAP(CChildView, CWnd)
 	ON_WM_LBUTTONUP()
 	ON_WM_MOUSEMOVE()
 	ON_WM_ERASEBKGND()
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -115,7 +116,6 @@ void CChildView::OnPaint()
 	mLastTime = time.QuadPart;
 
 	mGame.Update(elapsed);
-	Invalidate();
 }
 
 
@@ -185,4 +185,11 @@ void CChildView::OnMouseMove(UINT nFlags, CPoint point)
 		// Force the screen to redraw
 		Invalidate();
 	}
+}
+
+void CChildView::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO: Add your message handler code here and/or call default
+	Invalidate();
+	CWnd::OnTimer(nIDEvent);
 }

@@ -22,11 +22,6 @@ const wstring BlenderImageName = L"images/juicer.png";
 const int pointMultiplier = 2;
 
 
-
-
-
-
-
 /** Constructor
 * \param game The game this is a member of
 */
