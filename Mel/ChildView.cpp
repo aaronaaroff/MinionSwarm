@@ -178,8 +178,10 @@ void CChildView::OnLButtonDown(UINT nFlags, CPoint point)
 		if (mGrabbedItem->IsNewGame())
 		{
 			mGame.ResetGame();
-			mGrabbedItem = nullptr;
 		}
+		mGrabbedItem = nullptr;
+
+		
 
 	}
 }
