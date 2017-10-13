@@ -75,6 +75,11 @@ public:
 	* \param visitor The visitor we accept */
 	virtual void Accept(CItemVisitor *visitor) = 0;
 
+	virtual bool IsMovable()
+	{
+		return false;
+	}
+
 protected:
 	///Constructs
 	CItem(CGame *game, const std::wstring &filename);

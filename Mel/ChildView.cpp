@@ -143,7 +143,10 @@ void CChildView::OnLButtonDown(UINT nFlags, CPoint point)
 {
 
 	mGrabbedItem = mGame.HitTest(point.x, point.y);
-
+	if (mGrabbedItem->IsMovable() != true)
+	{
+		mGrabbedItem = nullptr;
+	}
 }
 
 /**

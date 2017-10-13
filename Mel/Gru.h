@@ -41,6 +41,11 @@ public:
 	* \param visitor The visitor we accept */
 	virtual void Accept(CItemVisitor *visitor) override { visitor->VisitGru(this); }
 
+	bool IsMovable()
+	{
+		return true;
+	}
+
 private:
 
 };
