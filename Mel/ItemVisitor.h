@@ -35,6 +35,10 @@ public:
 	* \param game CNewGame we are visiting */
 	virtual void VisitNewGame(CNewGame *game) {}
 
+	/** Visit a CVillain object
+	* \param villain CVillain we are visiting */
+	virtual void VisitVillain(CVillain *villain) {}
+
 private:
 	int mNumTotalMinions = 0;
 	int mNumMutant = 0;

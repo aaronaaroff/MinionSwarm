@@ -14,6 +14,11 @@
 #include "NewGame.h"
 #include "Minion.h"
 #include "Gru.h"
+#include "Villain.h"
+#include "AryaStark.h"
+#include "Blender.h"
+#include "PokeBall.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -94,6 +99,31 @@ void CChildView::OnPaint()
 
 		auto gru = make_shared<CGru>(&mGame);
 		mGame.Add(gru);
+
+		auto pokeBall = make_shared<CPokeBall>(&mGame);
+		pokeBall->SetLocation(350.0, -250.0);
+		mGame.Add(pokeBall);
+
+		auto arya = make_shared<CAryaStark>(&mGame);
+		arya->SetLocation(0.0, 300.0);
+		mGame.Add(arya);
+
+		auto blender = make_shared<CBlender>(&mGame);
+		blender->SetLocation(-350.0, -250.0);
+		mGame.Add(blender);
+
+		auto scorePokeBall = make_shared<CPokeBall>(&mGame);
+		scorePokeBall->SetLocation(750.0, 100.0);
+		mGame.Add(scorePokeBall);
+
+		auto scoreArya = make_shared<CAryaStark>(&mGame);
+		scoreArya->SetLocation(750.0, -300.0);
+		mGame.Add(scoreArya);
+
+		auto scoreBlender = make_shared<CBlender>(&mGame);
+		scoreBlender->SetLocation(750.0, -100.0);
+		mGame.Add(scoreBlender);
+
 
 		/*
 		* Initialize the elapsed time system
