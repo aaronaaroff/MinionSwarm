@@ -85,6 +85,14 @@ public:
 		return false;
 	}
 
+	/**
+	* Function that returns whether or not item can be moved
+	* \returns bool
+	*/
+	virtual bool IsNewGame()
+	{
+		return false;
+	}
 protected:
 	///Constructs
 	CItem(CGame *game, const std::wstring &filename);

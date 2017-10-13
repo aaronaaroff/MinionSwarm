@@ -1,3 +1,9 @@
+/**
+ * \file NewGame.cpp
+ *
+ * \author Aaron Eshleman
+ */
+
 #include "stdafx.h"
 #include <string>
 #include "NewGame.h"

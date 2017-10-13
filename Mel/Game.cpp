@@ -152,3 +152,7 @@ void CGame::Accept(CItemVisitor *visitor)
 		tile->Accept(visitor);
 	}
 }
+
+void CGame::ResetGame()
+{
+}

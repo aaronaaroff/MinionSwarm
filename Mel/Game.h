@@ -82,6 +82,7 @@ public:
 		return y;
 	}
 
+	void ResetGame();
 
 
 };

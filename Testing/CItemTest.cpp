@@ -4,7 +4,7 @@
 #include "Game.h"
 #include "Minion.h"
 #include "Gru.h"
-#include "Villain.h"
+
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -92,7 +92,7 @@ namespace Testing
 			Assert::IsTrue(newgamebutton.HitTest(100, 200));
 
 			// Left of the newgamebutton
-			Assert::IsFalse(newgamebutton.HitTest(20, 200));
+			Assert::IsFalse(newgamebutton.HitTest(0, 0));
 
 			// Right of the newgamebutton
 			Assert::IsFalse(newgamebutton.HitTest(200, 200));
@@ -104,7 +104,7 @@ namespace Testing
 			Assert::IsFalse(newgamebutton.HitTest(100, 300));
 
 			// Of newgamebutton transparent pixel
-			Assert::IsFalse(newgamebutton.HitTest(100 - 125 / 2 + 17, 200 - 117 / 2 + 16));
+			Assert::IsFalse(newgamebutton.HitTest(100 - 300 / 2 + 17, 200 - 117 / 2 + 16));
 		}
 
 		TEST_METHOD(TestCGameVisitor)
