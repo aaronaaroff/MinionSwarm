@@ -5,7 +5,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Testing
 {
-	TEST_CLASS(VillainTest)
+	TEST_CLASS(CVillainTest)
 	{
 	public:
 		
