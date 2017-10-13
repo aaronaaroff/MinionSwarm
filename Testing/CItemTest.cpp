@@ -4,7 +4,7 @@
 #include "Game.h"
 #include "Minion.h"
 #include "Gru.h"
-
+#include "Villain.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
