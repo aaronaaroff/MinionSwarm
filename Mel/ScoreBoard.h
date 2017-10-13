@@ -18,9 +18,20 @@ public:
 	CScoreBoard();
 	~CScoreBoard();
 
-	void AddToScore(); ///< TODO need to input minion and vilain objects to calculate score.
+	void AddToScore(int pointValue, int pointMultiplier); ///< TODO need to input minion and vilain objects to calculate score.
+
+	void OnDraw(Gdiplus::Graphics *graphics);
 
 private:
+
+	/// Arya Starks Score
+	int mAryaScore = 0;
+
+	/// Blender SCore
+	int mBlenderScore = 0;
+
+	///Poke Ball Score
+	int mPokeBallScore = 0;
 
 };
 
