@@ -41,6 +41,11 @@ public:
 	* \param visitor The visitor we accept */
 	virtual void Accept(CItemVisitor *visitor) override { visitor->VisitGru(this); }
 
+
+	/**
+	* function that returns whether or not item can be moved
+	* \returns bool
+	*/
 	bool IsMovable()
 	{
 		return true;

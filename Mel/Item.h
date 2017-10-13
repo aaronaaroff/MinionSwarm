@@ -75,6 +75,11 @@ public:
 	* \param visitor The visitor we accept */
 	virtual void Accept(CItemVisitor *visitor) = 0;
 
+
+	/**
+	* Function that returns whether or not item can be moved
+	* \returns bool 
+	*/
 	virtual bool IsMovable()
 	{
 		return false;
