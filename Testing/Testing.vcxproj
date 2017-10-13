@@ -64,7 +64,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>StdAfx;Minion;Game;Item;NewGame;ScoreBoard;GetGruCoords;ItemVisitor;PlayingArea;Timer;Vector;Gru;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>StdAfx;Minion;Game;Item;NewGame;ScoreBoard;GetGruCoords;ItemVisitor;PlayingArea;Timer;Vector;Gru;Villian;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

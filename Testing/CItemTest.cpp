@@ -2,6 +2,9 @@
 #include "CppUnitTest.h"
 #include "Item.h"
 #include "Game.h"
+#include "Minion.h"
+#include "Gru.h"
+#include "Villain.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -29,6 +32,14 @@ namespace Testing
 		* \param visitor The visitor we accept */
 		virtual void Accept(CItemVisitor *visitor) override { }
 
+	};
+
+	class CTestVisitor : public CItemVisitor
+	{
+	public:
+		virtual void VisitMinion(CMinion *road) override { mNumMinions++; }
+
+		int mNumMinions = 0;
 	};
 
 	TEST_CLASS(CItemTest)
@@ -94,6 +105,28 @@ namespace Testing
 
 			// Of newgamebutton transparent pixel
 			Assert::IsFalse(newgamebutton.HitTest(100 - 125 / 2 + 17, 200 - 117 / 2 + 16));
+		}
+
+		TEST_METHOD(TestCGameVisitor)
+		{
+			// Construct a game object
+			CGame game;
+
+			// Add some items of each time
+			auto item1 = make_shared<CGru>(&game);
+			auto item2 = make_shared<CMinion>(&game);
+			auto item3 = make_shared<CVillain>(&game);
+
+
+			game.Add(item1);
+			game.Add(item2);
+			game.Add(item3);
+
+
+			CTestVisitor visitor;
+			game.Accept(&visitor);
+			Assert::AreEqual(1, visitor.mNumMinions,
+				L"Visitor number of roads");
 		}
 
 	};

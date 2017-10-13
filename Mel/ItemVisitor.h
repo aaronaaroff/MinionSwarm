@@ -25,7 +25,7 @@ public:
 
 	/** Visit a CMinion object
 	* \param minion minion we are visiting */
-	virtual void VisitMinion(CMinion *minion) {}
+	virtual void VisitMinion(CMinion *minion);
 
 	/** Visit a CGru object
 	* \param gru gru we are visiting */
@@ -34,5 +34,11 @@ public:
 	/** Visit a CNewGame object
 	* \param game CNewGame we are visiting */
 	virtual void VisitNewGame(CNewGame *game) {}
+
+private:
+	int mNumTotalMinions = 0;
+	int mNumMutant = 0;
+	int mNumStuart = 0;
+	int mNumJerry = 0;
 };
 
