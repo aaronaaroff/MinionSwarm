@@ -84,6 +84,8 @@ public:
 
 	void ResetGame();
 
+	void DeleteItem(std::shared_ptr<CItem> item);
+
 
 };
 

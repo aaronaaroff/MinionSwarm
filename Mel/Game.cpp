@@ -10,6 +10,7 @@
 #include "Minion.h"
 #include "MainFrm.h"
 #include "ItemVisitor.h"
+#include "DeleteMinion.h"
 
 using namespace std;
 using namespace Gdiplus;
@@ -78,9 +79,9 @@ void CAquarium::Remove(std::shared_ptr<CItem> grabbedItem)
 
 
 /**
-* Clear the aquarium data.
+* Clear the game data.
 *
-* Deletes all known items in the aquarium.
+* Deletes all known items in the game.
 */
 void CGame::Clear()
 {
@@ -153,6 +154,22 @@ void CGame::Accept(CItemVisitor *visitor)
 	}
 }
 
+//Calls visitor to delete minions on screen and also reset timer and scoreboard
 void CGame::ResetGame()
 {
+	CDeleteMinion visitor;
+	Accept(&visitor);
+	// ResetScoreboard();
+	// ResetTimer()
 }
+
+//will be called from visitor deleteminion
+/*
+void CGame::DeleteItem(std::shared_ptr<CItem> item)
+{
+	auto loc = find(::begin(mItems), ::end(mItems), item);
+	if (loc != ::end(mItems))
+	{
+		mItems.erase(loc);
+	}
+}*/

@@ -21,6 +21,7 @@ public:
 
 	void CTimer::OnDraw(Gdiplus::Graphics * graphics);
 
+
 private:
 
 	long mStartTime; ///< Time that the game was started 

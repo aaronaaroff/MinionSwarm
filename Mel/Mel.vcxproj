@@ -185,6 +185,7 @@
     <ClInclude Include="AryaStark.h" />
     <ClInclude Include="Blender.h" />
     <ClInclude Include="ChildView.h" />
+    <ClInclude Include="DeleteMinion.h" />
     <ClInclude Include="DoubleBufferDC.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GetGruCoords.h" />
@@ -209,6 +210,7 @@
     <ClCompile Include="AryaStark.cpp" />
     <ClCompile Include="Blender.cpp" />
     <ClCompile Include="ChildView.cpp" />
+    <ClCompile Include="DeleteMinion.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GetGruCoords.cpp" />
     <ClCompile Include="Gru.cpp" />
