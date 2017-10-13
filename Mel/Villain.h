@@ -35,6 +35,10 @@ public:
 	virtual ~CVillain();
 
 
+	///Visitor Overide for Villains
+	virtual void Accept(CItemVisitor *visitor) override { visitor->VisitVillain(this); }
+
+
 
 protected:
 	/**
