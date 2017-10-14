@@ -11,6 +11,7 @@
 #include "MainFrm.h"
 #include "ItemVisitor.h"
 #include "DeleteMinion.h"
+#include "Timer.h"
 
 using namespace std;
 using namespace Gdiplus;
@@ -26,6 +27,8 @@ const static int Height = 1100;
  */
 CGame::CGame()
 {
+	auto newTimer = make_shared<CTimer>(this);
+	Add(newTimer);
 }
 
 
@@ -134,7 +137,7 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 	graphics->ScaleTransform(mScale, mScale);
 
 	// From here on you are drawing virtual pixels
-	mTimer.OnDraw(graphics);
+	//mTimer.Draw(graphics);
 	mPlayingArea.OnDraw(graphics, Width, Height);
 
 	for (auto item : mItems)

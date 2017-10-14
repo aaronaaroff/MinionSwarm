@@ -1,47 +1,64 @@
 /**
 * \file Timer.cpp
 *
-* \author Tyler Gasper
+* \author Jon Stover
+*
+* Class that handles Timer and his properties
 */
 
 
+
 #include "stdafx.h"
-#include "Timer.h"
 #include <string>
+#include "Timer.h"
 
 using namespace Gdiplus;
 using namespace std;
 
-
 /// X-location of the timer
 const int xLocation = 550; //1290
 
-/// y-location of the timer
+						   /// y-location of the timer
 const int yLocation = -500; //25
 
 
-/**
-* Constructor
-*/
-CTimer::CTimer()
+
+const wstring TimerImage(L"images/gru.png");
+
+CTimer::CTimer(CGame *game) :
+	CItem(game, TimerImage)
 {
 
 	mStartTime = clock();
-
 }
 
-/**
-* Destrcutor
-*/
 CTimer::~CTimer()
 {
+}
+
+
+/**
+* Load an image into a bitmap
+* \param image Image pointer to load
+* \param name Filename to load from
+*/
+void CTimer::LoadImage(std::unique_ptr<Gdiplus::Bitmap> &image, std::wstring name)
+{
+	wstring filename = name;
+	image = unique_ptr<Bitmap>(Bitmap::FromFile(filename.c_str()));
+	if (image->GetLastStatus() != Ok)
+	{
+		wstring msg(L"Failed to open ");
+		msg += filename;
+		AfxMessageBox(msg.c_str());
+	}
 }
 
 
 
 /// Draws timer in its box 
 /// \param *graphics 
-void CTimer::OnDraw(Gdiplus::Graphics *graphics)
+void CTimer::Draw(Gdiplus::Graphics *graphics)
 {
 	// Gets the elapsed time since start
 	long currentTime = clock();
@@ -87,3 +104,4 @@ void CTimer::OnDraw(Gdiplus::Graphics *graphics)
 
 
 }
+

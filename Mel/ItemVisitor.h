@@ -13,6 +13,7 @@ class CGru;
 class CVillain;
 class CMinion;
 class CNewGame;
+class CTimer;
 
 /**
  * Item Visitor class
@@ -38,6 +39,10 @@ public:
 	/** Visit a CVillain object
 	* \param villain CVillain we are visiting */
 	virtual void VisitVillain(CVillain *villain) {}
+
+	/** Visit a CTimer object
+	* \param villain CTimer we are visiting */
+	virtual void VisitTimer(CTimer *timer) {}
 
 private:
 	int mNumTotalMinions = 0;
