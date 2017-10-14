@@ -70,13 +70,13 @@ public:
 
 	void Accept(CItemVisitor * visitor);
 
-	int GetVirtualX(double x)
+	double GetVirtualX(double x)
 	{
 		x = (x - mXOffset) / mScale;
 		return x;
 	}
 
-	int GetVirtualY(double y)
+	double GetVirtualY(double y)
 	{
 		y = (y - mYOffset) / mScale;
 		return y;
