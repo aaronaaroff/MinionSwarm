@@ -126,7 +126,7 @@ namespace Testing
 			CTestVisitor visitor;
 			game.Accept(&visitor);
 			Assert::AreEqual(1, visitor.mNumMinions,
-				L"Visitor number of roads");
+				L"Visitor number of minions");
 		}
 
 	};
