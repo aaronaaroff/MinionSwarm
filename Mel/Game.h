@@ -48,9 +48,16 @@ private:
 	///Time since last spawn
 	double mTimeSpawn = 0;
 
+	///True when new game is pressed
+	bool mResetGameStatus = false;
+
 public:
 
 	CGame();
+
+	bool GetResetGameStatus() { return mResetGameStatus; }
+
+	void SetResetGameStatus() { mResetGameStatus = false; }
 
 	virtual ~CGame();
 

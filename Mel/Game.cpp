@@ -10,7 +10,7 @@
 #include "Minion.h"
 #include "MainFrm.h"
 #include "ItemVisitor.h"
-#include "DeleteMinion.h"
+#include "DeleteItem.h"
 #include "Timer.h"
 
 using namespace std;
@@ -157,16 +157,16 @@ void CGame::Accept(CItemVisitor *visitor)
 	}
 }
 
-//Calls visitor to delete minions on screen and also reset timer and scoreboard
+//When called will clear all items and redraw them
 void CGame::ResetGame()
 {
-	CDeleteMinion visitor;
-	Accept(&visitor);
-	// ResetScoreboard();
+	Clear();
+	mResetGameStatus = true;
+	// ReScoreboard();
 	// ResetTimer()
 }
 
-//will be called from visitor deleteminion
+
 /*
 void CGame::DeleteItem(std::shared_ptr<CItem> item)
 {

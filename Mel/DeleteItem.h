@@ -11,16 +11,16 @@
 #include "ItemVisitor.h"
 #include "Game.h"
 
-class CDeleteMinion :
+class CDeleteItem :
 	public CItemVisitor
 {
 public:
-	CDeleteMinion();
-	virtual ~CDeleteMinion();
+	CDeleteItem();
+	virtual ~CDeleteItem();
 
 	/** Visit a CMinion object
 	* \param minion Minion we are visiting */
-	void CDeleteMinion::VisitMinion(CMinion *minion)
+	void CDeleteItem::VisitMinion(CMinion *minion)
 	{
 		///minion->DeleteItem(minion);
 		//Need to call a delete item function from minion that upcalls to Game

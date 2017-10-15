@@ -84,7 +84,7 @@
     <ClInclude Include="GetGruCoords.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DeleteMinion.h">
+    <ClInclude Include="DeleteItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -146,7 +146,7 @@
     <ClCompile Include="GetGruCoords.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DeleteMinion.cpp">
+    <ClCompile Include="DeleteItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

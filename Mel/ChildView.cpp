@@ -89,9 +89,10 @@ void CChildView::OnPaint()
 	GetClientRect(&rect);
 
 	mGame.OnDraw(&graphics, rect.Width(), rect.Height());
-	if (mFirstDraw)
+	if (mFirstDraw || mGame.GetResetGameStatus())
 	{
 		mFirstDraw = false;
+		mGame.SetResetGameStatus();
 		SetTimer(1, FrameDuration, nullptr);
 
 		auto newgame = make_shared<CNewGame>(&mGame);
@@ -188,7 +189,7 @@ void CChildView::OnLButtonDown(UINT nFlags, CPoint point)
 }
 
 /**
-* Called when the left mouse button is released
+* Called when the left mouse buttis released
 * \param nFlags Flags associated with the mouse button release
 * \param point Where the button was pressed
 */
