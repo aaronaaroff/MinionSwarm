@@ -108,6 +108,11 @@ void CGame::Update(double elapsed)
 	{
 		item->Update(elapsed);
 	}
+
+	if (mGameOver == true)
+	{
+		GameOver();
+	}
 }
 
 /**
@@ -164,6 +169,7 @@ void CGame::ResetGame()
 	mResetGameStatus = true;
 	// ReScoreboard();
 	// ResetTimer()
+	//No scoreboard support right now on the reset game
 }
 
 
@@ -176,3 +182,8 @@ void CGame::DeleteItem(std::shared_ptr<CItem> item)
 		mItems.erase(loc);
 	}
 }*/
+
+void CGame::GameOver()
+{
+	
+}
