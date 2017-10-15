@@ -51,6 +51,9 @@ private:
 	///True when new game is pressed
 	bool mResetGameStatus = false;
 
+	///True when gru dies
+	bool mGameOver = false;
+
 public:
 
 	CGame();
@@ -91,8 +94,10 @@ public:
 
 	void ResetGame();
 
-	void DeleteItem(std::shared_ptr<CItem> item);
 
+	void GameOver();
 
+	bool GetGameOver() { return mGameOver; }
+	void SetGameOver(bool status) { mGameOver = status; }
 };
 
