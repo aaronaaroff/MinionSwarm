@@ -16,8 +16,10 @@ using namespace std;
 
 void CItem::SetLocation(double x, double y)
 {
+
 	mX = x;
 	mY = y;
+	
 }
 
 void CItem::setImage(std::wstring img)
