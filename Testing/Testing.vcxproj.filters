@@ -38,9 +38,6 @@
     <ClCompile Include="CVillainTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NewGameTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CNewGameTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

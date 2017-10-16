@@ -2,6 +2,8 @@
 #include "CppUnitTest.h"
 #include "Item.h"
 #include "Game.h"
+#include "PokeBall.h"
+#include "Gru.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -13,23 +15,6 @@ const wstring NewGameImage = L"images/new-game.png";
 namespace Testing
 {
 
-	/** Mock class for testing CItem */
-	class CNewGameMock : public CItem
-	{
-	public:
-		/** Constructor
-		* \param game The game this item is a member of */
-		CNewGameMock(CGame *game) : CItem(game, NewGameImage) {}
-
-		/** Draw the item
-		* \param graphics The graphics context to draw on */
-		virtual void Draw(Gdiplus::Graphics *graphics) {}
-
-		/** Accept a visitor
-		* \param visitor The visitor we accept */
-		virtual void Accept(CItemVisitor *visitor) override { }
-
-	};
 
 	class CTestVisitor : public CItemVisitor
 	{
@@ -49,27 +34,21 @@ namespace Testing
 			::SetCurrentDirectory(g_dir);
 		}
 
-		TEST_METHOD(TestCNewGameConstruct)
+
+
+		TEST_METHOD(TestGameOver)
 		{
 			CGame game;
-			CNewGameMock item(&game);
-		}
-		TEST_METHOD(TestCNewGameGettersSetters)
-		{
-			// Construct an item to test
-			CGame game;
-			CNewGameMock item(&game);
+			auto gru = make_shared<CGru>(&game);
+			auto villain = make_shared<CPokeBall>(&game);
 
-			// Test initial values
-			Assert::IsFalse(game.GetResetGameStatus());
+			villain->SetLocation(0, 0);
+			gru->SetLocation(0, 0);
 
-			game.SetResetGameStatus(true);
-
-			Assert::IsTrue(game.GetResetGameStatus());
-
+			Assert::IsTrue(game.GetGameOver());
 
 		}
-
+		
 		TEST_METHOD(TestCNewGameMockHitTest)
 		{
 			// Create a newgamebutton to test
