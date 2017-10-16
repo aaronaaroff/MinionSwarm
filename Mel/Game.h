@@ -52,7 +52,7 @@ private:
 	bool mResetGameStatus = false;
 
 	///True when gru dies
-	bool mGameOver = false;
+	bool mGameOver = true;
 
 public:
 
@@ -95,7 +95,7 @@ public:
 	void ResetGame();
 
 
-	void GameOver();
+
 
 	bool GetGameOver() { return mGameOver; }
 	void SetGameOver(bool status) { mGameOver = status; }

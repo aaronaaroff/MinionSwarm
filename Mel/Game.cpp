@@ -109,10 +109,7 @@ void CGame::Update(double elapsed)
 		item->Update(elapsed);
 	}
 
-	if (mGameOver == true)
-	{
-		GameOver();
-	}
+
 }
 
 /**
@@ -149,6 +146,8 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 	{
 		item->Draw(graphics);
 	}
+
+
 }
 
 /** Accept a visitor for the collection
@@ -182,8 +181,3 @@ void CGame::DeleteItem(std::shared_ptr<CItem> item)
 		mItems.erase(loc);
 	}
 }*/
-
-void CGame::GameOver()
-{
-	
-}
