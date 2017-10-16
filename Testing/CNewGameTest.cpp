@@ -66,34 +66,6 @@ namespace Testing
 
 		}
 		
-		TEST_METHOD(TestCNewGameMockHitTest)
-		{
-			// Create a newgamebutton to test
-			CGame game;
-			CNewGameMock newgamebutton(&game);
-
-			// Give it a location
-			// Always make the numbers different, in case they are mixed up
-			newgamebutton.SetLocation(100, 200);
-
-			// Center of the newgamebutton should be a true
-			Assert::IsTrue(newgamebutton.HitTest(100, 200));
-
-			// Left of the newgamebutton
-			Assert::IsFalse(newgamebutton.HitTest(0, 0));
-
-			// Right of the newgamebutton
-			Assert::IsFalse(newgamebutton.HitTest(200, 200));
-
-			// Above the newgamebutton
-			Assert::IsFalse(newgamebutton.HitTest(100, 0));
-
-			// Below the newgamebutton
-			Assert::IsFalse(newgamebutton.HitTest(100, 300));
-
-			// Of newgamebutton transparent pixel
-			Assert::IsFalse(newgamebutton.HitTest(100 - 300 / 2 + 17, 200 - 117 / 2 + 16));
-		}
 
 	};
 }
