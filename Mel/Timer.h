@@ -41,6 +41,15 @@ public:
 	* \param visitor The visitor we accept */
 	virtual void Accept(CItemVisitor *visitor) override { visitor->VisitTimer(this); }
 
+	/**
+	* Function to get the elapsed time since start
+	*/
+	long long GetElpasedTime() 
+	{
+		long currentTime = clock();
+		long long elapsedTime = (currentTime - mStartTime) / 1000;
+		return elapsedTime;
+	}
 
 
 	/**  Draw this item
