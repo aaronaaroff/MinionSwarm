@@ -64,7 +64,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>StdAfx;Minion;Game;Item;NewGame;ScoreBoard;GetGruCoords;ItemVisitor;PlayingArea;Timer;Vector;Gru;Villain;PokeBall;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>StdAfx;Minion;Game;Item;NewGame;ScoreBoard;GetGruCoords;ItemVisitor;PlayingArea;Timer;Vector;Gru;Villain;PokeBall;AryaStark;Blender;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -98,12 +98,16 @@
     <ClCompile Include="CNewGameTest.cpp" />
     <ClCompile Include="CTimerTest.cpp" />
     <ClCompile Include="EmptyTest.cpp" />
+    <ClCompile Include="PlayAreaTest.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="initialize.cpp" />
-    <ClCompile Include="CVillainTest.cpp">
+    <ClCompile Include="CKillTest.cpp">
       <SubType>
       </SubType>
     </ClCompile>
