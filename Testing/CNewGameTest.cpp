@@ -10,19 +10,19 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
 
 /// Name of new game button test
-const wstring PokeballImage = L"images/pokeball.png";
+const wstring NewGameImage = L"images/new-game.png";
 
 
 namespace Testing
- {
+{
 
 	/** Mock class for testing CItem */
-	class CItemMock : public CItem
+	class CNewGameMock : public CItem
 	{
 	public:
 		/** Constructor
 		* \param game The game this item is a member of */
-		CItemMock(CGame *game) : CItem(game, PokeballImage) {}
+		CNewGameMock(CGame *game) : CItem(game, NewGameImage) {}
 
 		/** Draw the item
 		* \param graphics The graphics context to draw on */
@@ -42,7 +42,7 @@ namespace Testing
 		int mNumMinions = 0;
 	};
 
-	TEST_CLASS(CItemTest)
+	TEST_CLASS(CNewGameTest)
 	{
 	public:
 
@@ -51,38 +51,33 @@ namespace Testing
 			extern wchar_t g_dir[];
 			::SetCurrentDirectory(g_dir);
 		}
-		
-		TEST_METHOD(TestCItemConstruct)
+
+		TEST_METHOD(TestCNewGameConstruct)
 		{
 			CGame game;
-			CItemMock item(&game);
+			CNewGameMock item(&game);
 		}
-		TEST_METHOD(TestCItemGettersSetters)
+		TEST_METHOD(TestCNewGameGettersSetters)
 		{
 			// Construct an item to test
 			CGame game;
-			CItemMock item(&game);
+			CNewGameMock item(&game);
 
 			// Test initial values
-			Assert::AreEqual(0, item.GetX(), 0);
-			Assert::AreEqual(0, item.GetY(), 0);
+			Assert::IsFalse(game.GetResetGameStatus());
 
-			// Test SetLocation, GetX, and GetY
-			item.SetLocation(10.5, 17.2);
-			Assert::AreEqual(10.5, item.GetX(), 0.0001);
-			Assert::AreEqual(17.2, item.GetY(), 0.0001);
+			game.SetResetGameStatus(true);
 
-			// Test a second with with different values
-			item.SetLocation(-72, -107);
-			Assert::AreEqual(-72, item.GetX(), 0.0001);
-			Assert::AreEqual(-107, item.GetY(), 0.0001);
+			Assert::IsTrue(game.GetResetGameStatus());
+
+
 		}
 
-		TEST_METHOD(TestCItemMockHitTest)
+		TEST_METHOD(TestCNewGameMockHitTest)
 		{
 			// Create a newgamebutton to test
 			CGame game;
-			CItemMock newgamebutton(&game);
+			CNewGameMock newgamebutton(&game);
 
 			// Give it a location
 			// Always make the numbers different, in case they are mixed up
@@ -105,28 +100,6 @@ namespace Testing
 
 			// Of newgamebutton transparent pixel
 			Assert::IsFalse(newgamebutton.HitTest(100 - 300 / 2 + 17, 200 - 117 / 2 + 16));
-		}
-
-		TEST_METHOD(TestCGameVisitor)
-		{
-			// Construct a game object
-			CGame game;
-
-			// Add some items of each time
-			auto item1 = make_shared<CGru>(&game);
-			auto item2 = make_shared<CMinion>(&game);
-			//auto item3 = make_shared<CVillain>(&game);
-
-
-			game.Add(item1);
-			game.Add(item2);
-			//game.Add(item3);
-
-
-			CTestVisitor visitor;
-			game.Accept(&visitor);
-			Assert::AreEqual(1, visitor.mNumMinions,
-				L"Visitor number of minions");
 		}
 
 	};

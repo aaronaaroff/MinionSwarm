@@ -27,8 +27,7 @@ const static int Height = 1100;
  */
 CGame::CGame()
 {
-	auto newTimer = make_shared<CTimer>(this);
-	Add(newTimer);
+	
 }
 
 

@@ -57,7 +57,7 @@ public:
 
 	bool GetResetGameStatus() { return mResetGameStatus; }
 
-	void SetResetGameStatus() { mResetGameStatus = false; }
+	void SetResetGameStatus(bool status) { mResetGameStatus = status; }
 
 	virtual ~CGame();
 

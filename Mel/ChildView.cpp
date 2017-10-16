@@ -91,9 +91,13 @@ void CChildView::OnPaint()
 	mGame.OnDraw(&graphics, rect.Width(), rect.Height());
 	if (mFirstDraw || mGame.GetResetGameStatus())
 	{
+
 		mFirstDraw = false;
-		mGame.SetResetGameStatus();
+		mGame.SetResetGameStatus(false);
 		SetTimer(1, FrameDuration, nullptr);
+
+		auto newTimer = make_shared<CTimer>(&mGame);
+		mGame.Add(newTimer);
 
 		auto newgame = make_shared<CNewGame>(&mGame);
 		newgame->SetLocation(-650, -500);
