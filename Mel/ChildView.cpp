@@ -245,22 +245,8 @@ void CChildView::OnMouseMove(UINT nFlags, CPoint point)
 		if (nFlags & MK_LBUTTON)
 		{
 
-			// Variables for the height and width of the grabbed item
-			int imageWidth = mGrabbedItem->GetItemImageWidth();
-			int imageHeight = mGrabbedItem->GetItemImageHeight();
-
-
-			if (abs(virtualX) + imageWidth / 2 >= PlayAreaDimension)
-			{
-				virtualX = (PlayAreaDimension - imageWidth / 2) * (virtualX / abs(virtualX));
-			}
-			if (abs(virtualY) + imageHeight / 2 >= PlayAreaDimension)
-			{
-				virtualY = (PlayAreaDimension - imageHeight / 2) * (virtualY / abs(virtualY));
-			}
-
-
 			mGrabbedItem->SetLocation(virtualX, virtualY);
+
 		}
 		else
 		{

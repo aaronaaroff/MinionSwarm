@@ -19,7 +19,7 @@ const int PlayAreaDimension = 500;
 void CItem::SetLocation(double x, double y)
 {
 
-	/*
+	
 	if (this->IsMovable())
 	{
 		// Variables for the height and width of the grabbed item
@@ -35,7 +35,7 @@ void CItem::SetLocation(double x, double y)
 		{
 			y = (PlayAreaDimension - imageHeight / 2) * (y / abs(y));
 		}
-	*/
+	}
 
 
 	mX = x;
