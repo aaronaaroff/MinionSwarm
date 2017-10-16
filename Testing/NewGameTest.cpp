@@ -5,6 +5,7 @@
 #include "Minion.h"
 #include "Gru.h"
 #include "Villain.h"
+#include "PokeBall.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -21,7 +22,7 @@ namespace Testing
 		{
 			CGame game;
 			auto gru = make_shared<CGru>(&game);
-			auto villain = make_shared<CVillain>(&game);
+			auto villain = make_shared<CPokeBall>(&game);
 
 			villain->SetLocation(0, 0);
 			gru->SetLocation(0, 0);

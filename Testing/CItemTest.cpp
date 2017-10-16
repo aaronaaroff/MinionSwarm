@@ -5,6 +5,7 @@
 #include "Minion.h"
 #include "Gru.h"
 #include "Villain.h"
+#include "PokeBall.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -115,7 +116,7 @@ namespace Testing
 			// Add some items of each time
 			auto item1 = make_shared<CGru>(&game);
 			auto item2 = make_shared<CMinion>(&game);
-			auto item3 = make_shared<CVillain>(&game);
+			auto item3 = make_shared<CPokeBall>(&game);
 
 
 			game.Add(item1);
