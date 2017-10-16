@@ -15,6 +15,23 @@ const wstring NewGameImage = L"images/new-game.png";
 namespace Testing
 {
 
+	/** Mock class for testing CItem */
+	class CNewGameMock : public CItem
+	{
+	public:
+		/** Constructor
+		* \param game The game this item is a member of */
+		CNewGameMock(CGame *game) : CItem(game, NewGameImage) {}
+
+		/** Draw the item
+		* \param graphics The graphics context to draw on */
+		virtual void Draw(Gdiplus::Graphics *graphics) {}
+
+		/** Accept a visitor
+		* \param visitor The visitor we accept */
+		virtual void Accept(CItemVisitor *visitor) override { }
+
+	};
 
 	class CTestVisitor : public CItemVisitor
 	{
