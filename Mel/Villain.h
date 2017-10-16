@@ -38,7 +38,7 @@ public:
 	///Visitor Overide for Villains
 	virtual void Accept(CItemVisitor *visitor) override { visitor->VisitVillain(this); }
 
-
+	int GetPoints() { return mPoints; }
 
 protected:
 	/**
@@ -71,6 +71,9 @@ private:
 
 	///Villain Point Multiplier
 	int mPointMultiplier;
+
+	///Points on the villain
+	int mPoints = 0;
 
 
 };
