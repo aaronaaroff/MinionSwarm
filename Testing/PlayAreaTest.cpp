@@ -50,7 +50,7 @@ namespace Testing
 
 			// Check that gru is still inside of the game area
 			Assert::AreEqual(500 - imageWidth / 2, gru->GetX(), 0);
-			Assert::AreEqual(500 - imageWidth / 2, gru->GetY(), 0);
+			Assert::AreEqual(500 - imageHeight / 2, gru->GetY(), 0);
 
 			
 

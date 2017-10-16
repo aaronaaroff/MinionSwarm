@@ -46,9 +46,18 @@ public:
 	*/
 	int GetElpasedTime() 
 	{
-		long currentTime = clock();
-		int elapsedTime = (currentTime - mStartTime) / 1000;
-		return elapsedTime;
+		return mElapsedTime;
+	}
+
+	/** 
+	* Function that adds the elpased time from game 
+	* to the timer to eliminate the use of a second
+	* clock call
+	* \param elapsed Elapsed time in ms
+	*/
+	void Update(double elapsed)
+	{
+		mElapsedTime += elapsed;
 	}
 
 
@@ -58,7 +67,9 @@ public:
 
 private:
 
-	long mStartTime; ///< Time that the game was started 
+	long mStartTime; ///< Time that the game was started
+
+	double mElapsedTime = 0; ///< Time that has elapsed since the start
 
 };
 

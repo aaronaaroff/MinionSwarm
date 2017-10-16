@@ -32,7 +32,7 @@ namespace Testing
 			game.Add(timer);
 
 			// Make 10 seconds elapse in the game
-			game.Update(10000);
+			game.Update(10);
 
 			// Check that the timer has incremented 10 seconds
 			Assert::IsTrue(timer->GetElpasedTime() == 10);
@@ -50,13 +50,13 @@ namespace Testing
 			game.Add(timer);
 
 			// Make 10 seconds elapse in the game
-			game.Update(10000);
+			game.Update(10);
 
 			// Check that the timer has incremented 10 seconds
 			Assert::IsTrue(timer->GetElpasedTime() == 10);
 
 			//Call function to paused the game
-			timer->PauseTimer();
+//			timer->PauseTimer();
 
 			game.Update(5000);
 
