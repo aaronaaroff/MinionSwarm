@@ -35,10 +35,10 @@
     <ClCompile Include="CItemTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CVillainTest.cpp">
+    <ClCompile Include="CNewGameTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CNewGameTest.cpp">
+    <ClCompile Include="CKillTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

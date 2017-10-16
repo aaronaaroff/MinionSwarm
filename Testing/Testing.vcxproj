@@ -102,7 +102,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="initialize.cpp" />
-    <ClCompile Include="CVillainTest.cpp">
+    <ClCompile Include="CKillTest.cpp">
       <SubType>
       </SubType>
     </ClCompile>
