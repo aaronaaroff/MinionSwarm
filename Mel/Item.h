@@ -111,6 +111,7 @@ private:
 	double  mX = 0;     ///< X location for the center of the item
 	double  mY = 0;     ///< Y location for the center of the item
 
+
 	/// The image of this item.
 	std::unique_ptr<Gdiplus::Bitmap> mItemImage;
 

@@ -61,7 +61,7 @@ void CTimer::LoadImage(std::unique_ptr<Gdiplus::Bitmap> &image, std::wstring nam
 void CTimer::Draw(Gdiplus::Graphics *graphics)
 {
 	// Gets the elapsed time since start
-	int elapsedTime = GetElapsedTime();
+	int elapsedTime = this->GetElpasedTime();
 
 	// Calculate the number of minutes/seconds elapsed
 	string minutes = to_string(elapsedTime / 60);

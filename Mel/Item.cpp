@@ -12,10 +12,31 @@
 using namespace Gdiplus;
 using namespace std;
 
+/// Dimensions of the game play area
+const int PlayAreaDimension = 500;
 
 
 void CItem::SetLocation(double x, double y)
 {
+
+	/*
+	if (this->IsMovable())
+	{
+		// Variables for the height and width of the grabbed item
+		int imageWidth = this->GetItemImageWidth();
+		int imageHeight = this->GetItemImageHeight();
+
+
+		if (abs(x) + imageWidth / 2 >= PlayAreaDimension)
+		{
+			x = (PlayAreaDimension - imageWidth / 2) * (x / abs(x));
+		}
+		if (abs(y) + imageHeight / 2 >= PlayAreaDimension)
+		{
+			y = (PlayAreaDimension - imageHeight / 2) * (y / abs(y));
+		}
+	*/
+
 
 	mX = x;
 	mY = y;

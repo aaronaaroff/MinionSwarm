@@ -44,10 +44,10 @@ public:
 	/**
 	* Function to get the elapsed time since start
 	*/
-	long long GetElpasedTime() 
+	int GetElpasedTime() 
 	{
 		long currentTime = clock();
-		long long elapsedTime = (currentTime - mStartTime) / 1000;
+		int elapsedTime = (currentTime - mStartTime) / 1000;
 		return elapsedTime;
 	}
 
