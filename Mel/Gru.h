@@ -51,6 +51,12 @@ public:
 		return true;
 	}
 
+	/**
+	* Function that will keep gru in the gamespace
+	* \param elapsed elpased time since last update
+	*/
+	void CGru::Update(double elapsed);
+
 private:
 
 };

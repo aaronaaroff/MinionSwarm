@@ -28,11 +28,16 @@
 /// Frame duration in milliseconds
 const int FrameDuration = 30;
 
+/// Dimensions of the game play area
+const int PlayAreaDimension = 500;
+
 
 using namespace Gdiplus;
 using namespace std;
 
 // CChildView
+FontFamily fontFamily(L"Arial");
+Gdiplus::Font font(&fontFamily, 200);
 
 CChildView::CChildView()
 {
@@ -150,6 +155,16 @@ void CChildView::OnPaint()
 	long long diff = time.QuadPart - mLastTime;
 	double elapsed = double(diff) / mTimeFreq;
 	mLastTime = time.QuadPart;
+	
+	if (mGame.GetGameOver() == false)
+	{
+		SolidBrush yellow(Color(0, 20, 0));
+		graphics.DrawString(L"Gru is Dead!",  // String to draw
+			-1,         // String length, -1 means it figures it out on its own
+			&font,      // The font to use
+			PointF(500, 500),   // Where to draw (top left corner)
+			&yellow);    // The brush to draw the text with
+	}
 
 	mGame.Update(elapsed);
 }
@@ -211,16 +226,30 @@ void CChildView::OnLButtonUp(UINT nFlags, CPoint point)
 */
 void CChildView::OnMouseMove(UINT nFlags, CPoint point)
 {
+	// Varibles for the virtual location of the grabbed item
+	int virtualX = mGame.GetVirtualX(point.x);
+	int virtualY = mGame.GetVirtualY(point.y);
 
 	// See if an item is currently being moved by the mouse
 	if (mGrabbedItem != nullptr)
 	{
+		// Variables for the height and width of the grabbed item
+		int imageWidth = mGrabbedItem->GetItemImageWidth();
+		int imageHeight = mGrabbedItem->GetItemImageHeight();
+
 		// If an item is being moved, we only continue to 
 		// move it while the left button is down.
 		if (nFlags & MK_LBUTTON)
 		{
-			
-			mGrabbedItem->SetLocation(mGame.GetVirtualX(point.x), mGame.GetVirtualY(point.y));
+			if (abs(virtualX) + imageWidth / 2 >= PlayAreaDimension)
+			{
+				virtualX = (PlayAreaDimension - imageWidth / 2) * (virtualX/abs(virtualX)) ;
+			}
+			if (abs(virtualY) + imageHeight / 2 >= PlayAreaDimension)
+			{
+				virtualY = (PlayAreaDimension - imageHeight / 2) * (virtualY / abs(virtualY));
+			}
+			mGrabbedItem->SetLocation(virtualX, virtualY);
 		}
 		else
 		{

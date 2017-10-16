@@ -107,6 +107,8 @@ void CGame::Update(double elapsed)
 	{
 		item->Update(elapsed);
 	}
+
+
 }
 
 /**
@@ -143,6 +145,8 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 	{
 		item->Draw(graphics);
 	}
+
+
 }
 
 /** Accept a visitor for the collection
@@ -163,6 +167,7 @@ void CGame::ResetGame()
 	mResetGameStatus = true;
 	// ReScoreboard();
 	// ResetTimer()
+	//No scoreboard support right now on the reset game
 }
 
 

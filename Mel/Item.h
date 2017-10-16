@@ -93,6 +93,11 @@ public:
 	{
 		return false;
 	}
+
+
+
+
+
 protected:
 	///Constructs
 	CItem(CGame *game, const std::wstring &filename);
