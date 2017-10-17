@@ -111,5 +111,8 @@ void CScoreBoard::reset()
 
 void CScoreBoard::Update(double elapsed)
 {
-
+	//Check to see if any minion has been touched
+	//if yes to above, get point value from minion
+	//Then get villain who killed minion point multiplier
+	//Call Add to score 
 }
