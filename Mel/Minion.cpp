@@ -21,16 +21,6 @@ const wstring ImagesDirectory = L"images/";
 /// Image of the standard minion
 const wstring JerryMinion = L"jerry.png";
 
-/// Image of a minion with a banana
-const wstring StuartMinion = L"stuart.png";
-
-/// Image of the mutated minion
-const wstring MutantMinion = L"mutant.png";
-
-
-
-
-
 /// Mutant speed
 const int MutantSpeed = 200;
 
@@ -51,7 +41,7 @@ CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 	double randomVariable = (double)rand() / RAND_MAX;
 	if (randomVariable > .85)
 	{
-		mMinionImage = MutantMinion;
+		mState = Mutant;
 		mSpeedX = MutantSpeed;
 		mSpeedY = MutantSpeed;
 		mMinionSpeed = MutantSpeed;
@@ -60,7 +50,7 @@ CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 	}
 	else if (randomVariable > .5)
 	{
-		mMinionImage = StuartMinion;
+		mState = Stuart;
 		mSpeedX = MinionSpeed;
 		mSpeedY = MinionSpeed;
 		mMinionSpeed = MinionSpeed;
@@ -68,7 +58,7 @@ CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 	}
 	else
 	{
-		mMinionImage = JerryMinion;
+		mState = Jerry;
 		mSpeedX = MinionSpeed;
 		mSpeedY = MinionSpeed;
 		mMinionSpeed = MinionSpeed;
@@ -76,9 +66,20 @@ CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 
 	}
 
-
 	double xLocation = (500 - 77/2 )* (((double)rand() - (RAND_MAX/2))  / (RAND_MAX / 2));
-	setImage(ImagesDirectory + mMinionImage);
+	if (mState == Stuart)
+	{
+		setImage(ImagesDirectory + mMinionStuartImage);
+	}
+
+	else if (mState == Jerry)
+	{
+		setImage(ImagesDirectory + mMinionJerryImage);
+	}
+	else
+	{
+		setImage(ImagesDirectory + mMutantImage);
+	}
 	this->SetLocation(xLocation, -450);
 
 
@@ -93,49 +94,18 @@ CMinion::~CMinion()
 {
 }
 
-
-
-/**
-* Load an image into a bitmap
-* \param image Image pointer to load
-* \param name Filename to load from
-*/
-void CMinion::LoadImage(std::unique_ptr<Gdiplus::Bitmap> &image, std::wstring name)
-{
-	wstring filename = ImagesDirectory + name;
-	image = unique_ptr<Bitmap>(Bitmap::FromFile(filename.c_str()));
-	if (image->GetLastStatus() != Ok)
-	{
-		wstring msg(L"Failed to open ");
-		msg += filename;
-		AfxMessageBox(msg.c_str());
-	}
-}
-
-
 /**
 *  Draw our minion
 * \param graphics The graphics context to draw on
 */
+
 void CMinion::Draw(Gdiplus::Graphics *graphics)
 {
 
 	CItem::Draw(graphics);
 
-	/*
-	int wid = this->GetItemImageWidth();
-	int hit = this->GetItemImageHeight();
-
-	
-	
-
-	graphics->DrawImage(mStandardMinionImage.get(),
-		(int)(GetX() + mRunX ), (int)(GetY() + mRunY),
-		wid, hit);
-		*/
-
-
 }
+
 
 
 /**

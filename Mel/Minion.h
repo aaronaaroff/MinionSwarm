@@ -32,13 +32,6 @@ public:
 	~CMinion();
 
 
-	/**
-	* Load an image into a bitmap
-	* \param image Image pointer to load
-	* \param name Filename to load from
-	*/
-	void CMinion::LoadImage(std::unique_ptr<Gdiplus::Bitmap> &image, std::wstring name);
-
 	/**  Draw this item
 	* \param graphics The graphics context to draw on */
 	virtual void Draw(Gdiplus::Graphics *graphics) override;
@@ -49,9 +42,19 @@ public:
 	* \param visitor The visitor we accept */
 	virtual void Accept(CItemVisitor *visitor) override { visitor->VisitMinion(this); }
 
+	enum States { Jerry, Stuart, Mutant };
+
 private:
+
+	States mState = Jerry;
 	/// Default image, may change in constructor
-	std::wstring mMinionImage = L"jerry.png";
+	std::wstring mMinionJerryImage = L"jerry.png";
+
+	/// Default image, may change in constructor
+	std::wstring mMinionStuartImage = L"stuart.png";
+
+	/// Default image, may change in constructor
+	std::wstring mMutantImage = L"mutant.png";
 
 	/// Number of points that a minion is worth
 	int mPoints = 0;
