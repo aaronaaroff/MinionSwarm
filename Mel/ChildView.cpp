@@ -40,8 +40,7 @@ using namespace Gdiplus;
 using namespace std;
 
 // CChildView
-FontFamily fontFamily(L"Arial");
-Gdiplus::Font font(&fontFamily, 200);
+
 
 CChildView::CChildView()
 {
@@ -162,19 +161,10 @@ void CChildView::OnPaint()
 	long long diff = time.QuadPart - mLastTime;
 	double elapsed = double(diff) / mTimeFreq;
 	mLastTime = time.QuadPart;
-	
-	if (mGame.GetGameOver() == false)
-	{
-
-		SolidBrush yellow(Color(0, 20, 0));
-		graphics.DrawString(L"Gru is Dead!",  // String to draw
-			-1,         // String length, -1 means it figures it out on its own
-			&font,      // The font to use
-			PointF(500, 500),   // Where to draw (top left corner)
-			&yellow);    // The brush to draw the text with
-	}
 
 	mGame.Update(elapsed);
+
+
 }
 
 
