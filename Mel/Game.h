@@ -72,6 +72,8 @@ public:
 
 	std::shared_ptr<CItem> HitTest(int x, int y);
 
+	void Remove(std::shared_ptr<CItem> grabbedItem);
+
 	void Clear();
 
 	virtual void Update(double elapsed);
