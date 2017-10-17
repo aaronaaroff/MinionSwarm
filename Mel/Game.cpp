@@ -22,6 +22,9 @@ const static int Width = 1400;
 /// Game area height in virtual pixels
 const static int Height = 1100;
 
+FontFamily fontFamily(L"Arial");
+Gdiplus::Font font(&fontFamily, 16);
+
 /**
  * Constructor
  */
@@ -147,6 +150,12 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 		item->Draw(graphics);
 	}
 
+	//if (mGame.GetGameOver() == true)
+	//{
+
+	SolidBrush green(Color(0, 64, 0));
+	graphics->DrawString(L"Under the Sea!", -1, &font, PointF(0, 0), &green);
+	//}
 
 }
 
