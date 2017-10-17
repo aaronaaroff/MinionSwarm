@@ -11,6 +11,7 @@
 #include "MainFrm.h"
 #include "ItemVisitor.h"
 #include "DeleteItem.h"
+#include "TimerVisitor.h"
 #include "Timer.h"
 
 using namespace std;
@@ -152,6 +153,9 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 
 	//if (mGame.GetGameOver() == true)
 	//{
+
+	CTimerVisitor stopClock;
+	this->Accept(&stopClock);
 
 	SolidBrush green(Color(0, 64, 0));
 	graphics->DrawString(L"Under the Sea!", -1, &font, PointF(0, 0), &green);

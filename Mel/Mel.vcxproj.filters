@@ -90,6 +90,9 @@
     <ClInclude Include="MinionVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TimerVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mel.cpp">
@@ -153,6 +156,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MinionVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerVisitor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

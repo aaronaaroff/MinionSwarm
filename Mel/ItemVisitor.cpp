@@ -11,7 +11,4 @@ CItemVisitor::~CItemVisitor()
 {
 }
 
-void CItemVisitor::VisitMinion(CMinion *minion)
-{
 
-}
