@@ -207,6 +207,7 @@
     <ClInclude Include="TimerVisitor.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Villain.h" />
+    <ClInclude Include="VillainVisitor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AryaStark.cpp" />
@@ -236,6 +237,7 @@
     <ClCompile Include="TimerVisitor.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Villain.cpp" />
+    <ClCompile Include="VillainVisitor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Mel.rc" />

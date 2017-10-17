@@ -70,18 +70,16 @@ std::shared_ptr<CItem> CGame::HitTest(int x, int y)
 }
 
 
-/*
-void CAquarium::Remove(std::shared_ptr<CItem> grabbedItem)
+
+void CGame::Remove(std::shared_ptr<CItem> grabbedItem)
 {
 	auto loc = find(begin(mItems), end(mItems), grabbedItem);
 	if (loc != end(mItems))
 	{
 		mItems.erase(loc);
 	}
+}
 
-
-	}
-*/
 
 
 /**
