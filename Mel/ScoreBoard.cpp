@@ -108,3 +108,8 @@ void CScoreBoard::reset()
 	mPokeBallScore = 0;
 
 }
+
+void CScoreBoard::Update(double elapsed)
+{
+
+}

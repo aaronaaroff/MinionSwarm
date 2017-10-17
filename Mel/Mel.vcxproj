@@ -195,6 +195,7 @@
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Mel.h" />
     <ClInclude Include="Minion.h" />
+    <ClInclude Include="MinionVisitor.h" />
     <ClInclude Include="NewGame.h" />
     <ClInclude Include="PlayingArea.h" />
     <ClInclude Include="PokeBall.h" />
@@ -219,6 +220,7 @@
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="Mel.cpp" />
     <ClCompile Include="Minion.cpp" />
+    <ClCompile Include="MinionVisitor.cpp" />
     <ClCompile Include="NewGame.cpp" />
     <ClCompile Include="PlayingArea.cpp" />
     <ClCompile Include="PokeBall.cpp" />

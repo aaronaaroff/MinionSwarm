@@ -44,6 +44,12 @@ public:
 
 	enum States { Jerry, Stuart, Mutant };
 
+	/** Gets Minion Point Value */
+	int getPoints() { return mPoints; }
+
+	/** Gets Minion Touch Status */
+	bool getTouched() { return mTouched; }
+
 private:
 
 	States mState = Jerry;
@@ -74,7 +80,7 @@ private:
 	double mRunY = 0;
 
 	///If the Minion has been touched by a villain or not
-	bool touched = false;
+	bool mTouched = false;
 
 	CVector mGruCoords;
 
