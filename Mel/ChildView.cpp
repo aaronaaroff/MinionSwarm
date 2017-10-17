@@ -19,6 +19,7 @@
 #include "Blender.h"
 #include "PokeBall.h"
 #include "Timer.h"
+#include "Scoreboard.h"
 
 
 #ifdef _DEBUG
@@ -107,6 +108,9 @@ void CChildView::OnPaint()
 		auto newTimer = make_shared<CTimer>(&mGame);
 		mGame.Add(newTimer);
 
+		
+		
+
 		auto newgame = make_shared<CNewGame>(&mGame);
 		newgame->SetLocation(-650, -500);
 		mGame.Add(newgame);
@@ -161,6 +165,7 @@ void CChildView::OnPaint()
 	
 	if (mGame.GetGameOver() == false)
 	{
+
 		SolidBrush yellow(Color(0, 20, 0));
 		graphics.DrawString(L"Gru is Dead!",  // String to draw
 			-1,         // String length, -1 means it figures it out on its own

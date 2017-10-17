@@ -22,6 +22,8 @@ public:
 
 	void OnDraw(Gdiplus::Graphics *graphics);
 
+	void reset();
+
 private:
 
 	/// Arya Starks Score

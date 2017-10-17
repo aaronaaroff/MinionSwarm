@@ -94,6 +94,8 @@ public:
 
 	void ResetGame();
 
+	void resetScoreboared() { mScoreBoard.reset(); }
+
 
 
 

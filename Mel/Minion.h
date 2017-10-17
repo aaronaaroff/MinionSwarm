@@ -70,6 +70,9 @@ private:
 	// Distance that the minion has run in the y direction
 	double mRunY = 0;
 
+	///If the Minion has been touched by a villain or not
+	bool touched = false;
+
 	CVector mGruCoords;
 
 };

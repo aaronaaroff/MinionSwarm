@@ -53,6 +53,7 @@ void CGru::LoadImage(std::unique_ptr<Gdiplus::Bitmap> &image, std::wstring name)
 */
 void CGru::Update(double elapsed)
 {
+	
 	/* will call the virtual pixel coordinates
 	* to determine if gru is on a border. If he is either
 	* keep setting his location to the border or

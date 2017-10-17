@@ -52,12 +52,14 @@ public:
 	}
 
 	/**
-	* Function that will keep gru in the gamespace
+	* Function that will keep gru in the gamespace and update if he is alive or not
 	* \param elapsed elpased time since last update
 	*/
 	void CGru::Update(double elapsed);
 
 private:
+	///Bool to show if Gru is Alive or not
+	bool mAlive = true;
 
 };
 

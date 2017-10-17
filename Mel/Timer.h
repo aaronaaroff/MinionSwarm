@@ -53,11 +53,19 @@ public:
 	* Function that adds the elpased time from game 
 	* to the timer to eliminate the use of a second
 	* clock call
+	* If clock is not active, no time is added to timer
 	* \param elapsed Elapsed time in ms
 	*/
 	void Update(double elapsed)
 	{
-		mElapsedTime += elapsed;
+		if (mActive)
+		{
+			mElapsedTime += elapsed;
+		}
+		else
+		{
+			mElapsedTime += 0;
+		}
 	}
 
 
@@ -65,11 +73,18 @@ public:
 	* \param graphics The graphics context to draw on */
 	virtual void Draw(Gdiplus::Graphics *graphics) override;
 
+	/** Setter for mActive
+	*\param bool active to see if it is active or not */
+	void setActive(bool isActive) { mActive = isActive; }
+
 private:
 
 	long mStartTime; ///< Time that the game was started
 
 	double mElapsedTime = 0; ///< Time that has elapsed since the start
+
+	/// to See if the Timer is Active or Not
+	bool mActive = true;
 
 };
 

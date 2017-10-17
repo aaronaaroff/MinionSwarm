@@ -75,7 +75,7 @@ void CScoreBoard::OnDraw(Gdiplus::Graphics *graphics)
 
 	// Set the font attributes
 	FontFamily fontFamily(L"Arial");
-	Gdiplus::Font font(&fontFamily, 12);
+	Gdiplus::Font font(&fontFamily, 18);
 
 	// Draws the time in the timer rectangle
 	SolidBrush green(Color(0, 128, 0));
@@ -98,5 +98,13 @@ void CScoreBoard::OnDraw(Gdiplus::Graphics *graphics)
 		&font,      // The font to use
 		PointF(scoreXLocation, pokeBallScoreYLocation),   // Where to draw (top left corner)
 		&green);    // The brush to draw the text with
+
+}
+
+void CScoreBoard::reset()
+{
+	mAryaScore = 0;
+	mBlenderScore = 0;
+	mPokeBallScore = 0;
 
 }
