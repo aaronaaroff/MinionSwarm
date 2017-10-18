@@ -28,7 +28,7 @@ public:
 
 	void Update(double elapsed);
 
-	void UpdateScore(CVillain * villian, CMinion * minion); 
+	void UpdateScore(CVillain * villian, CMinion * minion);
 
 private:
 

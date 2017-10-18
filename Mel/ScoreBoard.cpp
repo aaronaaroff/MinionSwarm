@@ -117,6 +117,7 @@ void CScoreBoard::Update(double elapsed)
 	//Call Add to score 
 }
 
+
 void CScoreBoard::UpdateScore(CVillain * villian, CMinion * minion)
 {
 	AddToScore(minion->getPoints(), villian->getMultiplier());

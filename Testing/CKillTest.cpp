@@ -6,6 +6,7 @@
 #include "PokeBall.h"
 #include "Blender.h"
 #include "AryaStark.h"
+#include "Game.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;

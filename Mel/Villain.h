@@ -9,10 +9,8 @@
 
 #pragma once
 #include "Gdiplus.h"
-#include "Game.h"
+//#include "Game.h"
 #include "Item.h"
-
-
 #include <memory>
 
 
