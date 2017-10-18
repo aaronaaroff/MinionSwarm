@@ -200,8 +200,15 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 	CTimerVisitor stopClock;
 	this->Accept(&stopClock);
 
-	SolidBrush green(Color(0, 64, 0));
-	graphics->DrawString(L"Under the Sea!", -1, &font, PointF(0, 0), &green);
+
+	// Set the font attributes
+	FontFamily fontFamily(L"Arial");
+	Gdiplus::Font font(&fontFamily, 64);
+
+	
+
+	SolidBrush green(Color(255, 255, 0));
+	graphics->DrawString(L"Gru is Dead!", -1, &font, PointF(-220,-32), &green);
 	//}
 
 }
