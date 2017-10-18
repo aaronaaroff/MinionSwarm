@@ -58,6 +58,8 @@ public:
 
 	CGame();
 
+	//void Populate();
+
 	bool GetResetGameStatus() { return mResetGameStatus; }
 
 	void SetResetGameStatus(bool status) { mResetGameStatus = status; }
@@ -65,10 +67,6 @@ public:
 	virtual ~CGame();
 
 	void Add(std::shared_ptr<CItem> item);
-
-	//void Add(std::shared_ptr<CItem> item);
-
-	//void Remove(std::shared_ptr<CItem> grabbedItem);
 
 	std::shared_ptr<CItem> HitTest(int x, int y);
 

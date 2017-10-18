@@ -7,12 +7,22 @@
 #include "stdafx.h"
 #include <memory>
 #include "Game.h"
+#include "Item.h"
 #include "Minion.h"
 #include "MainFrm.h"
 #include "ItemVisitor.h"
 #include "DeleteItem.h"
 #include "TimerVisitor.h"
 #include "Timer.h"
+#include "AryaStark.h"
+#include "Blender.h"
+#include "PokeBall.h"
+#include "Gru.h"
+#include "Villain.h"
+#include "ScoreBoard.h"
+#include "NewGame.h"
+#include "ChildView.h"
+
 
 using namespace std;
 using namespace Gdiplus;
@@ -155,8 +165,15 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 	CTimerVisitor stopClock;
 	this->Accept(&stopClock);
 
-	SolidBrush green(Color(0, 64, 0));
-	graphics->DrawString(L"Under the Sea!", -1, &font, PointF(0, 0), &green);
+
+	// Set the font attributes
+	FontFamily fontFamily(L"Arial");
+	Gdiplus::Font font(&fontFamily, 64);
+
+	
+
+	SolidBrush green(Color(255, 255, 0));
+	graphics->DrawString(L"Gru is Dead!", -1, &font, PointF(-220,-32), &green);
 	//}
 
 }
@@ -178,7 +195,6 @@ void CGame::ResetGame()
 	Clear();
 	mResetGameStatus = true;
 	// ReScoreboard();
-	// ResetTimer()
 	//No scoreboard support right now on the reset game
 }
 
@@ -192,3 +208,45 @@ void CGame::DeleteItem(std::shared_ptr<CItem> item)
 		mItems.erase(loc);
 	}
 }*/
+
+/*
+void CGame::Populate()
+{
+	mGame.SetResetGameStatus(false);
+
+	std::shared_ptr<CTimer> newTimer(game);
+	Add(newTimer);
+
+	std::shared_ptr<CNewGame> newgame(game);
+	newgame->SetLocation(-650, -500);
+	Add(newgame);
+
+	std::shared_ptr<CGru> gru(game);
+	Add(gru);
+
+	std::shared_ptr<CPokeBall> pokeBall(game);
+	pokeBall->SetLocation(350.0, -250.0);
+	Add(pokeBall);
+
+	std::shared_ptr<CAryaStark> arya(game);
+	arya->SetLocation(0.0, 300.0);
+	Add(arya);
+
+	std::shared_ptr<CBlender> blender(game);
+	blender->SetLocation(-350.0, -250.0);
+	Add(blender);
+
+	std::shared_ptr<CPokeBall> scorePokeBall(game);
+	scorePokeBall->SetLocation(750.0, 100.0);
+	Add(scorePokeBall);
+
+	std::shared_ptr<CAryaStark> scoreArya(game);
+	scoreArya->SetLocation(750.0, -300.0);
+	Add(scoreArya);
+
+	std::shared_ptr<CBlender> scoreBlender(game);
+	scoreBlender->SetLocation(750.0, -100.0);
+	Add(scoreBlender);
+
+}
+*/

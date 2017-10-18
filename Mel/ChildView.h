@@ -20,7 +20,7 @@ class CChildView : public CWnd
 public:
 	CChildView();
 private:
-	CGame mGame; ///< The game class
+	CGame *mGame; ///< The game class
 
 	/// True until the first time we draw
 	bool mFirstDraw = true;

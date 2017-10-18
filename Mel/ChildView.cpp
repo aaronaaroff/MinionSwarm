@@ -64,6 +64,7 @@ END_MESSAGE_MAP()
 
 
 
+
 /**
 * CChildView message handlers
 * \param cs
@@ -96,50 +97,50 @@ void CChildView::OnPaint()
 	CRect rect;
 	GetClientRect(&rect);
 
-	mGame.OnDraw(&graphics, rect.Width(), rect.Height());
-	if (mFirstDraw || mGame.GetResetGameStatus())
+	mGame->OnDraw(&graphics, rect.Width(), rect.Height());
+	if (mFirstDraw || mGame->GetResetGameStatus())
 	{
 
 		mFirstDraw = false;
-		mGame.SetResetGameStatus(false);
+		
 		SetTimer(1, FrameDuration, nullptr);
 
-		auto newTimer = make_shared<CTimer>(&mGame);
-		mGame.Add(newTimer);
 
-		
-		
+		mGame->SetResetGameStatus(false);
 
-		auto newgame = make_shared<CNewGame>(&mGame);
+		std::shared_ptr<CTimer> newTimer(mGame);
+		mGame->Add(newTimer);
+
+		std::shared_ptr<CNewGame> newgame(mGame);	
 		newgame->SetLocation(-650, -500);
-		mGame.Add(newgame);
+		mGame->Add(newgame);
 
-		auto gru = make_shared<CGru>(&mGame);
-		mGame.Add(gru);
+		std::shared_ptr<CGru> gru(&mGame);
+		mGame->Add(gru);
 
-		auto pokeBall = make_shared<CPokeBall>(&mGame);
+		std::shared_ptr<CPokeBall> pokeBall(&mGame);
 		pokeBall->SetLocation(350.0, -250.0);
-		mGame.Add(pokeBall);
+		mGame->Add(pokeBall);
 
-		auto arya = make_shared<CAryaStark>(&mGame);
+		std::shared_ptr<CAryaStark> arya(&mGame);
 		arya->SetLocation(0.0, 300.0);
-		mGame.Add(arya);
+		mGame->Add(arya);
 
-		auto blender = make_shared<CBlender>(&mGame);
+		std::shared_ptr<CBlender> blender(&mGame);
 		blender->SetLocation(-350.0, -250.0);
-		mGame.Add(blender);
+		mGame->Add(blender);
 
-		auto scorePokeBall = make_shared<CPokeBall>(&mGame);
+		std::shared_ptr<CPokeBall> scorePokeBall(&mGame);
 		scorePokeBall->SetLocation(750.0, 100.0);
-		mGame.Add(scorePokeBall);
+		mGame->Add(scorePokeBall);
 
-		auto scoreArya = make_shared<CAryaStark>(&mGame);
+		std::shared_ptr<CAryaStark> scoreArya(&mGame);
 		scoreArya->SetLocation(750.0, -300.0);
-		mGame.Add(scoreArya);
+		mGame->Add(scoreArya);
 
-		auto scoreBlender = make_shared<CBlender>(&mGame);
+		std::shared_ptr<CBlender> scoreBlender(&mGame);
 		scoreBlender->SetLocation(750.0, -100.0);
-		mGame.Add(scoreBlender);
+		mGame->Add(scoreBlender);
 
 
 		/*
@@ -162,7 +163,7 @@ void CChildView::OnPaint()
 	double elapsed = double(diff) / mTimeFreq;
 	mLastTime = time.QuadPart;
 
-	mGame.Update(elapsed);
+	mGame->Update(elapsed);
 
 
 }
@@ -191,12 +192,12 @@ BOOL CChildView::OnEraseBkgnd(CDC* pDC)
 void CChildView::OnLButtonDown(UINT nFlags, CPoint point)
 {
 
-	mGrabbedItem = mGame.HitTest(point.x, point.y);
+	mGrabbedItem = mGame->HitTest(point.x, point.y);
 	if (mGrabbedItem != nullptr && mGrabbedItem->IsMovable() != true)
 	{
 		if (mGrabbedItem->IsNewGame())
 		{
-			mGame.ResetGame();
+			mGame->ResetGame();
 		}
 		mGrabbedItem = nullptr;
 
@@ -231,8 +232,8 @@ void CChildView::OnMouseMove(UINT nFlags, CPoint point)
 	{
 
 		// Varibles for the virtual location of the grabbed item
-		int virtualX = mGame.GetVirtualX(point.x);
-		int virtualY = mGame.GetVirtualY(point.y);
+		int virtualX = mGame->GetVirtualX(point.x);
+		int virtualY = mGame->GetVirtualY(point.y);
 
 
 		// If an item is being moved, we only continue to 
