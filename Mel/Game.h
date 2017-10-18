@@ -102,6 +102,7 @@ public:
 
 
 	bool GetGameOver() { return mGameOver; }
+
 	void SetGameOver(bool status) { mGameOver = status; }
 };
 

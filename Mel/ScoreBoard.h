@@ -24,6 +24,8 @@ public:
 
 	void reset();
 
+	void Update(double elapsed);
+
 private:
 
 	/// Arya Starks Score

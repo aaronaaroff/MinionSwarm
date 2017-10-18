@@ -26,7 +26,7 @@ public:
 
 	/** Visit a CMinion object
 	* \param minion minion we are visiting */
-	virtual void VisitMinion(CMinion *minion);
+	virtual void VisitMinion(CMinion *minion) {}
 
 	/** Visit a CGru object
 	* \param gru gru we are visiting */

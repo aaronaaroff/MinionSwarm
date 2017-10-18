@@ -87,6 +87,12 @@
     <ClInclude Include="DeleteItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MinionVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="VillainVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -150,9 +156,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DeleteItem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VillainVisitor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
