@@ -6,10 +6,17 @@
 
 #include "stdafx.h"
 #include <memory>
+#include <vector>
 #include "Game.h"
+#include "Item.h"
+#include "Gru.h"
+#include "Villain.h"
 #include "Minion.h"
 #include "MainFrm.h"
-#include "ItemVisitor.h"
+#include "DeleteItem.h"
+#include "MinionVisitor.h"
+#include "VillainVisitor.h"
+#include "GetGruCoords.h"
 #include "DeleteItem.h"
 #include "TimerVisitor.h"
 #include "Timer.h"
@@ -104,6 +111,44 @@ void CGame::Update(double elapsed)
 		mTimeSpawn = 0;
 	}
 
+	
+	CDeleteItem vis;
+	Accept(&vis);
+
+	CVillainVisitor vis2;
+	Accept(&vis2);
+
+	for (CVillain* villain : vis2.getMinions())
+	{
+		for (auto minion : vis.getMinions()) {
+			if (villain->HitTest(minion->GetX(), minion->GetY())) {
+				for (auto loc = mItems.begin(); loc != mItems.end(); loc++)
+				{
+					if (loc->get() == minion)
+					{
+						mItems.erase(loc);
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	CGetGruCoords vis3;
+	Accept(&vis3);
+
+	for (auto minion : vis.getMinions()) {
+		if (vis3.GetGru()->HitTest(minion->GetX(), minion->GetY())) {
+			for (auto loc = mItems.begin(); loc != mItems.end(); loc++)
+			{
+				if (loc->get() == minion)
+				{
+					mItems.erase(loc);
+					break;
+				}
+			}
+		}
+	}
 
 	for (auto item : mItems)
 	{

@@ -15,4 +15,5 @@ void CGetGruCoords::VisitGru(CGru * gru)
 {
 	CVector ret = CVector(gru->GetX(), gru->GetY());
 	mGruCoords = ret;
+	mGru = gru;
 }

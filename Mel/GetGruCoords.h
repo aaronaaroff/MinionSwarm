@@ -23,6 +23,9 @@ public:
 
 	CVector GetCoords() const { return mGruCoords; }
 
+	CGru * GetGru() { return mGru; }
+
+	CGru *mGru;
 private:
 	CVector mGruCoords;
 };
