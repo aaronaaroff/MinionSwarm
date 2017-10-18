@@ -40,6 +40,8 @@ public:
 
 	int GetPoints() { return mPoints; }
 
+	int getMultiplier() { return mPointMultiplier; }
+
 protected:
 	/**
 	* Constructor

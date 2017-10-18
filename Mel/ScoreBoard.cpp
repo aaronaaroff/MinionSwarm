@@ -116,3 +116,9 @@ void CScoreBoard::Update(double elapsed)
 	//Then get villain who killed minion point multiplier
 	//Call Add to score 
 }
+
+void CScoreBoard::UpdateScore(CVillain * villian, CMinion * minion)
+{
+	AddToScore(minion->getPoints(), villian->getMultiplier());
+
+}

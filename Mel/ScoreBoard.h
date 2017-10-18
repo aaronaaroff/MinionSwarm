@@ -7,6 +7,8 @@
  */
 
 #pragma once
+#include "Villain.h"
+#include "Minion.h"
 
 
 /**
@@ -25,6 +27,8 @@ public:
 	void reset();
 
 	void Update(double elapsed);
+
+	void UpdateScore(CVillain * villian, CMinion * minion); 
 
 private:
 
