@@ -13,7 +13,7 @@ using namespace std;
 using namespace Gdiplus;
 
 /// X Location for all Score Board Trackers
-const int scoreXLocation = 650;
+const int scoreXLocation = 550;
 
 ///Y Locations for different Villains Score Board Trackers
 const int aryaScoreYLocation = -300;

@@ -130,15 +130,15 @@ void CChildView::OnPaint()
 		mGame.Add(blender);
 
 		auto scorePokeBall = make_shared<CPokeBall>(&mGame);
-		scorePokeBall->SetLocation(750.0, 100.0);
+		scorePokeBall->SetLocation(575.0, 50.0);
 		mGame.Add(scorePokeBall);
 
 		auto scoreArya = make_shared<CAryaStark>(&mGame);
-		scoreArya->SetLocation(750.0, -300.0);
+		scoreArya->SetLocation(575.0, -375.0);
 		mGame.Add(scoreArya);
 
 		auto scoreBlender = make_shared<CBlender>(&mGame);
-		scoreBlender->SetLocation(750.0, -100.0);
+		scoreBlender->SetLocation(575.0, -200.0);
 		mGame.Add(scoreBlender);
 
 
