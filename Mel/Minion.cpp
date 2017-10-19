@@ -31,8 +31,29 @@ const int MinionSpeed = 100;
 /// Y offset 
 const int OffsetUp = -450;
 
+/// Cohesion weight
+const double C_WEIGHT = 1;
 
+/// Separation weight
+const double S_WEIGHT = 3;
 
+/// Alignment weight
+const double A_WEIGHT = 5;
+
+/// Attraction weight
+const double G_WEIGHT = 10;
+
+/// Mutant rate
+const double M_WEIGHT = .85;
+
+/// Normal Minion rate
+const double NORM_WEIGHT = M_WEIGHT / 2;
+
+/// Mutant points
+const int MUTANT_POINT = 2;
+
+/// Normal minion points
+const int NORMAL_POINT = 1;
 
 /** Constructor
 * \param city The city this is a member of
@@ -40,30 +61,24 @@ const int OffsetUp = -450;
 CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 {
 	double randomVariable = (double)rand() / RAND_MAX;
-	if (randomVariable > .85)
+	if (randomVariable > M_WEIGHT)
 	{
 		mState = Mutant;
-		mSpeedX = MutantSpeed;
-		mSpeedY = MutantSpeed;
 		mMinionSpeed = MutantSpeed;
-		mPoints = 2;
+		mPoints = MUTANT_POINT;
 
 	}
-	else if (randomVariable > .5)
+	else if (randomVariable > NORM_WEIGHT)
 	{
 		mState = Stuart;
-		mSpeedX = MinionSpeed;
-		mSpeedY = MinionSpeed;
 		mMinionSpeed = MinionSpeed;
-		mPoints = 1;
+		mPoints = NORMAL_POINT;
 	}
 	else
 	{
 		mState = Jerry;
-		mSpeedX = MinionSpeed;
-		mSpeedY = MinionSpeed;
 		mMinionSpeed = MinionSpeed;
-		mPoints = 1;
+		mPoints = NORMAL_POINT;
 
 	}
 
@@ -159,7 +174,7 @@ void CMinion::Update(double elapsed)
 		gruV = CVector(0, 0);
 	}
 
-	mV = cv * 1 + sv * 3 + av * 5 + gruV * 10;
+	mV = cv * C_WEIGHT + sv * S_WEIGHT + av * A_WEIGHT + gruV * G_WEIGHT;
 	mV.Normalize();
 
 	mV *= MinionSpeed;

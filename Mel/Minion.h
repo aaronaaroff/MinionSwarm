@@ -79,12 +79,6 @@ private:
 	/// Number of points that a minion is worth
 	int mPoints = 0;
 
-	/// Speed that the minion will be traveling at
-	double mSpeedX = 0;
-
-	/// Speed that the minion will be traveling at
-	double mSpeedY = 0;
-
 	/// Velocity vector
 	CVector mV;
 
