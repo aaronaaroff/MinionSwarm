@@ -60,6 +60,12 @@ void CGame::Add(std::shared_ptr<CItem> item)
 }
 
 
+/**
+ * Performs hit test and returns item if you clicked on one
+ * \param x coords
+ * \param y coords
+ * \returns nullptr if no click on item, else a pointer to the item
+ */
 std::shared_ptr<CItem> CGame::HitTest(int x, int y)
 {
 
@@ -72,12 +78,15 @@ std::shared_ptr<CItem> CGame::HitTest(int x, int y)
 			return *i;
 		}
 	}
-
 	return nullptr;
 }
 
 
 
+/**
+ * Removes an item from mItems
+ * \param grabbedItem item to remove
+ */
 void CGame::Remove(std::shared_ptr<CItem> grabbedItem)
 {
 	auto loc = find(begin(mItems), end(mItems), grabbedItem);
@@ -121,10 +130,12 @@ void CGame::Update(double elapsed)
 	{
 		item->Update(elapsed);
 	}
-
-
 }
 
+
+/**
+ * Function that kills the minions touching villains
+ */
 void CGame::KillMinions()
 {
 	CDeleteItem vis;
@@ -142,7 +153,7 @@ void CGame::KillMinions()
 					if (loc->get() == minion)
 					{
 						mItems.erase(loc);
-						break;
+						return;
 					}
 				}
 			}
@@ -150,6 +161,10 @@ void CGame::KillMinions()
 	}
 }
 
+
+/**
+ * Function that kills Gru if he's touching minion or villain
+ */
 void CGame::KillGru() 
 {
 	CDeleteItem vis;
@@ -266,14 +281,3 @@ void CGame::ResetGame()
 	// ResetTimer()
 	//No scoreboard support right now on the reset game
 }
-
-
-/*
-void CGame::DeleteItem(std::shared_ptr<CItem> item)
-{
-	auto loc = find(::begin(mItems), ::end(mItems), item);
-	if (loc != ::end(mItems))
-	{
-		mItems.erase(loc);
-	}
-}*/

@@ -6,9 +6,6 @@
 * Class that handles Gru and his properties
 */
 
-
-
-
 #pragma once
 #include "Item.h"
 #include "ItemVisitor.h"

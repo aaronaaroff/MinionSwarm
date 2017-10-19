@@ -32,7 +32,4 @@ public:
 	CBlender(const CBlender &) = delete;
 
 	virtual  ~CBlender();
-
-
-
 };

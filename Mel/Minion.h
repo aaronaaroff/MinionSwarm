@@ -52,7 +52,8 @@ public:
 
 private:
 
-	States mState = Jerry;
+	States mState = Jerry; ///<state of the minion
+
 	/// Default image, may change in constructor
 	std::wstring mMinionJerryImage = L"jerry.png";
 
@@ -68,13 +69,14 @@ private:
 	/// Speed that the minion will be traveling at
 	double mSpeedX = 0;
 
+	/// Speed that the minion will be traveling at
 	double mSpeedY = 0;
 
+	/// Speed that the minion will be traveling at
 	double mMinionSpeed = 0;
 
 	/// Distance that the minion has run in X direction
 	double mRunX = 0;
-
 
 	// Distance that the minion has run in the y direction
 	double mRunY = 0;
@@ -82,7 +84,7 @@ private:
 	///If the Minion has been touched by a villain or not
 	bool mTouched = false;
 
-	CVector mGruCoords;
+	CVector mGruCoords; ///< current coords of gru
 
 };
 

@@ -12,6 +12,10 @@
 #include "ItemVisitor.h"
 #include "Game.h"
 
+
+/**
+ * Visitor to generate list of minions
+ */
 class CDeleteItem :
 	public CItemVisitor
 {

@@ -1,4 +1,3 @@
-
 /**
 * \file AryaStark.h
 *
@@ -33,7 +32,4 @@ public:
 	CAryaStark(const CAryaStark &) = delete;
 
 	virtual  ~CAryaStark();
-
-
-
 };
