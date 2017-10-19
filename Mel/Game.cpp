@@ -275,6 +275,7 @@ void CGame::ResetGame()
 {
 	Clear();
 	mResetGameStatus = true;
+	mGameOver = false;
 	// ReScoreboard();
 	// ResetTimer()
 	//No scoreboard support right now on the reset game
