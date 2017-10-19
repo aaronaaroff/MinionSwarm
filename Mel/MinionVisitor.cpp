@@ -15,6 +15,4 @@ CMinionVisitor::~CMinionVisitor()
 void CMinionVisitor::VisitMinion(CMinion * minion)
 {
 	int mMinionPoints = (*minion).getPoints();
-
-
 }

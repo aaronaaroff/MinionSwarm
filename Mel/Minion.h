@@ -13,6 +13,7 @@
 #pragma once
 
 #include "Item.h"
+#include "Vector.h"
 
 /**
 * Class that will handle the new minions
@@ -50,6 +51,18 @@ public:
 	/** Gets Minion Touch Status */
 	bool getTouched() { return mTouched; }
 
+	/** Get velocity vector */
+	CVector getV() { return mV; }
+
+	/**
+	* Function that returns whether or not item can be moved
+	* \returns bool
+	*/
+	bool InZone()
+	{
+		return true;
+	}
+
 private:
 
 	States mState = Jerry; ///<state of the minion
@@ -71,6 +84,9 @@ private:
 
 	/// Speed that the minion will be traveling at
 	double mSpeedY = 0;
+
+	/// Velocity vector
+	CVector mV;
 
 	/// Speed that the minion will be traveling at
 	double mMinionSpeed = 0;

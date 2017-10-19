@@ -48,6 +48,16 @@ public:
 		return true;
 	}
 
+
+	/**
+	* Function that returns whether or not item can be moved
+	* \returns bool
+	*/
+	bool InZone()
+	{
+		return true;
+	}
+
 	/**
 	* Function that will keep gru in the gamespace and update if he is alive or not
 	* \param elapsed elpased time since last update

@@ -9,6 +9,7 @@
 #include "Minion.h"
 #include "Vector.h"
 #include "GetGruCoords.h"
+#include "FlockingVisitor.h"
 #include "Game.h"
 
 using namespace std;
@@ -120,11 +121,56 @@ void CMinion::Update(double elapsed)
 	mGame->Accept(&visitor);
 
 	CVector gruLoc = visitor.GetCoords();
-	gruLoc *= -1;
 	CVector minionLoc = CVector(GetX(), GetY());
 
-	CVector travelVector = gruLoc + minionLoc;
-	travelVector = travelVector.Normalize();
+	CFlockingVisitor flocka = CFlockingVisitor(minionLoc, mV);
+	mGame->Accept(&flocka);
+
+	// Cohesion
+	CVector cv;
+	CVector cohesionCenter = flocka.Cohesion();
+	cv = cohesionCenter - minionLoc;
+	double l = cv.Length();
+	if (l > 0)
+	{
+		cv /= l;
+	}
+	
+	// Separation
+	CVector sv = minionLoc - flocka.Closest();
+	sv.Normalize();
+
+	// Alignment
+	CVector av = flocka.AlignmentAvg();
+	if (av.Length() > 0)
+	{
+		av.Normalize();
+	}
+
+	// Attraction
+	CVector gruV = gruLoc - minionLoc;
+	if (gruV.Length() > 0)
+	{
+		gruV.Normalize();
+	}
+
+	if (!visitor.Exists())
+	{
+		gruV = CVector(0, 0);
+	}
+
+	mV = cv * 1 + sv * 3 + av * 5 + gruV * 10;
+	mV.Normalize();
+
+	mV *= MinionSpeed;
+	CVector newP = minionLoc + mV * elapsed;
+
+	//if (newP.X())
+	SetLocation(newP.X(), newP.Y());
+	/*
+	//gruLoc *= -1;
+	//CVector travelVector = gruLoc + minionLoc;
+	//travelVector = travelVector.Normalize();
 
 	mSpeedY = (travelVector.Y()) * -mMinionSpeed;
 	mSpeedX = (travelVector.X()) * -mMinionSpeed;
@@ -135,4 +181,5 @@ void CMinion::Update(double elapsed)
 	mRunY = mSpeedY * elapsed;
 
 	this->SetLocation(GetX() + mRunX, GetY() + mRunY);
+	*/
 }

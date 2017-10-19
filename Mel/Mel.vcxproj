@@ -184,6 +184,7 @@
   <ItemGroup>
     <ClInclude Include="AryaStark.h" />
     <ClInclude Include="Blender.h" />
+    <ClInclude Include="FlockingVisitor.h" />
     <ClInclude Include="ChildView.h" />
     <ClInclude Include="DeleteItem.h" />
     <ClInclude Include="DoubleBufferDC.h" />
@@ -212,6 +213,7 @@
   <ItemGroup>
     <ClCompile Include="AryaStark.cpp" />
     <ClCompile Include="Blender.cpp" />
+    <ClCompile Include="FlockingVisitor.cpp" />
     <ClCompile Include="ChildView.cpp" />
     <ClCompile Include="DeleteItem.cpp" />
     <ClCompile Include="Game.cpp" />

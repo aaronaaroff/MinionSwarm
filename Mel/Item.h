@@ -85,6 +85,16 @@ public:
 		return false;
 	}
 
+
+	/**
+	* Function that returns whether or not item can be moved
+	* \returns bool
+	*/
+	virtual bool InZone()
+	{
+		return false;
+	}
+
 	/**
 	* Function that returns whether or not item can be moved
 	* \returns bool
