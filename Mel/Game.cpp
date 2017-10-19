@@ -111,7 +111,22 @@ void CGame::Update(double elapsed)
 		mTimeSpawn = 0;
 	}
 
-	
+	KillGru();
+	if (!mGameOver)
+	{
+		KillMinions();
+	}
+
+	for (auto item : mItems)
+	{
+		item->Update(elapsed);
+	}
+
+
+}
+
+void CGame::KillMinions()
+{
 	CDeleteItem vis;
 	Accept(&vis);
 
@@ -133,29 +148,47 @@ void CGame::Update(double elapsed)
 			}
 		}
 	}
+}
+
+void CGame::KillGru() 
+{
+	CDeleteItem vis;
+	Accept(&vis);
+
+	CVillainVisitor vis2;
+	Accept(&vis2);
 
 	CGetGruCoords vis3;
 	Accept(&vis3);
+
+	if (!vis3.Exists())
+		return;
 
 	for (auto minion : vis.getMinions()) {
 		if (vis3.GetGru()->HitTest(minion->GetX(), minion->GetY())) {
 			for (auto loc = mItems.begin(); loc != mItems.end(); loc++)
 			{
-				if (loc->get() == minion)
+				if (loc->get() == vis3.GetGru())
 				{
 					mItems.erase(loc);
-					break;
+					return;
 				}
 			}
 		}
 	}
 
-	for (auto item : mItems)
-	{
-		item->Update(elapsed);
+	for (auto villain : vis2.getMinions()) {
+		if (vis3.GetGru()->HitTest(villain->GetX(), villain->GetY())) {
+			for (auto loc = mItems.begin(); loc != mItems.end(); loc++)
+			{
+				if (loc->get() == vis3.GetGru())
+				{
+					mItems.erase(loc);
+					return;
+				}
+			}
+		}
 	}
-
-
 }
 
 /**

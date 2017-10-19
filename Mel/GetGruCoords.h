@@ -23,9 +23,11 @@ public:
 
 	CVector GetCoords() const { return mGruCoords; }
 
+	bool Exists() { return mExists; }
 	CGru * GetGru() { return mGru; }
 
 	CGru *mGru;
 private:
 	CVector mGruCoords;
+	bool mExists = false;
 };

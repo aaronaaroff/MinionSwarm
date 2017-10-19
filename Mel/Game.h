@@ -78,6 +78,10 @@ public:
 
 	virtual void Update(double elapsed);
 
+	void KillMinions();
+
+	void KillGru();
+
 	void OnDraw(Gdiplus::Graphics * graphics, int width, int height);
 
 	void Accept(CItemVisitor * visitor);
