@@ -186,6 +186,7 @@ void CGame::KillGru()
 				if (loc->get() == vis3.GetGru())
 				{
 					mItems.erase(loc);
+					mGameOver = true;
 					return;
 				}
 			}
@@ -199,6 +200,7 @@ void CGame::KillGru()
 				if (loc->get() == vis3.GetGru())
 				{
 					mItems.erase(loc);
+					mGameOver = true;
 					return;
 				}
 			}
@@ -242,22 +244,18 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 		item->Draw(graphics);
 	}
 
-	//if (mGame.GetGameOver() == true)
-	//{
+	if (mGameOver == true)
+	{
+		CTimerVisitor stopClock;
+		this->Accept(&stopClock);
 
-	CTimerVisitor stopClock;
-	this->Accept(&stopClock);
+		// Set the font attributes
+		FontFamily fontFamily(L"Arial");
+		Gdiplus::Font font(&fontFamily, 64);
 
-
-	// Set the font attributes
-	FontFamily fontFamily(L"Arial");
-	Gdiplus::Font font(&fontFamily, 64);
-
-	
-
-	SolidBrush green(Color(255, 255, 0));
-	graphics->DrawString(L"Gru is Dead!", -1, &font, PointF(-220,-32), &green);
-	//}
+		SolidBrush green(Color(255, 255, 0));
+		graphics->DrawString(L"Gru is Dead!", -1, &font, PointF(-220,-32), &green);
+	}
 
 }
 

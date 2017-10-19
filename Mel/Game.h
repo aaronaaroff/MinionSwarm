@@ -52,14 +52,16 @@ private:
 	bool mResetGameStatus = false;
 
 	///True when gru dies
-	bool mGameOver = true;
+	bool mGameOver = false;
 
 public:
 
 	CGame();
 
+	///Gets status of resetgame
 	bool GetResetGameStatus() { return mResetGameStatus; }
 
+	///Sets the reset game status
 	void SetResetGameStatus(bool status) { mResetGameStatus = status; }
 
 	virtual ~CGame();
@@ -86,12 +88,14 @@ public:
 
 	void Accept(CItemVisitor * visitor);
 
+	///Gets the virtual x coordinate
 	virtual double GetVirtualX(double x)
 	{
 		x = (x - mXOffset) / mScale;
 		return x;
 	}
 
+	///Gets the virtal y coordinate
 	virtual double GetVirtualY(double y)
 	{
 		y = (y - mYOffset) / mScale;
@@ -100,6 +104,7 @@ public:
 
 	void ResetGame();
 
+	///Resets the scoreboard
 	void resetScoreboared() { mScoreBoard.reset(); }
 
 

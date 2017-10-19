@@ -23,7 +23,7 @@ public:
 	CDeleteItem();
 	virtual ~CDeleteItem();
 
-	std::vector<CMinion*> mMinions;
+	std::vector<CMinion*> mMinions; ///<Minions to return
 
 
 	/** Visit a CMinion object
@@ -35,6 +35,7 @@ public:
 		//Need to call a delete item function from minion that upcalls to Game
 	}
 
+	/// Getter for minions
 	std::vector<CMinion*> CDeleteItem::getMinions() { return mMinions; }
 };
 
