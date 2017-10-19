@@ -69,6 +69,8 @@ public:
 	/// \returns height
 	double GetItemImageHeight() { return mItemImage->GetHeight(); }
 
+	/** Gets virtual x
+	* \param img*/
 	void setImage(std::wstring img);
 
 	/** Accept a visitor
@@ -109,7 +111,9 @@ public:
 
 
 protected:
-	///Constructs
+	/** Constructor
+	* \param game
+	* \param filename */
 	CItem(CGame *game, const std::wstring &filename);
 
 	/// The game this item is contained in

@@ -21,7 +21,8 @@
 class CMinion : public CItem
 {
 public:
-
+	/** Gets virtual x
+	* \param game the game minion is in*/
 	CMinion(CGame *game);
 
 	///  Default constructor (disabled)
@@ -37,21 +38,27 @@ public:
 	* \param graphics The graphics context to draw on */
 	virtual void Draw(Gdiplus::Graphics *graphics) override;
 
+	/** Override update function
+	* \param elapsed time that has elapsed*/
 	void CMinion::Update(double elapsed);
 
 	/** Accept a visitor
 	* \param visitor The visitor we accept */
 	virtual void Accept(CItemVisitor *visitor) override { visitor->VisitMinion(this); }
 
+	/// Enum to store the state of the minion
 	enum States { Jerry, Stuart, Mutant };
 
-	/** Gets Minion Point Value */
+	/** Gets Minion Point Value
+	* \return points*/
 	int getPoints() { return mPoints; }
 
-	/** Gets Minion Touch Status */
+	/** Gets Minion Touch Status 
+	* \return touched*/
 	bool getTouched() { return mTouched; }
 
-	/** Get velocity vector */
+	/** Get velocity vector 
+	* \return velocity vector*/
 	CVector getV() { return mV; }
 
 	/**
@@ -88,7 +95,7 @@ private:
 	/// Distance that the minion has run in X direction
 	double mRunX = 0;
 
-	// Distance that the minion has run in the y direction
+	/// Distance that the minion has run in the y direction
 	double mRunY = 0;
 
 	///If the Minion has been touched by a villain or not

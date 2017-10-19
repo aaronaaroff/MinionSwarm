@@ -58,19 +58,17 @@ public:
 
 	CGame();
 
-	///Gets status of resetgame
+	/** Gets status of resetgame
+	* \return status */
 	bool GetResetGameStatus() { return mResetGameStatus; }
 
-	///Sets the reset game status
+	/** Sets status of resetgame
+	* \param status */
 	void SetResetGameStatus(bool status) { mResetGameStatus = status; }
 
 	virtual ~CGame();
 
 	void Add(std::shared_ptr<CItem> item);
-
-	//void Add(std::shared_ptr<CItem> item);
-
-	//void Remove(std::shared_ptr<CItem> grabbedItem);
 
 	std::shared_ptr<CItem> HitTest(int x, int y);
 
@@ -88,30 +86,36 @@ public:
 
 	void Accept(CItemVisitor * visitor);
 
-	///Gets the virtual x coordinate
+	/** Gets virtual x
+	* \param x
+	* \return virtual x */
 	virtual double GetVirtualX(double x)
 	{
 		x = (x - mXOffset) / mScale;
 		return x;
 	}
 
-	///Gets the virtal y coordinate
+	/** Gets virtual y
+	* \param y
+	* \return virtual y */
 	virtual double GetVirtualY(double y)
 	{
 		y = (y - mYOffset) / mScale;
 		return y;
 	}
 
+	/** Resets the game*/
 	void ResetGame();
 
-	///Resets the scoreboard
+	/** Resets the scoreboard*/
 	void resetScoreboared() { mScoreBoard.reset(); }
 
-
-
-
+	/** Gets game over status
+	* \return virtual x */
 	bool GetGameOver() { return mGameOver; }
 
+	/** Gets virtual x
+	* \param status*/
 	void SetGameOver(bool status) { mGameOver = status; }
 };
 

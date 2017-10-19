@@ -9,11 +9,8 @@
 
 #pragma once
 #include "Gdiplus.h"
-//#include "Game.h"
 #include "Item.h"
 #include <memory>
-
-
 
 /**
 * Base class for a Villain
@@ -33,20 +30,26 @@ public:
 	virtual ~CVillain();
 
 
-	///Visitor Overide for Villains
+	/** accept override
+	* \param visitor*/
 	virtual void Accept(CItemVisitor *visitor) override { visitor->VisitVillain(this); }
 
+	/** Gets points
+	* \return points*/
 	int GetPoints() { return mPoints; }
-
+	
+	/** Gets multiplier
+	* \return multiplier */
 	int getMultiplier() { return mPointMultiplier; }
 
 protected:
 	/**
 	* Constructor
-	* \param Game The Game we are in
+	* \param game The Game we are in
 	* \param filename Filename for the image we use
+	* \param pointMultiplier the multiplier
 	*/
-	CVillain::CVillain(CGame *game, const std::wstring &filename, int pointMultipler) :
+	CVillain::CVillain(CGame *game, const std::wstring &filename, int pointMultiplier) :
 		CItem(game, filename)
 	{
 		mVillainImage = std::unique_ptr<Gdiplus::Bitmap>(
@@ -55,14 +58,8 @@ protected:
 		{
 			AfxMessageBox(L"Failed to open image");
 		}
-		mPointMultiplier = pointMultipler;
-
-
-
-
+		mPointMultiplier = pointMultiplier;
 	}
-
-
 
 private:
 

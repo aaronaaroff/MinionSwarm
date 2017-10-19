@@ -41,7 +41,7 @@ public:
 	virtual void VisitVillain(CVillain *villain) {}
 
 	/** Visit a CTimer object
-	* \param villain CTimer we are visiting */
+	* \param timer CTimer we are visiting */
 	virtual void VisitTimer(CTimer *timer) {}
 
 private:

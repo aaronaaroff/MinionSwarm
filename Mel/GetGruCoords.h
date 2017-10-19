@@ -8,6 +8,7 @@
 
 #pragma once
 #include "ItemVisitor.h"
+#include "Gru.h"
 #include "Vector.h"
 
 /**
@@ -16,18 +17,30 @@
 class CGetGruCoords : public CItemVisitor
 {
 public:
+	/** Constructor */
 	CGetGruCoords();
 	~CGetGruCoords();
 
+	/** Visits gru
+	* \param gru who we're visiting */
 	void VisitGru(CGru * gru);
 
-	CVector GetCoords() const { return mGruCoords; }
+	/** Gets coords of gru
+	* \return coords */
+	CVector GetCoords() { return CVector(mGru->GetX(), mGru->GetY()); }
 
+	/** Gets status of gru
+	* \return exists */
 	bool Exists() { return mExists; }
+
+	/** Gets coords of gru
+	* \return pointer to gru */
 	CGru * GetGru() { return mGru; }
 
-	CGru *mGru;
 private:
-	CVector mGruCoords;
+	/// Pointer to gru
+	CGru *mGru;
+
+	/// If exists must be changed to true
 	bool mExists = false;
 };
