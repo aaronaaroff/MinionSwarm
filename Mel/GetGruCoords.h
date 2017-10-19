@@ -27,7 +27,11 @@ public:
 
 	/** Gets coords of gru
 	* \return coords */
-	CVector GetCoords() { return CVector(mGru->GetX(), mGru->GetY()); }
+	CVector GetCoords() { 
+		if (mExists)
+			return CVector(mGru->GetX(), mGru->GetY());
+		return CVector(0, 0);
+	}
 
 	/** Gets status of gru
 	* \return exists */
