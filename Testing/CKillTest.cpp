@@ -3,6 +3,7 @@
 #include "Gru.h"
 #include "Minion.h"
 #include "Villain.h"
+#include "DeleteItem.h"
 #include "Game.h"
 #include <stdio.h>
 #include <time.h>
@@ -78,10 +79,10 @@ namespace Testing
 
 		}
 
+
 		TEST_METHOD(TestVillainKillMinion)
 		{
 			CGame game;
-			std::vector<std::shared_ptr<CItem> > minionkill;
 
 			/*
 			* here we test the villains killing the minions
@@ -92,26 +93,45 @@ namespace Testing
 			auto arya = make_shared<CVillain>(&game, aryaName);
 			arya->SetLocation(0, 0);
 			auto minion1 = make_shared<CMinion>(&game);
-			minionkill.push_back(minion1);
 			minion1->SetLocation(0, 0);
 
-			Assert::IsTrue(minionkill.size() == 0);
+			game.Add(minion1);
+			game.Add(arya);
+			game.KillMinions();
 
+			CDeleteItem vis;
+			game.Accept(&vis);
+
+			Assert::IsTrue(vis.getMinions().size() == 0);
+
+			
 			auto ball = make_shared<CVillain>(&game, pokeBallName);
 			ball->SetLocation(100, 100);
 			auto minion2 = make_shared<CMinion>(&game);
-			minionkill.push_back(minion2);
 			minion2->SetLocation(100, 100);
 
-			Assert::IsTrue(minionkill.size() == 0);
+			game.Add(minion2);
+			game.Add(ball);
+			game.KillMinions();
+
+			CDeleteItem vis2;
+			game.Accept(&vis2);
+
+			Assert::IsTrue(vis2.getMinions().size() == 0);
 
 			auto blend = make_shared<CVillain>(&game, blendName);
 			blend->SetLocation(300, 300);
 			auto minion3 = make_shared<CMinion>(&game);
-			minionkill.push_back(minion3);
 			minion3->SetLocation(300, 300);
+			
+			game.Add(minion3);
+			game.Add(blend);
+			game.KillMinions();
 
-			Assert::IsTrue(minionkill.size() == 0);
+			CDeleteItem vis3;
+			game.Accept(&vis3);
+
+			Assert::IsTrue(vis3.getMinions().size() == 0);
 			
 		}
 
@@ -181,21 +201,35 @@ namespace Testing
 			auto minion1 = make_shared<CMinion>(&game);
 			minion1->SetLocation(0, 0);
 
-			Assert::IsTrue(arya->GetPoints() == 1 || arya->GetPoints() == 5);
+			game.Add(arya);
+			game.Add(minion1);
+			game.Update(100);
+
+			Assert::IsTrue(game.getTotalScore() == 1 || game.getTotalScore() == 15);
+
+			CGame game2;
 
 			auto ball = make_shared<CVillain>(&game, pokeBallName);
 			ball->SetLocation(100, 100);
 			auto minion2 = make_shared<CMinion>(&game);
 			minion2->SetLocation(100, 100);
 
-			Assert::IsTrue(ball->GetPoints() == 3 || ball->GetPoints() == 15);
+			game2.Add(ball);
+			game2.Add(minion2);
+			game2.Update(100);
+			Assert::IsTrue(game2.getTotalScore() == 3 || game2.getTotalScore() == 15);
 			
+			CGame game3;
+
 			auto blend = make_shared<CVillain>(&game, blendName);
 			blend->SetLocation(300, 300);
 			auto minion3 = make_shared<CMinion>(&game);
 			minion3->SetLocation(300, 300);
 
-			Assert::IsTrue(blend->GetPoints() == 2 || blend->GetPoints() == 10);
+			game3.Add(blend);
+			game3.Add(minion3);
+			game3.Update(100);
+			Assert::IsTrue(game3.getTotalScore() == 2 || game3.getTotalScore() == 10);
 		}
 		
 	};
