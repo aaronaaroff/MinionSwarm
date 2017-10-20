@@ -180,21 +180,5 @@ void CMinion::Update(double elapsed)
 	mV *= mMinionSpeed;
 	CVector newP = minionLoc + mV * elapsed;
 
-	//if (newP.X())
 	SetLocation(newP.X(), newP.Y());
-	/*
-	//gruLoc *= -1;
-	//CVector travelVector = gruLoc + minionLoc;
-	//travelVector = travelVector.Normalize();
-
-	mSpeedY = (travelVector.Y()) * -mMinionSpeed;
-	mSpeedX = (travelVector.X()) * -mMinionSpeed;
-
-	// when the Minion is running...
-	// mSpeedX is a constant pixels per second running speed...
-	mRunX = mSpeedX * elapsed;
-	mRunY = mSpeedY * elapsed;
-
-	this->SetLocation(GetX() + mRunX, GetY() + mRunY);
-	*/
 }
