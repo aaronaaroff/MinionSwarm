@@ -16,6 +16,11 @@ using namespace std;
 const int PlayAreaDimension = 500;
 
 
+/**
+ * Sets location of an item
+ * \param x 
+ * \param y 
+ */
 void CItem::SetLocation(double x, double y)
 {
 
@@ -43,6 +48,11 @@ void CItem::SetLocation(double x, double y)
 	
 }
 
+
+/**
+ * Validates string, throws error message if image can't be opened
+ * \param img 
+ */
 void CItem::setImage(std::wstring img)
 {
 	mItemImage = unique_ptr<Bitmap>(Bitmap::FromFile(img.c_str()));
