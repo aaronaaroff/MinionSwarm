@@ -120,5 +120,8 @@ public:
 
 	/** Calls Reset on the Scoreboard */
 	void resetScore() { mScoreBoard.reset(); }
+
+	/** Get Sum of Points*/
+	int getTotalScore() { return mScoreBoard.getTotalScore(); }
 };
 

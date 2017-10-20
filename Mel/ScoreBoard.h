@@ -32,6 +32,15 @@ public:
 	/** Resets scoreboard*/
 	void reset();
 
+	/** Getter for Arya Score*/
+	int getAryaScore() { return mAryaScore; }
+
+	/** Getter for Blender Score */
+	int getBlenderScore() { return mBlenderScore; }
+
+	/** Getter for sum of points */
+	int getTotalScore() { return (mBlenderScore + mAryaScore + mPokeBallScore); }
+
 	/** Update score
 	* \param villain villain doing the killing
 	* \param minion the minion to die*/
