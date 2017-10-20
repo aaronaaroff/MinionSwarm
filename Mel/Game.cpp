@@ -129,7 +129,13 @@ void CGame::Clear()
 void CGame::Update(double elapsed)
 {
 	mTimeSpawn += elapsed;
-	if (mTimeSpawn > 1) {
+
+
+	// Variable that will be elapsed time for minion spawn 
+	double randomVariable = (double)rand() / (2 * RAND_MAX) + .5;
+
+	// Spawns a minion and resets the elapsed time counter
+	if (mTimeSpawn > randomVariable) {
 		auto newMinion = make_shared<CMinion>(this);
 		Add(newMinion);
 		mTimeSpawn = 0;
