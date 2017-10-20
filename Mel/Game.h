@@ -107,6 +107,7 @@ public:
 	/** Resets the game*/
 	void ResetGame();
 
+	/* fills game with all of the OG items */
 	void Populate();
 
 	/** Resets the scoreboard*/
