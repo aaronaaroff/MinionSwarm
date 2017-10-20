@@ -65,13 +65,13 @@ const double PosSix = -250.0;
 const double PosSeven =  575.0;
 
 ///position constant
-const double PosEight = 50.0;
+const double PosEight = 0.0;
 
 ///position constant
-const double PosNine = -375.0;
+const double PosNine = -350.0;
 
 ///position constant
-const double PosTen = -200.0;
+const double PosTen = -150.0;
 
 
 
@@ -315,7 +315,7 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 		FontFamily fontFamily(L"Arial");
 		Gdiplus::Font font(&fontFamily, 20);
 
-		SolidBrush green(Color(255, 255, 0));
+		SolidBrush green(Color(200, 255, 0));
 		graphics->DrawString(L"Gru is Dead!", -1, &font, PointF(-100,-32), &green);
 	}
 
