@@ -13,16 +13,16 @@ using namespace std;
 using namespace Gdiplus;
 
 /// X Location for all Score Board Trackers
-const int scoreXLocation = 700;
+const REAL scoreXLocation = 700;
 
 ///Y Locations for different Villains Score Board Trackers
-const int aryaScoreYLocation = -350;
+const REAL aryaScoreYLocation = -350;
 
 ///Y Locations for different Villains Score Board Trackers
-const int blenderScoreYLocation = -150;
+const REAL blenderScoreYLocation = -150;
 
 ///Y Locations for different Villains Score Board Trackers
-const int pokeBallScoreYLocation = 0;
+const REAL pokeBallScoreYLocation = 0;
 
 /// Arya score
 const int AryaScore = 1;
