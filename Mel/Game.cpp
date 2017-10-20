@@ -249,6 +249,8 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 		CTimerVisitor stopClock;
 		this->Accept(&stopClock);
 
+		
+
 		// Set the font attributes
 		FontFamily fontFamily(L"Arial");
 		Gdiplus::Font font(&fontFamily, 64);
@@ -276,7 +278,8 @@ void CGame::ResetGame()
 	Clear();
 	mResetGameStatus = true;
 	mGameOver = false;
-	// ReScoreboard();
+	resetScore();
+	
 	// ResetTimer()
-	//No scoreboard support right now on the reset game
+	
 }

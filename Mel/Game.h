@@ -117,5 +117,8 @@ public:
 	/** Gets virtual x
 	* \param status*/
 	void SetGameOver(bool status) { mGameOver = status; }
+
+	/** Calls Reset on the Scoreboard */
+	void resetScore() { mScoreBoard.reset(); }
 };
 
