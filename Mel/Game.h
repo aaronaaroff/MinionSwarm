@@ -107,6 +107,8 @@ public:
 	/** Resets the game*/
 	void ResetGame();
 
+	void Populate();
+
 	/** Resets the scoreboard*/
 	void resetScoreboared() { mScoreBoard.reset(); }
 

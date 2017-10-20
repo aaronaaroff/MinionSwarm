@@ -20,6 +20,7 @@
 #include "DeleteItem.h"
 #include "TimerVisitor.h"
 #include "Timer.h"
+#include "NewGame.h"
 
 using namespace std;
 using namespace Gdiplus;
@@ -29,6 +30,15 @@ const static int Width = 1400;
 
 /// Game area height in virtual pixels
 const static int Height = 1100;
+
+/// Arya Name for villain Construction
+const wstring aryaName = L"Arya";
+
+/// Blender Name for Villain Construction
+const wstring blendName = L"Blender";
+
+///Poke Ball Name for Villain Construction
+const wstring pokeBallName = L"PokeBall";
 
 /** Font stuff
 * \return FontFamily*/
@@ -288,4 +298,38 @@ void CGame::ResetGame()
 	
 	// ResetTimer()
 	
+}
+
+void CGame::Populate()
+{
+	auto newgame = make_shared<CNewGame>(this);
+	newgame->SetLocation(-650, -500);
+	Add(newgame);
+
+	auto gru = make_shared<CGru>(this);
+	Add(gru);
+
+	auto pokeBall = make_shared<CVillain>(this, pokeBallName);
+	pokeBall->SetLocation(350.0, -250.0);
+	Add(pokeBall);
+
+	auto arya = make_shared<CVillain>(this, aryaName);
+	arya->SetLocation(0.0, 300.0);
+	Add(arya);
+
+	auto blender = make_shared<CVillain>(this, blendName);
+	blender->SetLocation(-350.0, -250.0);
+	Add(blender);
+
+	auto scorePokeBall = make_shared<CVillain>(this, pokeBallName);
+	scorePokeBall->SetLocation(575.0, 50.0);
+	Add(scorePokeBall);
+
+	auto scoreArya = make_shared<CVillain>(this, aryaName);
+	scoreArya->SetLocation(575.0, -375.0);
+	Add(scoreArya);
+
+	auto scoreBlender = make_shared<CVillain>(this, blendName);
+	scoreBlender->SetLocation(575.0, -200.0);
+	Add(scoreBlender);
 }
