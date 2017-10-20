@@ -24,13 +24,13 @@ const wstring PokeBallImageName = L"images/pokeball.png";
 const wstring BlenderImageName = L"images/juicer.png";
 
 /// arya mult
-const double ARYA_M = 1;
+const int ARYA_M = 1;
 
 /// blend mult
-const double BLENDER_M = 2;
+const int BLENDER_M = 2;
 
 /// poke mult
-const double POKE_M = 3;
+const int POKE_M = 3;
 
 CVillain::~CVillain()
 {
