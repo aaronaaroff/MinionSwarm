@@ -88,6 +88,7 @@ namespace Testing
 			* create villain, make minion, add minion to list
 			* then we kill the minion and see if the list is empty */
 			
+
 			auto arya = make_shared<CVillain>(&game, aryaName);
 			arya->SetLocation(0, 0);
 			auto minion1 = make_shared<CMinion>(&game);
