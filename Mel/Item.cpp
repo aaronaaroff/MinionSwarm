@@ -28,8 +28,8 @@ void CItem::SetLocation(double x, double y)
 	if (this->InZone())
 	{
 		// Variables for the height and width of the grabbed item
-		int imageWidth = this->GetItemImageWidth();
-		int imageHeight = this->GetItemImageHeight();
+		double imageWidth = this->GetItemImageWidth();
+		double imageHeight = this->GetItemImageHeight();
 
 
 		if (abs(x) + imageWidth / 2 >= PlayAreaDimension)
@@ -86,7 +86,7 @@ CItem::~CItem()
 * \param y Y position to test
 * \return true if hit.
 */
-bool CItem::HitTest(int x, int y)
+bool CItem::HitTest(double x, double y)
 {
 	double wid = mItemImage->GetWidth();
 	double hit = mItemImage->GetHeight();

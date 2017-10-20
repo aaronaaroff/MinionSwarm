@@ -51,7 +51,7 @@ public:
 	* \param x X location on the game to test
 	* \param y Y location on the game to test
 	* \return true if clicked on */
-	virtual bool HitTest(int x, int y);
+	virtual bool HitTest(double x, double y);
 
 	/// Handle updates for animation
 	/// \param elapsed The time since the last update
