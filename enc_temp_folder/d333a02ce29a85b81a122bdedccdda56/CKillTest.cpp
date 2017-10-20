@@ -4,13 +4,8 @@
 #include "Minion.h"
 #include "Villain.h"
 #include "Game.h"
-#include <stdio.h>
-#include <time.h>
-#include <dos.h>
-#include <windows.h>
 
 #include <iostream>
-#include <stdlib.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -49,8 +44,7 @@ namespace Testing
 			grukill.push_back(gru1);
 			gru1->SetLocation(0, 0);
 
-			Sleep(5000);
-
+			
 			Assert::IsTrue(grukill.size() == 0);
 
 
@@ -60,7 +54,7 @@ namespace Testing
 			grukill.push_back(gru2);
 			gru2->SetLocation(100, 100);
 
-			Sleep(5000);
+
 
 			Assert::IsTrue(grukill.size() == 0);
 
@@ -69,8 +63,6 @@ namespace Testing
 			auto gru3 = make_shared<CGru>(&game);
 			grukill.push_back(gru3);
 			gru3->SetLocation(300, 300);
-
-			Sleep(5000);
 
 			Assert::IsTrue(grukill.size() == 0);
 		
