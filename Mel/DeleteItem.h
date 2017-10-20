@@ -3,7 +3,8 @@
 *
 * \author Aaron Eshleman
 *
-*  Class that implements a item visitor class.
+*  Visitor class
+*  Doesn't actually delete items, instead return a list of minions to sort through to kill
 */
 
 
@@ -31,8 +32,6 @@ public:
 	void CDeleteItem::VisitMinion(CMinion *minion)
 	{
 		mMinions.push_back(minion);
-		///minion->DeleteItem(minion);
-		//Need to call a delete item function from minion that upcalls to Game
 	}
 
 	/** gets minions
