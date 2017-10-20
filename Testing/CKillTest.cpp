@@ -35,8 +35,6 @@ namespace Testing
 		{
 			CGame game;
 
-			std::vector<std::shared_ptr<CItem> > grukill;
-
 			/*
 			* here we test the villains killing gru
 			* create villain, make gru, add gru to list
@@ -46,35 +44,37 @@ namespace Testing
 			auto arya = make_shared<CVillain>(&game, aryaName);
 			arya->SetLocation(0, 0);
 			auto gru1 = make_shared<CGru>(&game);
-			grukill.push_back(gru1);
 			gru1->SetLocation(0, 0);
 
-			Sleep(5000);
+			game.Add(arya);
+			game.Add(gru1);
+			game.Update(100);
 
-			Assert::IsTrue(grukill.size() == 0);
+			Assert::IsTrue(game.GetGameOver());
 
-
+			
 			auto ball = make_shared<CVillain>(&game, pokeBallName);
 			ball->SetLocation(100, 100);
 			auto gru2 = make_shared<CGru>(&game);
-			grukill.push_back(gru2);
 			gru2->SetLocation(100, 100);
 
-			Sleep(5000);
+			game.Add(ball);
+			game.Add(gru2);
+			game.Update(100);
 
-			Assert::IsTrue(grukill.size() == 0);
+			Assert::IsTrue(game.GetGameOver());
 
 			auto blend = make_shared<CVillain>(&game, blendName);
 			blend->SetLocation(300, 300);
 			auto gru3 = make_shared<CGru>(&game);
-			grukill.push_back(gru3);
 			gru3->SetLocation(300, 300);
 
-			Sleep(5000);
+			game.Add(blend);
+			game.Add(gru3);
+			game.Update(100);
 
-			Assert::IsTrue(grukill.size() == 0);
-		
-		
+			Assert::IsTrue(game.GetGameOver());
+			
 
 		}
 
