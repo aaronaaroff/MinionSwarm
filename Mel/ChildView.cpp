@@ -199,8 +199,8 @@ void CChildView::OnMouseMove(UINT nFlags, CPoint point)
 	{
 
 		// Varibles for the virtual location of the grabbed item
-		int virtualX = mGame.GetVirtualX(point.x);
-		int virtualY = mGame.GetVirtualY(point.y);
+		double virtualX = mGame.GetVirtualX(point.x);
+		double virtualY = mGame.GetVirtualY(point.y);
 
 
 		// If an item is being moved, we only continue to 

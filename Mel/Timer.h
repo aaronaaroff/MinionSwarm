@@ -45,7 +45,7 @@ public:
 	* Function to get the elapsed time since start
 	* \return the elapsed time
 	*/
-	int GetElpasedTime() 
+	double GetElpasedTime() 
 	{
 		return mElapsedTime;
 	}

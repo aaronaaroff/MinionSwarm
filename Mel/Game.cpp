@@ -32,13 +32,13 @@ const static int Width = 1400;
 const static int Height = 1100;
 
 /// Arya Name for villain Construction
-const wstring aryaName = L"Arya";
+const wstring AryaName = L"Arya";
 
 /// Blender Name for Villain Construction
-const wstring blendName = L"Blender";
+const wstring BlendName = L"Blender";
 
 ///Poke Ball Name for Villain Construction
-const wstring pokeBallName = L"PokeBall";
+const wstring PokeBallName = L"PokeBall";
 
 ///orgin point of game 
 const double Orgin = 0.0;
@@ -119,7 +119,7 @@ void CGame::Add(std::shared_ptr<CItem> item)
  * \param y coords
  * \returns nullptr if no click on item, else a pointer to the item
  */
-std::shared_ptr<CItem> CGame::HitTest(int x, int y)
+std::shared_ptr<CItem> CGame::HitTest(double x, double y)
 {
 
 	auto virtualX = GetVirtualX(x);
@@ -350,27 +350,27 @@ void CGame::Populate()
 	newgame->SetLocation(PosOne, PosTwo);
 	Add(newgame);
 
-	auto pokeBall = make_shared<CVillain>(this, pokeBallName);
+	auto pokeBall = make_shared<CVillain>(this,PokeBallName);
 	pokeBall->SetLocation(PosThree, PosSix);
 	Add(pokeBall);
 
-	auto arya = make_shared<CVillain>(this, aryaName);
+	auto arya = make_shared<CVillain>(this, AryaName);
 	arya->SetLocation(Orgin, PosFive);
 	Add(arya);
 
-	auto blender = make_shared<CVillain>(this, blendName);
+	auto blender = make_shared<CVillain>(this, BlendName);
 	blender->SetLocation(PosFour, PosSix);
 	Add(blender);
 
-	auto scorePokeBall = make_shared<CVillain>(this, pokeBallName);
+	auto scorePokeBall = make_shared<CVillain>(this, PokeBallName);
 	scorePokeBall->SetLocation(PosSeven, PosEight);
 	Add(scorePokeBall);
 
-	auto scoreArya = make_shared<CVillain>(this, aryaName);
+	auto scoreArya = make_shared<CVillain>(this, AryaName);
 	scoreArya->SetLocation(PosSeven, PosNine);
 	Add(scoreArya);
 
-	auto scoreBlender = make_shared<CVillain>(this, blendName);
+	auto scoreBlender = make_shared<CVillain>(this, BlendName);
 	scoreBlender->SetLocation(PosSeven, PosTen);
 	Add(scoreBlender);
 
