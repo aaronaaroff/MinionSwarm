@@ -177,7 +177,7 @@ void CMinion::Update(double elapsed)
 	mV = cv * C_WEIGHT + sv * S_WEIGHT + av * A_WEIGHT + gruV * G_WEIGHT;
 	mV.Normalize();
 
-	mV *= MinionSpeed;
+	mV *= mMinionSpeed;
 	CVector newP = minionLoc + mV * elapsed;
 
 	//if (newP.X())
