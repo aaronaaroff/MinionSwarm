@@ -15,8 +15,7 @@
 using namespace Gdiplus;
 using namespace std;
 
-/// Villain filename 
-const wstring BlenderImageName = L"images/juicer.png";
+
 
 /// Villain Point Multiplier
 const int pointMultiplier = 2;

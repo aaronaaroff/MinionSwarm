@@ -8,6 +8,7 @@
 
 
 #include "stdafx.h"
+#include <string>
 #include "Mel.h"
 #include "ChildView.h"
 #include "DoubleBufferDC.h"
@@ -15,11 +16,13 @@
 #include "Minion.h"
 #include "Gru.h"
 #include "Villain.h"
-#include "AryaStark.h"
-#include "Blender.h"
-#include "PokeBall.h"
+//#include "AryaStark.h"
+//#include "Blender.h"
+//#include "PokeBall.h"
 #include "Timer.h"
 #include "Scoreboard.h"
+
+using namespace std; 
 
 
 #ifdef _DEBUG
@@ -32,6 +35,16 @@ const int FrameDuration = 30;
 
 /// Dimensions of the game play area
 const int PlayAreaDimension = 500;
+
+/// Arya Name for villain Construction
+const wstring aryaName = L"Arya";
+
+/// Blender Name for Villain Construction
+const wstring blendName = L"Blender";
+
+///Poke Ball Name for Villain Construction
+const wstring pokeBallName = L"PokeBall";
+
 
 
 
@@ -117,27 +130,27 @@ void CChildView::OnPaint()
 		auto gru = make_shared<CGru>(&mGame);
 		mGame.Add(gru);
 
-		auto pokeBall = make_shared<CPokeBall>(&mGame);
+		auto pokeBall = make_shared<CVillain>(&mGame,pokeBallName);
 		pokeBall->SetLocation(350.0, -250.0);
 		mGame.Add(pokeBall);
 
-		auto arya = make_shared<CAryaStark>(&mGame);
+		auto arya = make_shared<CVillain>(&mGame,aryaName);
 		arya->SetLocation(0.0, 300.0);
 		mGame.Add(arya);
 
-		auto blender = make_shared<CBlender>(&mGame);
+		auto blender = make_shared<CVillain>(&mGame, blendName);
 		blender->SetLocation(-350.0, -250.0);
 		mGame.Add(blender);
 
-		auto scorePokeBall = make_shared<CPokeBall>(&mGame);
+		auto scorePokeBall = make_shared<CVillain>(&mGame,pokeBallName);
 		scorePokeBall->SetLocation(575.0, 50.0);
 		mGame.Add(scorePokeBall);
 
-		auto scoreArya = make_shared<CAryaStark>(&mGame);
+		auto scoreArya = make_shared<CVillain>(&mGame,aryaName);
 		scoreArya->SetLocation(575.0, -375.0);
 		mGame.Add(scoreArya);
 
-		auto scoreBlender = make_shared<CBlender>(&mGame);
+		auto scoreBlender = make_shared<CVillain>(&mGame,blendName);
 		scoreBlender->SetLocation(575.0, -200.0);
 		mGame.Add(scoreBlender);
 

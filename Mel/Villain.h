@@ -21,6 +21,8 @@ class CVillain :
 	public CItem
 {
 public:
+
+
 	/// Default constructor (disabled)
 	CVillain() = delete;
 
@@ -42,24 +44,21 @@ public:
 	* \return multiplier */
 	int getMultiplier() { return mPointMultiplier; }
 
-protected:
+	///States that the Villain Object can be in.
+	enum VillainStates { AryaStark, Blender, PokeBall };
+
 	/**
 	* Constructor
 	* \param game The Game we are in
 	* \param filename Filename for the image we use
 	* \param pointMultiplier the multiplier
 	*/
-	CVillain::CVillain(CGame *game, const std::wstring &filename, int pointMultiplier) :
-		CItem(game, filename)
-	{
-		mVillainImage = std::unique_ptr<Gdiplus::Bitmap>(
-			Gdiplus::Bitmap::FromFile(filename.c_str()));
-		if (mVillainImage->GetLastStatus() != Gdiplus::Status::Ok)
-		{
-			AfxMessageBox(L"Failed to open image");
-		}
-		mPointMultiplier = pointMultiplier;
-	}
+	CVillain(CGame *game,  const std::wstring name);
+	
+
+
+
+	
 
 private:
 
@@ -71,6 +70,11 @@ private:
 
 	///Points on the villain
 	int mPoints = 0;
+
+	///Villain State 
+	VillainStates mVillainType; 
+
+
 
 
 };

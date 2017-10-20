@@ -15,8 +15,6 @@
 using namespace Gdiplus;
 using namespace std;
 
-/// Villain filename 
-const wstring PokeBallImageName = L"images/pokeball.png";
 
 /// Villain Point Multiplier
 const int pointMultiplier = 3;

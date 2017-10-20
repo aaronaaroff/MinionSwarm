@@ -69,15 +69,6 @@
     <ClInclude Include="Villain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Blender.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AryaStark.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PokeBall.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ItemVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -141,15 +132,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Villain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Blender.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AryaStark.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PokeBall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ItemVisitor.cpp">

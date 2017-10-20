@@ -182,8 +182,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AryaStark.h" />
-    <ClInclude Include="Blender.h" />
     <ClInclude Include="FlockingVisitor.h" />
     <ClInclude Include="ChildView.h" />
     <ClInclude Include="DeleteItem.h" />
@@ -199,7 +197,6 @@
     <ClInclude Include="MinionVisitor.h" />
     <ClInclude Include="NewGame.h" />
     <ClInclude Include="PlayingArea.h" />
-    <ClInclude Include="PokeBall.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ScoreBoard.h" />
     <ClInclude Include="stdafx.h" />
@@ -211,8 +208,6 @@
     <ClInclude Include="VillainVisitor.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AryaStark.cpp" />
-    <ClCompile Include="Blender.cpp" />
     <ClCompile Include="FlockingVisitor.cpp" />
     <ClCompile Include="ChildView.cpp" />
     <ClCompile Include="DeleteItem.cpp" />
@@ -227,7 +222,6 @@
     <ClCompile Include="MinionVisitor.cpp" />
     <ClCompile Include="NewGame.cpp" />
     <ClCompile Include="PlayingArea.cpp" />
-    <ClCompile Include="PokeBall.cpp" />
     <ClCompile Include="ScoreBoard.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

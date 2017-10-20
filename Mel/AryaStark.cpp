@@ -12,11 +12,8 @@
 #include "AryaStark.h"
 
 
-using namespace Gdiplus;
-using namespace std;
 
-/// Villain filename 
-const wstring AryaStarkImageName = L"images/arya.png";
+
 
 /// Villain Point Multiplier
 const int pointMultiplier = 1;
