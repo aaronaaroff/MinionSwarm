@@ -34,13 +34,13 @@ private:
 	CPlayingArea mPlayingArea;
 
 	///Scale for Virtual pixels
-	double mScale = 1;
+	Gdiplus::REAL mScale = 1;
 
 	///X offset for virtual pixels
-	double mXOffset = 0;
+	Gdiplus::REAL mXOffset = 0;
 
 	///Y offset for virtual pixels
-	double mYOffset = 0;
+	Gdiplus::REAL mYOffset = 0;
 
 	///Time since last spawn
 	double mTimeSpawn = 0;

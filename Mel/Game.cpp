@@ -288,9 +288,8 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 	float scaleY = float(height) / float(Height);
 	mScale = min(scaleX, scaleY);
 
-	mXOffset = width / 2.0f;
-	mYOffset = height / 2.0f;
-
+	mXOffset = static_cast<Gdiplus::REAL>(width / 2.0f);
+	mYOffset = static_cast<Gdiplus::REAL>(height / 2.0f);
 	graphics->TranslateTransform(mXOffset, mYOffset);
 	graphics->ScaleTransform(mScale, mScale);
 

@@ -16,10 +16,10 @@ using namespace Gdiplus;
 using namespace std;
 
 /// X-location of the timer
-const int xLocation = 550; //1290
+const Gdiplus::REAL xLocation = 550; //1290
 
 /// y-location of the timer
-const int yLocation = -500; //25
+const Gdiplus::REAL yLocation = -500; //25
 
 
 /** timer image
@@ -62,7 +62,7 @@ void CTimer::LoadImage(std::unique_ptr<Gdiplus::Bitmap> &image, std::wstring nam
 void CTimer::Draw(Gdiplus::Graphics *graphics)
 {
 	// Gets the elapsed time since start in seconds
-	int elapsedTime = mElapsedTime;
+	int elapsedTime = static_cast<int>(mElapsedTime);
 
 	// Calculate the number of minutes/seconds elapsed
 	string minutes = to_string(elapsedTime / 60);

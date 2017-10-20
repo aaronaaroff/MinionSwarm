@@ -9,7 +9,7 @@
 using namespace Gdiplus;
 
  /// The size of the playing area square in virtual pixels
-const double GridSize = 1000.0f;
+const int GridSize = static_cast<int>(1000.0f);
 
 /// The range from the center to an edge for the playing area
 /// in virtual pixels
@@ -46,7 +46,7 @@ void CPlayingArea::OnDraw(Gdiplus::Graphics * graphics, int width, int height)
 	// Draws the border for the timer
 	Pen pen(Color(0, 128, 0), 1);
 
-	int xcoords = -width / 2 + (width-GridSize)/2;
-	int ycoords = -height / 2 + (height-GridSize)/2;
+	int xcoords = static_cast<int>(-width / 2 + (width-GridSize)/2);
+	int ycoords = static_cast<int>(-height / 2 + (height-GridSize)/2);
 	graphics->DrawRectangle(&pen, xcoords, ycoords, GridSize,GridSize);
 }
