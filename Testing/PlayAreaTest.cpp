@@ -33,8 +33,8 @@ namespace Testing
 			game.Add(gru);
 
 
-			int imageHeight = gru->GetItemImageHeight();
-			int imageWidth = gru->GetItemImageWidth();
+			double imageHeight = gru->GetItemImageHeight();
+			double imageWidth = gru->GetItemImageWidth();
 
 			// Try to move gru past the edge of the game area on the x-axis
 			gru->SetLocation(1000, 0);
