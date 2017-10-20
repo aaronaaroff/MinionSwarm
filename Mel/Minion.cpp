@@ -50,7 +50,7 @@ const double M_WEIGHT = .85;
 const double NORM_WEIGHT = M_WEIGHT / 2;
 
 /// Mutant points
-const int MUTANT_POINT = 2;
+const int MUTANT_POINT = 5;
 
 /// Normal minion points
 const int NORMAL_POINT = 1;
