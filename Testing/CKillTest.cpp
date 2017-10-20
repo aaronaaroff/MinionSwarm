@@ -119,7 +119,7 @@ namespace Testing
 		{
 			CGame game;
 
-			std::vector<std::shared_ptr<CItem> > grukill;
+			
 
 			/*
 			* here we test the villains killing gru
@@ -130,27 +130,42 @@ namespace Testing
 			auto minion1 = make_shared<CMinion>(&game);
 			minion1->SetLocation(0, 0);
 			auto gru1 = make_shared<CGru>(&game);
-			grukill.push_back(gru1);
 			gru1->SetLocation(0, 0);
 
-			Assert::IsTrue(grukill.size() == 0);
+			game.Add(minion1);
+			game.Add(gru1);
+			game.Update(100);
+
+
+
+			Assert::IsTrue(game.GetGameOver());
 
 
 			auto minion2 = make_shared<CMinion>(&game);
 			minion2->SetLocation(100, 100);
 			auto gru2 = make_shared<CGru>(&game);
-			grukill.push_back(gru2);
 			gru2->SetLocation(100, 100);
 
-			Assert::IsTrue(grukill.size() == 0);
+			game.Add(minion2);
+			game.Add(gru2);
+			game.Update(100);
+
+			Assert::IsTrue(game.GetGameOver());
+
 
 			auto minion3 = make_shared<CMinion>(&game);
 			minion3->SetLocation(300, 300);
 			auto gru3 = make_shared<CGru>(&game);
-			grukill.push_back(gru3);
 			gru3->SetLocation(300, 300);
 
-			Assert::IsTrue(grukill.size() == 0);
+			game.Add(minion3);
+			game.Add(gru3);
+			game.Update(100);
+
+			Assert::IsTrue(game.GetGameOver());
+
+
+			
 
 
 		}
