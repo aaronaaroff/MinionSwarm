@@ -268,6 +268,8 @@ void CChildView::OnMouseMove(UINT nFlags, CPoint point)
 	}
 }
 
+/** OnTimer
+* \param nIDEvent */
 void CChildView::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: Add your message handler code here and/or call default

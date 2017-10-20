@@ -22,7 +22,8 @@ const int xLocation = 550; //1290
 const int yLocation = -500; //25
 
 
-
+/** timer image
+* \return wstring*/
 const wstring TimerImage(L"images/gru.png");
 
 CTimer::CTimer(CGame *game) :

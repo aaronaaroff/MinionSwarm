@@ -35,7 +35,8 @@ public:
 		//Need to call a delete item function from minion that upcalls to Game
 	}
 
-	/// Getter for minions
+	/** gets minions
+	\return the minions*/
 	std::vector<CMinion*> CDeleteItem::getMinions() { return mMinions; }
 };
 

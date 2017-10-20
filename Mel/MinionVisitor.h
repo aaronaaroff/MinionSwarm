@@ -20,6 +20,8 @@ public:
 	CMinionVisitor();
 	virtual ~CMinionVisitor();
 
+	/** Visits minions
+	* \param minion the minion we are visiting*/
 	void VisitMinion(CMinion* minion);
 
 private:

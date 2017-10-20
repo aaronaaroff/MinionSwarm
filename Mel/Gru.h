@@ -17,7 +17,8 @@ class CGru :
 	public CItem
 {
 public:
-
+	/** Constructor
+	* \param game the game object*/
 	CGru::CGru(CGame *game);
 	virtual ~CGru();
 

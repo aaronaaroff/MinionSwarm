@@ -30,10 +30,12 @@ const static int Width = 1400;
 /// Game area height in virtual pixels
 const static int Height = 1100;
 
-/// Font
+/** Font stuff
+* \return FontFamily*/
 FontFamily fontFamily(L"Arial");
 
-/// More font params
+/** Font setter
+* \return fontFamily*/
 Gdiplus::Font font(&fontFamily, 16);
 
 /**

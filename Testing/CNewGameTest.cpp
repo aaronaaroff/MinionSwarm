@@ -2,7 +2,6 @@
 #include "CppUnitTest.h"
 #include "Item.h"
 #include "Game.h"
-#include "PokeBall.h"
 #include "Gru.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -57,9 +56,9 @@ namespace Testing
 		{
 			CGame game;
 			auto gru = make_shared<CGru>(&game);
-			auto villain = make_shared<CPokeBall>(&game);
+			//auto villain = make_shared<CVillain>(&game);
 
-			villain->SetLocation(0, 0);
+			//villain->SetLocation(0, 0);
 			gru->SetLocation(0, 0);
 
 			Assert::IsTrue(game.GetGameOver());

@@ -56,7 +56,7 @@ const int MUTANT_POINT = 2;
 const int NORMAL_POINT = 1;
 
 /** Constructor
-* \param city The city this is a member of
+* \param game The game this is a member of
 */
 CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 {
