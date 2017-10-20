@@ -253,10 +253,10 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 
 		// Set the font attributes
 		FontFamily fontFamily(L"Arial");
-		Gdiplus::Font font(&fontFamily, 64);
+		Gdiplus::Font font(&fontFamily, 100);
 
 		SolidBrush green(Color(255, 255, 0));
-		graphics->DrawString(L"Gru is Dead!", -1, &font, PointF(-220,-32), &green);
+		graphics->DrawString(L"Gru is Dead!", -1, &font, PointF(-400,-32), &green);
 	}
 
 }
