@@ -40,6 +40,44 @@ const wstring blendName = L"Blender";
 ///Poke Ball Name for Villain Construction
 const wstring pokeBallName = L"PokeBall";
 
+///orgin point of game 
+const double Orgin = 0.0;
+
+///position constant
+const double PosOne = -650.0;
+
+///position constant
+const double PosTwo = -500.0;
+
+///position constant
+const double PosThree = 350.0;
+
+///position constant
+const double PosFour = -350.0;
+
+///position constant
+const double PosFive = 300.0;
+
+///position constant
+const double PosSix = -250.0;
+
+///position constant
+const double PosSeven =  575.0;
+
+///position constant
+const double PosEight = 50.0;
+
+///position constant
+const double PosNine = -375.0;
+
+///position constant
+const double PosTen = -200.0;
+
+
+
+
+
+
 /** Font stuff
 * \return FontFamily*/
 FontFamily fontFamily(L"Arial");
@@ -309,31 +347,31 @@ void CGame::ResetGame()
 void CGame::Populate()
 {
 	auto newgame = make_shared<CNewGame>(this);
-	newgame->SetLocation(-650, -500);
+	newgame->SetLocation(PosOne, PosTwo);
 	Add(newgame);
 
 	auto pokeBall = make_shared<CVillain>(this, pokeBallName);
-	pokeBall->SetLocation(350.0, -250.0);
+	pokeBall->SetLocation(PosThree, PosSix);
 	Add(pokeBall);
 
 	auto arya = make_shared<CVillain>(this, aryaName);
-	arya->SetLocation(0.0, 300.0);
+	arya->SetLocation(Orgin, PosFive);
 	Add(arya);
 
 	auto blender = make_shared<CVillain>(this, blendName);
-	blender->SetLocation(-350.0, -250.0);
+	blender->SetLocation(PosFour, PosSix);
 	Add(blender);
 
 	auto scorePokeBall = make_shared<CVillain>(this, pokeBallName);
-	scorePokeBall->SetLocation(575.0, 50.0);
+	scorePokeBall->SetLocation(PosSeven, PosEight);
 	Add(scorePokeBall);
 
 	auto scoreArya = make_shared<CVillain>(this, aryaName);
-	scoreArya->SetLocation(575.0, -375.0);
+	scoreArya->SetLocation(PosSeven, PosNine);
 	Add(scoreArya);
 
 	auto scoreBlender = make_shared<CVillain>(this, blendName);
-	scoreBlender->SetLocation(575.0, -200.0);
+	scoreBlender->SetLocation(PosSeven, PosTen);
 	Add(scoreBlender);
 
 	auto gru = make_shared<CGru>(this);
