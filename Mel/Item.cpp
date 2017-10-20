@@ -20,7 +20,7 @@ void CItem::SetLocation(double x, double y)
 {
 
 	
-	if (this->IsMovable())
+	if (this->InZone())
 	{
 		// Variables for the height and width of the grabbed item
 		int imageWidth = this->GetItemImageWidth();

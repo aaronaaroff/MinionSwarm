@@ -1,15 +1,13 @@
-
-// ChildView.h : interface of the CChildView class
-//
-
+/**
+ * \file ChildView.h
+ *
+ * \author Alex Wuillaume
+ *
+ * 
+ */
 
 #pragma once
-
 #include "Game.h"
-
-
-// CChildView window
-
 
 /**
  * Childview class

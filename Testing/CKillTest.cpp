@@ -3,9 +3,7 @@
 #include "Gru.h"
 #include "Minion.h"
 #include "Villain.h"
-#include "PokeBall.h"
-#include "Blender.h"
-#include "AryaStark.h"
+#include "Game.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
@@ -27,9 +25,9 @@ namespace Testing
 			* here we test the villains killing gru
 			* create villain, make gru, add gru to list
 			* then we kill gru and see if the list is empty
-			*/
+			
 
-			auto arya = make_shared<CAryaStark>(&game);
+			auto arya = make_shared<CVillain>(&game);
 			arya->SetLocation(0, 0);
 			auto gru1 = make_shared<CGru>(&game);
 			grukill.push_back(gru1);
@@ -38,7 +36,7 @@ namespace Testing
 			Assert::IsTrue(grukill.size() == 0);
 
 
-			auto ball = make_shared<CPokeBall>(&game);
+			auto ball = make_shared<CVillain>(&game);
 			ball->SetLocation(100, 100);
 			auto gru2 = make_shared<CGru>(&game);
 			grukill.push_back(gru2);
@@ -46,7 +44,7 @@ namespace Testing
 
 			Assert::IsTrue(grukill.size() == 0);
 
-			auto blend = make_shared<CBlender>(&game);
+			auto blend = make_shared<CVillain>(&game);
 			blend->SetLocation(300, 300);
 			auto gru3 = make_shared<CGru>(&game);
 			grukill.push_back(gru3);
@@ -54,7 +52,7 @@ namespace Testing
 
 			Assert::IsTrue(grukill.size() == 0);
 		
-
+		*/
 
 		}
 
@@ -67,8 +65,8 @@ namespace Testing
 			* here we test the villains killing the minions
 			* create villain, make minion, add minion to list
 			* then we kill the minion and see if the list is empty
-			*/
-			auto arya = make_shared<CAryaStark>(&game);
+			
+			auto arya = make_shared<CVillain>(&game);
 			arya->SetLocation(0, 0);
 			auto minion1 = make_shared<CMinion>(&game);
 			minionkill.push_back(minion1);
@@ -76,7 +74,7 @@ namespace Testing
 
 			Assert::IsTrue(minionkill.size() == 0);
 
-			auto ball = make_shared<CPokeBall>(&game);
+			auto ball = make_shared<CVillain>(&game);
 			ball->SetLocation(100, 100);
 			auto minion2 = make_shared<CMinion>(&game);
 			minionkill.push_back(minion2);
@@ -84,14 +82,14 @@ namespace Testing
 
 			Assert::IsTrue(minionkill.size() == 0);
 
-			auto blend = make_shared<CBlender>(&game);
+			auto blend = make_shared<CVillain>(&game);
 			blend->SetLocation(300, 300);
 			auto minion3 = make_shared<CMinion>(&game);
 			minionkill.push_back(minion3);
 			minion3->SetLocation(300, 300);
 
 			Assert::IsTrue(minionkill.size() == 0);
-
+			*/
 		}
 
 
@@ -135,32 +133,32 @@ namespace Testing
 
 		}
 
-
+		/*
 		TEST_METHOD(TestVillainPoints)
 		{
 			CGame game;
 
-			auto arya = make_shared<CAryaStark>(&game);
+			auto arya = make_shared<CVillain>(&game);
 			arya->SetLocation(0, 0);
 			auto minion1 = make_shared<CMinion>(&game);
 			minion1->SetLocation(0, 0);
 
 			Assert::IsTrue(arya->GetPoints() == 1 || arya->GetPoints() == 5);
 
-			auto ball = make_shared<CPokeBall>(&game);
+			auto ball = make_shared<CVillain>(&game);
 			ball->SetLocation(100, 100);
 			auto minion2 = make_shared<CMinion>(&game);
 			minion2->SetLocation(100, 100);
 
 			Assert::IsTrue(ball->GetPoints() == 3 || ball->GetPoints() == 15);
 			
-			auto blend = make_shared<CBlender>(&game);
+			auto blend = make_shared<CVillain>(&game);
 			blend->SetLocation(300, 300);
 			auto minion3 = make_shared<CMinion>(&game);
 			minion3->SetLocation(300, 300);
 
 			Assert::IsTrue(blend->GetPoints() == 2 || blend->GetPoints() == 10);
 		}
-
+		*/
 	};
 }

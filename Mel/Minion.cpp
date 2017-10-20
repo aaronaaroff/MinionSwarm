@@ -9,6 +9,7 @@
 #include "Minion.h"
 #include "Vector.h"
 #include "GetGruCoords.h"
+#include "FlockingVisitor.h"
 #include "Game.h"
 
 using namespace std;
@@ -30,39 +31,54 @@ const int MinionSpeed = 100;
 /// Y offset 
 const int OffsetUp = -450;
 
+/// Cohesion weight
+const double C_WEIGHT = 1;
 
+/// Separation weight
+const double S_WEIGHT = 3;
 
+/// Alignment weight
+const double A_WEIGHT = 5;
+
+/// Attraction weight
+const double G_WEIGHT = 10;
+
+/// Mutant rate
+const double M_WEIGHT = .85;
+
+/// Normal Minion rate
+const double NORM_WEIGHT = M_WEIGHT / 2;
+
+/// Mutant points
+const int MUTANT_POINT = 2;
+
+/// Normal minion points
+const int NORMAL_POINT = 1;
 
 /** Constructor
-* \param city The city this is a member of
+* \param game The game this is a member of
 */
 CMinion::CMinion(CGame *game) : CItem(game, ImagesDirectory + JerryMinion)
 {
 	double randomVariable = (double)rand() / RAND_MAX;
-	if (randomVariable > .85)
+	if (randomVariable > M_WEIGHT)
 	{
 		mState = Mutant;
-		mSpeedX = MutantSpeed;
-		mSpeedY = MutantSpeed;
 		mMinionSpeed = MutantSpeed;
-		mPoints = 2;
+		mPoints = MUTANT_POINT;
 
 	}
-	else if (randomVariable > .5)
+	else if (randomVariable > NORM_WEIGHT)
 	{
 		mState = Stuart;
-		mSpeedX = MinionSpeed;
-		mSpeedY = MinionSpeed;
 		mMinionSpeed = MinionSpeed;
-		mPoints = 1;
+		mPoints = NORMAL_POINT;
 	}
 	else
 	{
 		mState = Jerry;
-		mSpeedX = MinionSpeed;
-		mSpeedY = MinionSpeed;
 		mMinionSpeed = MinionSpeed;
-		mPoints = 1;
+		mPoints = NORMAL_POINT;
 
 	}
 
@@ -120,11 +136,56 @@ void CMinion::Update(double elapsed)
 	mGame->Accept(&visitor);
 
 	CVector gruLoc = visitor.GetCoords();
-	gruLoc *= -1;
 	CVector minionLoc = CVector(GetX(), GetY());
 
-	CVector travelVector = gruLoc + minionLoc;
-	travelVector = travelVector.Normalize();
+	CFlockingVisitor flocka = CFlockingVisitor(minionLoc, mV);
+	mGame->Accept(&flocka);
+
+	// Cohesion
+	CVector cv;
+	CVector cohesionCenter = flocka.Cohesion();
+	cv = cohesionCenter - minionLoc;
+	double l = cv.Length();
+	if (l > 0)
+	{
+		cv /= l;
+	}
+	
+	// Separation
+	CVector sv = minionLoc - flocka.Closest();
+	sv.Normalize();
+
+	// Alignment
+	CVector av = flocka.AlignmentAvg();
+	if (av.Length() > 0)
+	{
+		av.Normalize();
+	}
+
+	// Attraction
+	CVector gruV = gruLoc - minionLoc;
+	if (gruV.Length() > 0)
+	{
+		gruV.Normalize();
+	}
+
+	if (!visitor.Exists())
+	{
+		gruV = CVector(0, 0);
+	}
+
+	mV = cv * C_WEIGHT + sv * S_WEIGHT + av * A_WEIGHT + gruV * G_WEIGHT;
+	mV.Normalize();
+
+	mV *= MinionSpeed;
+	CVector newP = minionLoc + mV * elapsed;
+
+	//if (newP.X())
+	SetLocation(newP.X(), newP.Y());
+	/*
+	//gruLoc *= -1;
+	//CVector travelVector = gruLoc + minionLoc;
+	//travelVector = travelVector.Normalize();
 
 	mSpeedY = (travelVector.Y()) * -mMinionSpeed;
 	mSpeedX = (travelVector.X()) * -mMinionSpeed;
@@ -135,4 +196,5 @@ void CMinion::Update(double elapsed)
 	mRunY = mSpeedY * elapsed;
 
 	this->SetLocation(GetX() + mRunX, GetY() + mRunY);
+	*/
 }

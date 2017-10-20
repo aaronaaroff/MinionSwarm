@@ -2,11 +2,11 @@
 #include "VillainVisitor.h"
 
 
-VillainVisitor::VillainVisitor()
+CVillainVisitor::CVillainVisitor()
 {
 }
 
 
-VillainVisitor::~VillainVisitor()
+CVillainVisitor::~CVillainVisitor()
 {
 }

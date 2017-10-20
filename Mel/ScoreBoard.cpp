@@ -13,14 +13,25 @@ using namespace std;
 using namespace Gdiplus;
 
 /// X Location for all Score Board Trackers
-const int scoreXLocation = 650;
+const int scoreXLocation = 550;
 
 ///Y Locations for different Villains Score Board Trackers
 const int aryaScoreYLocation = -300;
 
+///Y Locations for different Villains Score Board Trackers
 const int blenderScoreYLocation = -100;
 
+///Y Locations for different Villains Score Board Trackers
 const int pokeBallScoreYLocation = 100;
+
+/// Arya score
+const int AryaScore = 1;
+
+/// Blender score
+const int BlenderScore = 2;
+
+/// Green
+const Color GREEN = Color(0, 128, 0);
 
 /**
  * Constructor
@@ -39,12 +50,12 @@ CScoreBoard::~CScoreBoard()
 
 void CScoreBoard::AddToScore(int pointValue, int pointMultiplier)
 {
-	if (pointMultiplier == 1)
+	if (pointMultiplier == AryaScore)
 	{
 		mAryaScore += pointValue;
 	}
 
-	else if (pointMultiplier == 2)
+	else if (pointMultiplier == BlenderScore)
 	{
 		mBlenderScore += (pointValue * pointMultiplier);
 
@@ -78,7 +89,7 @@ void CScoreBoard::OnDraw(Gdiplus::Graphics *graphics)
 	Gdiplus::Font font(&fontFamily, 18);
 
 	// Draws the time in the timer rectangle
-	SolidBrush green(Color(0, 128, 0));
+	SolidBrush green(GREEN);
 	graphics->DrawString(s1,  // String to draw
 		-1,         // String length, -1 means it figures it out on its own
 		&font,      // The font to use
@@ -109,10 +120,7 @@ void CScoreBoard::reset()
 
 }
 
-void CScoreBoard::Update(double elapsed)
+void CScoreBoard::UpdateScore(CVillain * villian, CMinion * minion)
 {
-	//Check to see if any minion has been touched
-	//if yes to above, get point value from minion
-	//Then get villain who killed minion point multiplier
-	//Call Add to score 
+	AddToScore(minion->getPoints(), villian->getMultiplier());
 }

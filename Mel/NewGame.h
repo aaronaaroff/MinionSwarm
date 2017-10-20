@@ -1,7 +1,7 @@
 /**
  * \file NewGame.h
  *
- * \author Jon
+ * \author Jon Stover
  *
  * 
  */

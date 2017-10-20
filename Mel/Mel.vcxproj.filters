@@ -69,15 +69,6 @@
     <ClInclude Include="Villain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Blender.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AryaStark.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PokeBall.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ItemVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -94,6 +85,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="VillainVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlockingVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -140,15 +134,6 @@
     <ClCompile Include="Villain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Blender.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AryaStark.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PokeBall.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ItemVisitor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -156,6 +141,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DeleteItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MinionVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VillainVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlockingVisitor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

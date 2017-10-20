@@ -8,6 +8,7 @@
 
 
 #include "stdafx.h"
+#include <string>
 #include "Mel.h"
 #include "ChildView.h"
 #include "DoubleBufferDC.h"
@@ -15,11 +16,13 @@
 #include "Minion.h"
 #include "Gru.h"
 #include "Villain.h"
-#include "AryaStark.h"
-#include "Blender.h"
-#include "PokeBall.h"
+//#include "AryaStark.h"
+//#include "Blender.h"
+//#include "PokeBall.h"
 #include "Timer.h"
 #include "Scoreboard.h"
+
+using namespace std; 
 
 
 #ifdef _DEBUG
@@ -32,6 +35,16 @@ const int FrameDuration = 30;
 
 /// Dimensions of the game play area
 const int PlayAreaDimension = 500;
+
+/// Arya Name for villain Construction
+const wstring aryaName = L"Arya";
+
+/// Blender Name for Villain Construction
+const wstring blendName = L"Blender";
+
+///Poke Ball Name for Villain Construction
+const wstring pokeBallName = L"PokeBall";
+
 
 
 
@@ -59,7 +72,6 @@ BEGIN_MESSAGE_MAP(CChildView, CWnd)
 	ON_WM_ERASEBKGND()
 	ON_WM_TIMER()
 END_MESSAGE_MAP()
-
 
 
 
@@ -97,50 +109,50 @@ void CChildView::OnPaint()
 	CRect rect;
 	GetClientRect(&rect);
 
-	mGame->OnDraw(&graphics, rect.Width(), rect.Height());
-	if (mFirstDraw || mGame->GetResetGameStatus())
+	mGame.OnDraw(&graphics, rect.Width(), rect.Height());
+	if (mFirstDraw || mGame.GetResetGameStatus())
 	{
 
 		mFirstDraw = false;
-		
+		mGame.SetResetGameStatus(false);
 		SetTimer(1, FrameDuration, nullptr);
 
+		auto newTimer = make_shared<CTimer>(&mGame);
+		mGame.Add(newTimer);
 
-		mGame->SetResetGameStatus(false);
+		
+		
 
-		std::shared_ptr<CTimer> newTimer(mGame);
-		mGame->Add(newTimer);
-
-		std::shared_ptr<CNewGame> newgame(mGame);	
+		auto newgame = make_shared<CNewGame>(&mGame);
 		newgame->SetLocation(-650, -500);
-		mGame->Add(newgame);
+		mGame.Add(newgame);
 
-		std::shared_ptr<CGru> gru(&mGame);
-		mGame->Add(gru);
+		auto gru = make_shared<CGru>(&mGame);
+		mGame.Add(gru);
 
-		std::shared_ptr<CPokeBall> pokeBall(&mGame);
+		auto pokeBall = make_shared<CVillain>(&mGame,pokeBallName);
 		pokeBall->SetLocation(350.0, -250.0);
-		mGame->Add(pokeBall);
+		mGame.Add(pokeBall);
 
-		std::shared_ptr<CAryaStark> arya(&mGame);
+		auto arya = make_shared<CVillain>(&mGame,aryaName);
 		arya->SetLocation(0.0, 300.0);
-		mGame->Add(arya);
+		mGame.Add(arya);
 
-		std::shared_ptr<CBlender> blender(&mGame);
+		auto blender = make_shared<CVillain>(&mGame, blendName);
 		blender->SetLocation(-350.0, -250.0);
-		mGame->Add(blender);
+		mGame.Add(blender);
 
-		std::shared_ptr<CPokeBall> scorePokeBall(&mGame);
-		scorePokeBall->SetLocation(750.0, 100.0);
-		mGame->Add(scorePokeBall);
+		auto scorePokeBall = make_shared<CVillain>(&mGame,pokeBallName);
+		scorePokeBall->SetLocation(575.0, 50.0);
+		mGame.Add(scorePokeBall);
 
-		std::shared_ptr<CAryaStark> scoreArya(&mGame);
-		scoreArya->SetLocation(750.0, -300.0);
-		mGame->Add(scoreArya);
+		auto scoreArya = make_shared<CVillain>(&mGame,aryaName);
+		scoreArya->SetLocation(575.0, -375.0);
+		mGame.Add(scoreArya);
 
-		std::shared_ptr<CBlender> scoreBlender(&mGame);
-		scoreBlender->SetLocation(750.0, -100.0);
-		mGame->Add(scoreBlender);
+		auto scoreBlender = make_shared<CVillain>(&mGame,blendName);
+		scoreBlender->SetLocation(575.0, -200.0);
+		mGame.Add(scoreBlender);
 
 
 		/*
@@ -163,7 +175,7 @@ void CChildView::OnPaint()
 	double elapsed = double(diff) / mTimeFreq;
 	mLastTime = time.QuadPart;
 
-	mGame->Update(elapsed);
+	mGame.Update(elapsed);
 
 
 }
@@ -192,12 +204,12 @@ BOOL CChildView::OnEraseBkgnd(CDC* pDC)
 void CChildView::OnLButtonDown(UINT nFlags, CPoint point)
 {
 
-	mGrabbedItem = mGame->HitTest(point.x, point.y);
+	mGrabbedItem = mGame.HitTest(point.x, point.y);
 	if (mGrabbedItem != nullptr && mGrabbedItem->IsMovable() != true)
 	{
 		if (mGrabbedItem->IsNewGame())
 		{
-			mGame->ResetGame();
+			mGame.ResetGame();
 		}
 		mGrabbedItem = nullptr;
 
@@ -232,8 +244,8 @@ void CChildView::OnMouseMove(UINT nFlags, CPoint point)
 	{
 
 		// Varibles for the virtual location of the grabbed item
-		int virtualX = mGame->GetVirtualX(point.x);
-		int virtualY = mGame->GetVirtualY(point.y);
+		int virtualX = mGame.GetVirtualX(point.x);
+		int virtualY = mGame.GetVirtualY(point.y);
 
 
 		// If an item is being moved, we only continue to 
@@ -256,6 +268,8 @@ void CChildView::OnMouseMove(UINT nFlags, CPoint point)
 	}
 }
 
+/** OnTimer
+* \param nIDEvent */
 void CChildView::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: Add your message handler code here and/or call default

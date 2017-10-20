@@ -6,23 +6,20 @@
 
 #include "stdafx.h"
 #include <memory>
+#include <vector>
 #include "Game.h"
 #include "Item.h"
+#include "Gru.h"
+#include "Villain.h"
 #include "Minion.h"
 #include "MainFrm.h"
-#include "ItemVisitor.h"
+#include "DeleteItem.h"
+#include "MinionVisitor.h"
+#include "VillainVisitor.h"
+#include "GetGruCoords.h"
 #include "DeleteItem.h"
 #include "TimerVisitor.h"
 #include "Timer.h"
-#include "AryaStark.h"
-#include "Blender.h"
-#include "PokeBall.h"
-#include "Gru.h"
-#include "Villain.h"
-#include "ScoreBoard.h"
-#include "NewGame.h"
-#include "ChildView.h"
-
 
 using namespace std;
 using namespace Gdiplus;
@@ -33,7 +30,12 @@ const static int Width = 1400;
 /// Game area height in virtual pixels
 const static int Height = 1100;
 
+/** Font stuff
+* \return FontFamily*/
 FontFamily fontFamily(L"Arial");
+
+/** Font setter
+* \return fontFamily*/
 Gdiplus::Font font(&fontFamily, 16);
 
 /**
@@ -63,6 +65,12 @@ void CGame::Add(std::shared_ptr<CItem> item)
 }
 
 
+/**
+ * Performs hit test and returns item if you clicked on one
+ * \param x coords
+ * \param y coords
+ * \returns nullptr if no click on item, else a pointer to the item
+ */
 std::shared_ptr<CItem> CGame::HitTest(int x, int y)
 {
 
@@ -75,12 +83,15 @@ std::shared_ptr<CItem> CGame::HitTest(int x, int y)
 			return *i;
 		}
 	}
-
 	return nullptr;
 }
 
 
 
+/**
+ * Removes an item from mItems
+ * \param grabbedItem item to remove
+ */
 void CGame::Remove(std::shared_ptr<CItem> grabbedItem)
 {
 	auto loc = find(begin(mItems), end(mItems), grabbedItem);
@@ -114,13 +125,93 @@ void CGame::Update(double elapsed)
 		mTimeSpawn = 0;
 	}
 
+	KillGru();
+	if (!mGameOver)
+	{
+		KillMinions();
+	}
 
 	for (auto item : mItems)
 	{
 		item->Update(elapsed);
 	}
+}
 
 
+/**
+ * Function that kills the minions touching villains
+ */
+void CGame::KillMinions()
+{
+	CDeleteItem vis;
+	Accept(&vis);
+
+	CVillainVisitor vis2;
+	Accept(&vis2);
+
+	for (CVillain* villain : vis2.getMinions())
+	{
+		for (auto minion : vis.getMinions()) {
+			if (villain->HitTest(minion->GetX(), minion->GetY())) {
+				for (auto loc = mItems.begin(); loc != mItems.end(); loc++)
+				{
+					if (loc->get() == minion)
+					{
+						mScoreBoard.UpdateScore(villain, minion);
+						mItems.erase(loc);
+						return;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/**
+ * Function that kills Gru if he's touching minion or villain
+ */
+void CGame::KillGru() 
+{
+	CDeleteItem vis;
+	Accept(&vis);
+
+	CVillainVisitor vis2;
+	Accept(&vis2);
+
+	CGetGruCoords vis3;
+	Accept(&vis3);
+
+	if (!vis3.Exists())
+		return;
+
+	for (auto minion : vis.getMinions()) {
+		if (vis3.GetGru()->HitTest(minion->GetX(), minion->GetY())) {
+			for (auto loc = mItems.begin(); loc != mItems.end(); loc++)
+			{
+				if (loc->get() == vis3.GetGru())
+				{
+					mItems.erase(loc);
+					mGameOver = true;
+					return;
+				}
+			}
+		}
+	}
+
+	for (auto villain : vis2.getMinions()) {
+		if (vis3.GetGru()->HitTest(villain->GetX(), villain->GetY())) {
+			for (auto loc = mItems.begin(); loc != mItems.end(); loc++)
+			{
+				if (loc->get() == vis3.GetGru())
+				{
+					mItems.erase(loc);
+					mGameOver = true;
+					return;
+				}
+			}
+		}
+	}
 }
 
 /**
@@ -159,22 +250,20 @@ void CGame::OnDraw(Gdiplus::Graphics *graphics, int width, int height)
 		item->Draw(graphics);
 	}
 
-	//if (mGame.GetGameOver() == true)
-	//{
+	if (mGameOver == true)
+	{
+		CTimerVisitor stopClock;
+		this->Accept(&stopClock);
 
-	CTimerVisitor stopClock;
-	this->Accept(&stopClock);
+		
 
+		// Set the font attributes
+		FontFamily fontFamily(L"Arial");
+		Gdiplus::Font font(&fontFamily, 100);
 
-	// Set the font attributes
-	FontFamily fontFamily(L"Arial");
-	Gdiplus::Font font(&fontFamily, 64);
-
-	
-
-	SolidBrush green(Color(255, 255, 0));
-	graphics->DrawString(L"Gru is Dead!", -1, &font, PointF(-220,-32), &green);
-	//}
+		SolidBrush green(Color(255, 255, 0));
+		graphics->DrawString(L"Gru is Dead!", -1, &font, PointF(-400,-32), &green);
+	}
 
 }
 
@@ -194,59 +283,9 @@ void CGame::ResetGame()
 {
 	Clear();
 	mResetGameStatus = true;
-	// ReScoreboard();
-	//No scoreboard support right now on the reset game
+	mGameOver = false;
+	resetScore();
+	
+	// ResetTimer()
+	
 }
-
-
-/*
-void CGame::DeleteItem(std::shared_ptr<CItem> item)
-{
-	auto loc = find(::begin(mItems), ::end(mItems), item);
-	if (loc != ::end(mItems))
-	{
-		mItems.erase(loc);
-	}
-}*/
-
-/*
-void CGame::Populate()
-{
-	mGame.SetResetGameStatus(false);
-
-	std::shared_ptr<CTimer> newTimer(game);
-	Add(newTimer);
-
-	std::shared_ptr<CNewGame> newgame(game);
-	newgame->SetLocation(-650, -500);
-	Add(newgame);
-
-	std::shared_ptr<CGru> gru(game);
-	Add(gru);
-
-	std::shared_ptr<CPokeBall> pokeBall(game);
-	pokeBall->SetLocation(350.0, -250.0);
-	Add(pokeBall);
-
-	std::shared_ptr<CAryaStark> arya(game);
-	arya->SetLocation(0.0, 300.0);
-	Add(arya);
-
-	std::shared_ptr<CBlender> blender(game);
-	blender->SetLocation(-350.0, -250.0);
-	Add(blender);
-
-	std::shared_ptr<CPokeBall> scorePokeBall(game);
-	scorePokeBall->SetLocation(750.0, 100.0);
-	Add(scorePokeBall);
-
-	std::shared_ptr<CAryaStark> scoreArya(game);
-	scoreArya->SetLocation(750.0, -300.0);
-	Add(scoreArya);
-
-	std::shared_ptr<CBlender> scoreBlender(game);
-	scoreBlender->SetLocation(750.0, -100.0);
-	Add(scoreBlender);
-
-}
-*/

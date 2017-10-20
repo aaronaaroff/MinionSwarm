@@ -6,9 +6,6 @@
 * Class that handles Timer and his properties
 */
 
-
-
-
 #pragma once
 #include "Item.h"
 #include "ItemVisitor.h"
@@ -20,8 +17,11 @@ class CTimer :
 	public CItem
 {
 public:
-
+	/** Constructor
+	* \param game the game*/
 	CTimer::CTimer(CGame *game);
+
+	/** Destructor*/
 	virtual ~CTimer();
 
 	/// Default constructor (disabled)
@@ -43,6 +43,7 @@ public:
 
 	/**
 	* Function to get the elapsed time since start
+	* \return the elapsed time
 	*/
 	int GetElpasedTime() 
 	{
@@ -74,7 +75,7 @@ public:
 	virtual void Draw(Gdiplus::Graphics *graphics) override;
 
 	/** Setter for mActive
-	*\param bool active to see if it is active or not */
+	*\param isActive bool active to see if it is active or not */
 	void setActive(bool isActive) { mActive = isActive; }
 
 private:

@@ -15,6 +15,8 @@
 using namespace Gdiplus;
 using namespace std;
 
+/** Gru img location
+* \return wstring the string*/
 const wstring GruImage(L"images/gru.png");
 
 CGru::CGru(CGame *game) : 

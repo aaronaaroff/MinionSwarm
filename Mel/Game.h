@@ -52,16 +52,18 @@ private:
 	bool mResetGameStatus = false;
 
 	///True when gru dies
-	bool mGameOver = true;
+	bool mGameOver = false;
 
 public:
 
 	CGame();
 
-	//void Populate();
-
+	/** Gets status of resetgame
+	* \return status */
 	bool GetResetGameStatus() { return mResetGameStatus; }
 
+	/** Sets status of resetgame
+	* \param status */
 	void SetResetGameStatus(bool status) { mResetGameStatus = status; }
 
 	virtual ~CGame();
@@ -76,31 +78,47 @@ public:
 
 	virtual void Update(double elapsed);
 
+	void KillMinions();
+
+	void KillGru();
+
 	void OnDraw(Gdiplus::Graphics * graphics, int width, int height);
 
 	void Accept(CItemVisitor * visitor);
 
+	/** Gets virtual x
+	* \param x
+	* \return virtual x */
 	virtual double GetVirtualX(double x)
 	{
 		x = (x - mXOffset) / mScale;
 		return x;
 	}
 
+	/** Gets virtual y
+	* \param y
+	* \return virtual y */
 	virtual double GetVirtualY(double y)
 	{
 		y = (y - mYOffset) / mScale;
 		return y;
 	}
 
+	/** Resets the game*/
 	void ResetGame();
 
+	/** Resets the scoreboard*/
 	void resetScoreboared() { mScoreBoard.reset(); }
 
-
-
-
+	/** Gets game over status
+	* \return virtual x */
 	bool GetGameOver() { return mGameOver; }
 
+	/** Gets virtual x
+	* \param status*/
 	void SetGameOver(bool status) { mGameOver = status; }
+
+	/** Calls Reset on the Scoreboard */
+	void resetScore() { mScoreBoard.reset(); }
 };
 

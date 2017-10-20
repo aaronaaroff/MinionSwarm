@@ -1,5 +1,5 @@
 /**
-* \file DeleteMinion.h
+* \file DeleteItem.h
 *
 * \author Aaron Eshleman
 *
@@ -12,6 +12,10 @@
 #include "ItemVisitor.h"
 #include "Game.h"
 
+
+/**
+ * Visitor to generate list of minions
+ */
 class CDeleteItem :
 	public CItemVisitor
 {
@@ -19,7 +23,7 @@ public:
 	CDeleteItem();
 	virtual ~CDeleteItem();
 
-	std::vector<CMinion*> mMinions;
+	std::vector<CMinion*> mMinions; ///<Minions to return
 
 
 	/** Visit a CMinion object
@@ -31,6 +35,8 @@ public:
 		//Need to call a delete item function from minion that upcalls to Game
 	}
 
+	/** gets minions
+	\return the minions*/
 	std::vector<CMinion*> CDeleteItem::getMinions() { return mMinions; }
 };
 

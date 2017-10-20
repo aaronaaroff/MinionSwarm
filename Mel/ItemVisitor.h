@@ -41,13 +41,13 @@ public:
 	virtual void VisitVillain(CVillain *villain) {}
 
 	/** Visit a CTimer object
-	* \param villain CTimer we are visiting */
+	* \param timer CTimer we are visiting */
 	virtual void VisitTimer(CTimer *timer) {}
 
 private:
-	int mNumTotalMinions = 0;
-	int mNumMutant = 0;
-	int mNumStuart = 0;
-	int mNumJerry = 0;
+	int mNumTotalMinions = 0; ///< Num minions
+	int mNumMutant = 0; ///< Num mutants
+	int mNumStuart = 0; ///< Num stuarts
+	int mNumJerry = 0; ///< Num jerries
 };
 

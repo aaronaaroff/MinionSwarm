@@ -69,6 +69,8 @@ public:
 	/// \returns height
 	double GetItemImageHeight() { return mItemImage->GetHeight(); }
 
+	/** Gets virtual x
+	* \param img*/
 	void setImage(std::wstring img);
 
 	/** Accept a visitor
@@ -81,6 +83,16 @@ public:
 	* \returns bool 
 	*/
 	virtual bool IsMovable()
+	{
+		return false;
+	}
+
+
+	/**
+	* Function that returns whether or not item can be moved
+	* \returns bool
+	*/
+	virtual bool InZone()
 	{
 		return false;
 	}
@@ -99,7 +111,9 @@ public:
 
 
 protected:
-	///Constructs
+	/** Constructor
+	* \param game
+	* \param filename */
 	CItem(CGame *game, const std::wstring &filename);
 
 	/// The game this item is contained in

@@ -6,9 +6,6 @@
 * Class that handles Gru and his properties
 */
 
-
-
-
 #pragma once
 #include "Item.h"
 #include "ItemVisitor.h"
@@ -20,7 +17,8 @@ class CGru :
 	public CItem
 {
 public:
-
+	/** Constructor
+	* \param game the game object*/
 	CGru::CGru(CGame *game);
 	virtual ~CGru();
 
@@ -47,6 +45,16 @@ public:
 	* \returns bool
 	*/
 	bool IsMovable()
+	{
+		return true;
+	}
+
+
+	/**
+	* Function that returns whether or not item can be moved
+	* \returns bool
+	*/
+	bool InZone()
 	{
 		return true;
 	}
