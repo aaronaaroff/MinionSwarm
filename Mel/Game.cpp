@@ -152,6 +152,7 @@ void CGame::KillMinions()
 				{
 					if (loc->get() == minion)
 					{
+						mScoreBoard.UpdateScore(villain, minion);
 						mItems.erase(loc);
 						return;
 					}

@@ -31,7 +31,7 @@ public:
 
 	/** Visit a CVillain object
 	* \param villain villain we are visiting */
-	void CVillainVisitor::VisitVillains(CVillain *villain)
+	void CVillainVisitor::VisitVillain(CVillain *villain)
 	{
 		mVillains.push_back(villain);
 		///minion->DeleteItem(minion);
