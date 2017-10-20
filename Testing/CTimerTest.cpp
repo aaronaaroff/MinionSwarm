@@ -56,7 +56,7 @@ namespace Testing
 			Assert::IsTrue(timer->GetElpasedTime() == 10);
 
 			//Call function to paused the game
-//			timer->PauseTimer();
+			timer->setActive(false);
 
 			game.Update(5000);
 
@@ -69,30 +69,6 @@ namespace Testing
 		}
 
 
-		TEST_METHOD(TestCTimerReset)
-		{
-			// Construct a game object
-			CGame game;
-
-			auto timer = make_shared<CTimer>(&game);
-
-			game.Add(timer);
-
-			// Make 10 seconds elapse in the game
-			game.Update(10000);
-
-			// Check that the timer has incremented 10 seconds
-			Assert::IsTrue(timer->GetElpasedTime() == 10);
-
-			//Call function to reset the game
-			game.ResetGame();
-
-			// Check that the timer has incremented 10 seconds
-			Assert::IsTrue(timer->GetElpasedTime() == 0);
-
-
-
-
-		}
+	
 	};
 }

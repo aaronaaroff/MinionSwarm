@@ -10,6 +10,8 @@ using namespace std;
 /// Name of new game button test
 const wstring NewGameImage = L"images/new-game.png";
 
+/// Arya Name for villain Construction
+const wstring aryaName = L"Arya";
 
 namespace Testing
 {
@@ -56,10 +58,13 @@ namespace Testing
 		{
 			CGame game;
 			auto gru = make_shared<CGru>(&game);
-			//auto villain = make_shared<CVillain>(&game);
+			auto villain = make_shared<CVillain>(&game, aryaName);
 
-			//villain->SetLocation(0, 0);
+			villain->SetLocation(0, 0);
 			gru->SetLocation(0, 0);
+			game.Add(gru);
+			game.Add(villain);
+			game.Update(100);
 
 			Assert::IsTrue(game.GetGameOver());
 

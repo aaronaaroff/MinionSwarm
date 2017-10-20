@@ -24,9 +24,6 @@ class CGame
 {
 private:
 
-	///Timer Object to keep track of In Game Time
-	///CTimer mTimer;
-
 	///Score Board Object used to track villian points
 	CScoreBoard mScoreBoard;
 
@@ -107,7 +104,7 @@ public:
 	/** Resets the game*/
 	void ResetGame();
 
-	/* fills game with all of the OG items */
+	/** Populates the game*/
 	void Populate();
 
 	/** Resets the scoreboard*/

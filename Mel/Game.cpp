@@ -129,7 +129,13 @@ void CGame::Clear()
 void CGame::Update(double elapsed)
 {
 	mTimeSpawn += elapsed;
-	if (mTimeSpawn > 1) {
+
+
+	// Variable that will be elapsed time for minion spawn 
+	double randomVariable = (double)rand() / (2 * RAND_MAX) + .5;
+
+	// Spawns a minion and resets the elapsed time counter
+	if (mTimeSpawn > randomVariable) {
 		auto newMinion = make_shared<CMinion>(this);
 		Add(newMinion);
 		mTimeSpawn = 0;
@@ -306,9 +312,6 @@ void CGame::Populate()
 	newgame->SetLocation(-650, -500);
 	Add(newgame);
 
-	auto gru = make_shared<CGru>(this);
-	Add(gru);
-
 	auto pokeBall = make_shared<CVillain>(this, pokeBallName);
 	pokeBall->SetLocation(350.0, -250.0);
 	Add(pokeBall);
@@ -332,4 +335,7 @@ void CGame::Populate()
 	auto scoreBlender = make_shared<CVillain>(this, blendName);
 	scoreBlender->SetLocation(575.0, -200.0);
 	Add(scoreBlender);
+
+	auto gru = make_shared<CGru>(this);
+	Add(gru);
 }
