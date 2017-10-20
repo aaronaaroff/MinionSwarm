@@ -10,6 +10,7 @@
 
 using namespace std;
 
+/// Radius around minion to calculate alignment
 const double AlignmentRadius = 200;
 
 /**

@@ -1,5 +1,5 @@
 /**
-* \file DeleteMinion.h
+* \file DeleteItem.h
 *
 * \author Aaron Eshleman
 *

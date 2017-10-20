@@ -50,15 +50,9 @@ public:
 	/**
 	* Constructor
 	* \param game The Game we are in
-	* \param filename Filename for the image we use
-	* \param pointMultiplier the multiplier
+	* \param name name of img str
 	*/
 	CVillain(CGame *game,  const std::wstring name);
-	
-
-
-
-	
 
 private:
 

@@ -20,15 +20,22 @@ public:
 	CScoreBoard();
 	~CScoreBoard();
 
-	void AddToScore(int pointValue, int pointMultiplier); ///< TODO need to input minion and vilain objects to calculate score.
+	/** Adds to score
+	* \param pointValue the base point val
+	* \param pointMultiplier multiplier*/
+	void AddToScore(int pointValue, int pointMultiplier);
 
+	/** Draw
+	* \param graphics*/
 	void OnDraw(Gdiplus::Graphics *graphics);
 
+	/** Resets scoreboard*/
 	void reset();
 
-	void Update(double elapsed);
-
-	void UpdateScore(CVillain * villian, CMinion * minion);
+	/** Update score
+	* \param villain villain doing the killing
+	* \param minion the minion to die*/
+	void UpdateScore(CVillain * villain, CMinion * minion);
 
 private:
 
