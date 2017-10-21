@@ -76,6 +76,7 @@ namespace Testing
 			item.SetLocation(-72, -107);
 			Assert::AreEqual(-72, item.GetX(), 0.0001);
 			Assert::AreEqual(-107, item.GetY(), 0.0001);
+
 		}
 
 		TEST_METHOD(TestCItemMockHitTest)

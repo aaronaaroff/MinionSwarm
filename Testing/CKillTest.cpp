@@ -30,6 +30,12 @@ namespace Testing
 	TEST_CLASS(CVillainTest)
 	{
 	public:
+		TEST_METHOD_INITIALIZE(methodName)
+		{
+			extern wchar_t g_dir[];
+			::SetCurrentDirectory(g_dir);
+		}
+
 		/// TO Do -> test Villain kill functionality on minions
 		/// To Do -> test Villain Type for Point Multiplier
 		TEST_METHOD(TestVillainKillGru)
@@ -49,7 +55,7 @@ namespace Testing
 
 			game.Add(arya);
 			game.Add(gru1);
-			game.Update(100);
+			game.Update(1);
 
 			Assert::IsTrue(game.GetGameOver());
 
@@ -61,7 +67,7 @@ namespace Testing
 
 			game.Add(ball);
 			game.Add(gru2);
-			game.Update(100);
+			game.Update(1);
 
 			Assert::IsTrue(game.GetGameOver());
 
@@ -72,7 +78,7 @@ namespace Testing
 
 			game.Add(blend);
 			game.Add(gru3);
-			game.Update(100);
+			game.Update(1);
 
 			Assert::IsTrue(game.GetGameOver());
 			
@@ -140,8 +146,6 @@ namespace Testing
 		{
 			CGame game;
 
-			
-
 			/*
 			* here we test the villains killing gru
 			* create villain, make gru, add gru to list
@@ -155,7 +159,7 @@ namespace Testing
 
 			game.Add(minion1);
 			game.Add(gru1);
-			game.Update(100);
+			game.Update(1);
 
 
 
@@ -169,7 +173,7 @@ namespace Testing
 
 			game.Add(minion2);
 			game.Add(gru2);
-			game.Update(100);
+			game.Update(1);
 
 			Assert::IsTrue(game.GetGameOver());
 
@@ -181,14 +185,9 @@ namespace Testing
 
 			game.Add(minion3);
 			game.Add(gru3);
-			game.Update(100);
+			game.Update(1);
 
 			Assert::IsTrue(game.GetGameOver());
-
-
-			
-
-
 		}
 
 		

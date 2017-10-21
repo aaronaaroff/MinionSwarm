@@ -11,6 +11,11 @@ namespace Testing
 	TEST_CLASS(CTimerTest)
 	{
 	public:
+		TEST_METHOD_INITIALIZE(methodName)
+		{
+			extern wchar_t g_dir[];
+			::SetCurrentDirectory(g_dir);
+		}
 
 		TEST_METHOD(TestCTimerConstruction)
 		{
@@ -18,8 +23,6 @@ namespace Testing
 			CGame game;
 
 			auto timer = make_shared<CTimer>(&game);
-
-			
 		}
 
 		TEST_METHOD(TestCTimerTimeElapsed)
@@ -31,11 +34,11 @@ namespace Testing
 
 			game.Add(timer);
 
-			// Make 10 seconds elapse in the game
-			game.Update(10);
+			// Make 3 seconds elapse in the game
+			game.Update(3);
 
 			// Check that the timer has incremented 10 seconds
-			Assert::IsTrue(timer->GetElpasedTime() == 10);
+			Assert::IsTrue(timer->GetElpasedTime() == 3);
 
 
 		}
